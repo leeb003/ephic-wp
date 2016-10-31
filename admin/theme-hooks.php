@@ -1,0 +1,183 @@
+<?php
+/**
+ * Theme Hooks
+ * tfn = Twenty Five North
+ * @packageEphic
+ * @subpackage inc
+ */
+
+/*-----------------------------------------------------------------------------------*/
+/* Header - header.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_after_body() {
+	// Your Code Here
+}
+add_action('after_body', 'tfn_after_body');
+
+function tfn_before_header() {
+	// Your Code Here
+}
+add_action('before_header', 'tfn_before_header');
+
+function tfn_before_main_content() {
+	// Your Code Here
+}
+add_action('before_main_content', 'tfn_before_main_content');
+
+/*-----------------------------------------------------------------------------------*/
+/* Footer - footer.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_footer() {
+	// Your Code Here
+}
+add_action('before_footer', 'tfn_before_footer');
+
+function tfn_after_wrapper() {
+	// Your Code Here
+}
+add_action('after_wrapper', 'tfn_after_wrapper');
+
+/*-----------------------------------------------------------------------------------*/
+/* Sidebar - sidebar.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_sidebar() {
+	// Your Code Here
+}
+add_action('before_sidebar', 'tfn_before_sidebar');
+
+function tfn_after_sidebar() {
+	// Your Code Here
+}
+add_action('after_sidebar', 'tfn_after_sidebar');
+
+/*-----------------------------------------------------------------------------------*/
+/* Posts List - index.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_post_header() {
+	// Your Code Here
+}
+add_action('before_post_header', 'tfn_before_post_header');
+
+function tfn_after_post_excerpt() {
+	// Your Code Here
+}
+add_action('after_post_excerpt', 'tfn_after_post_excerpt');
+
+/*-----------------------------------------------------------------------------------*/
+/* Single Post - single.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_single_header() {
+	// Your Code Here
+}
+add_action('before_single_header', 'tfn_before_single_header');
+
+function tfn_before_single_content() {
+	// Your Code Here
+}
+add_action('before_single_content', 'tfn_before_single_content');
+
+function tfn_before_single_sidebar() {
+	// Your Code Here
+}
+add_action('before_single_sidebar', 'tfn_before_single_sidebar');
+
+function tfn_after_single_sidebar() {
+	// Your Code Here
+}
+add_action('after_single_sidebar', 'tfn_after_single_sidebar');
+
+/*-----------------------------------------------------------------------------------*/
+/* Page - page.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_page_header() {
+	// Your Code Here
+}
+add_action('before_page_header', 'tfn_before_page_header');
+
+function tfn_before_page_content() {
+	// Your Code Here
+}
+add_action('before_page_content', 'tfn_before_page_content');
+
+/*-----------------------------------------------------------------------------------*/
+/* Archive - archive.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_archive_header() {
+	// Your Code Here
+}
+add_action('before_archive_header', 'tfn_before_archive_header');
+
+function tfn_before_archive_content() {
+	// Your Code Here
+}
+add_action('before_archive_content', 'tfn_before_archive_content');
+
+function tfn_before_archive_sidebar() {
+	// Your Code Here
+}
+add_action('before_archive_sidebar', 'tfn_before_archive_sidebar');
+
+function tfn_after_archive_sidebar() {
+	// Your Code Here
+}
+add_action('after_archive_sidebar', 'tfn_after_archive_sidebar');
+
+/*-----------------------------------------------------------------------------------*/
+/* Home - page-templates/home-page.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_home_header() {
+	// Your Code Here
+}
+add_action('before_home_header', 'tfn_before_home_header');
+
+function tfn_before_home_content() {
+	// Your Code Here
+}
+add_action('before_home_content', 'tfn_before_home_content');
+
+function tfn_after_home_content() {
+	// Your Code Here
+}
+add_action('after_home_content', 'tfn_after_home_content');
+
+/*-----------------------------------------------------------------------------------*/
+/* About Us - page-templates/about-us-template.php
+/*-----------------------------------------------------------------------------------*/
+function tfn_before_about_header() {
+    // Your Code Here
+}
+add_action('before_about_header', 'tfn_before_about_header');
+
+function tfn_before_about_content() {
+    // Your Code Here
+}
+add_action('before_about_content', 'tfn_before_about_content');
+
+function tfn_after_about_content() {
+    // Your Code Here
+}
+add_action('after_about_content', 'tfn_after_about_content');
+
+/*-----------------------------------------------------------------------------------*/
+/* Comments - comments.php */
+/*-----------------------------------------------------------------------------------*/
+
+function tfn_before_post_comments() {
+	// Your Code Here
+}
+add_action('before_post_comments', 'tfn_before_post_comments');
+
+function tfn_after_post_comments() {
+	// Your Code Here
+}
+add_action('after_post_comments', 'tfn_after_post_comments');
+
+?>
