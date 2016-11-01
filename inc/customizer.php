@@ -89,7 +89,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'priority'    => 10,
     'default'     => array(
         'font-family'    => 'Roboto Condensed',
-        'variant'        => 'regular',
+        'variant'        => '700italic',
         'font-size'      => '48px',
         'line-height'    => '1.5',
         'letter-spacing' => '0',
@@ -269,9 +269,10 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'section'       => 'footer_section',
     'description'   => __( 'Text for the footer area', 'ephic'),
     'priority'      => 10,
-    'default'       => ''
+    'default'       => 'Copyright &copy; 2016 EPHIC TEMPLATE'
 ) );
 /* Enable Social Links */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'          => 'checkbox',
     'settings'      => 'footer_social',
@@ -281,7 +282,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'default'       => '0',
     'priority'      => '10',
 ) );
+*/
 /* Social Link Repeater fields - footer */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'          => 'repeater',
     'settings'      => 'footer_social_pick',
@@ -318,7 +321,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     )
 ) );
-
+*/
 /**
  * Home page template settings
  */
@@ -365,24 +368,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     ),
 ) );
-/* Home Page top slider */
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'		=> 'text',
-	'settings'	=> 'home_slider',
-	'label'		=> __('Home Page Top Slider', 'ephic'),
-	'priority'	=> 10,
-	'default'	=> '',
-	'description'=> __('Insert the shortcode for your slider here', 'ephic'),
-	'section'	=> 'page_home',
-	'sanitize_callback' => 'wp_kses_post',
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'home_top',
-            'operator'  => '==',
-            'value'     => 'slider'
-        ),
-    ),
-) );
 
 /* Home Page Single Image Large Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
@@ -393,6 +378,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'default'   => "Created<br /> With Passion",
     'description'=> __('Set Your Large Text', 'ephic'),
     'section'   => 'page_home',
+	'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'home_top',
+            'operator'  => '==',
+            'value'     => 'topimage'
+        ),
+    ),
 ) );
 /* Home Page Single Image Small Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
@@ -403,23 +395,72 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'default'   => "I'm different.  I create things that matter.",
     'description'=> __('Set Your Smaller Text', 'ephic'),
     'section'   => 'page_home',
+	'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'home_top',
+            'operator'  => '==',
+            'value'     => 'topimage'
+        ),
+    ),
 ) );
 
-/* Home Page enable top features section */
+/* Home Page Top Slider repeater slides and text */
 ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'        => 'radio-buttonset',
-	'settings'    => 'home_features',
-	'label'       => __( 'Top Features section.', 'ephic' ),
-	'description' => __( 'Enable or Disable the top features section for the home page.  When enabled, choices will appear below.', 'ephic' ),
-	'section'     => 'page_home',
-	'default'     => 'off',
-	'priority'    => 10,
-	'choices'     => array(
-		'on'  => __( 'Enabled', 'ephic' ),
-		'off' => __( 'Disabled', 'ephic' ),
-	),
+    'type'          => 'repeater',
+    'settings'      => 'home_slides',
+    'label'         => __('Home Page Top Slider', 'ephic'),
+    'section'       => 'page_home',
+    'description'   => __('Add, Remove, and sort your home page slides and text.', 'ephic'),
+    'priority'      => 11,
+    'row_label'   => array(          // row_label is not yet documented in Kirki
+        'type' => 'text',
+        'value' => __('Slide', 'ephic'),
+    ),
+    'default'       => array(
+		array(
+			'slider' => get_template_directory_uri() . '/img/main.jpg',
+			'home_slide_large' => "Created<br /> With Passion",
+			'home_slide_small' => "I'm different.  I create things that matter."
+		),
+		array(
+            'slider' => get_template_directory_uri() . '/img/main2.jpg',
+            'home_slide_large' => "Created<br /> With Passion",
+            'home_slide_small' => "I'm different.  I create things that matter."
+        ),
+		array(
+            'slider' => get_template_directory_uri() . '/img/main3.jpg',
+            'home_slide_large' => "Created<br /> With Passion",
+            'home_slide_small' => "I'm different.  I create things that matter."
+        ),
+    ),
+	'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'home_top',
+            'operator'  => '==',
+            'value'     => 'slider'
+        ),
+    ),
+    'fields' => array(
+        'slider' => array(
+            'type'        => 'image',
+            'label'       => __('Slide Image', 'ephic'),
+            'description' => __('Choose an image', 'ephic'),
+			'default'     => get_template_directory_uri() . '/img/main.jpg',
+        ),
+        'home_slide_large'  => array(
+            'type'        => 'textarea',
+            'label'       => __( 'Slide Large Text', 'ephic' ),
+            'description' => __( 'Set the large text for the slide.', 'ephic'),
+            'default'     => '',
+        ),
+		'home_slide_small'  => array(
+            'type'        => 'textarea',
+            'label'       => __( 'Slide Small Text', 'ephic' ),
+            'description' => __( 'Set the small text for the slide.', 'ephic'),
+            'default'     => '',
+        ),
+    ),
 ) );
-
 /* Top Features Section 
  * Using customizer select list since Kirki's won't let us add icons.  
  * All direct customize calls go in this block for this section 
@@ -506,6 +547,7 @@ function configure_features_customize($wp_customize) {
 }
 
 /* The check for home features being enabled to display the icons */
+/*
 function features_enabled($control) {
     if( $control->manager->get_setting('home_features')->value() == 'on') {
         return true;
@@ -515,8 +557,9 @@ function features_enabled($control) {
 }
 
 add_action( 'customize_register', 'configure_features_customize');
-
+*/
 /* Top Feature 1 Text */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
     'settings'  => 'feature_1_text',
@@ -533,8 +576,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     ),
 ) );
-
+*/
 /* Top Feature 2 Text */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
     'settings'  => 'feature_2_text',
@@ -551,8 +595,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     ),
 ) );
-
+*/
 /* Top Feature 3 Text */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
     'settings'  => 'feature_3_text',
@@ -569,8 +614,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     ),
 ) );
-
+*/
 /* Top Feature 4 Text */
+/*
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
     'settings'  => 'feature_4_text',
@@ -587,7 +633,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         ),
     ),
 ) );
-
+*/
 /* Seperator */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'custom',
@@ -621,11 +667,14 @@ ephic_Kirki::add_field( 'ephic_theme', array(
             'default'     => 'na',
 			'choices' => array(
 				'na'		 => __('Select A Section', 'ephic'),
-            	'highlights' => __('Property Highlights', 'ephic'),
-            	'gallery'    => __('Photo Gallery', 'ephic'),
-            	'additional' => __('Additional Information', 'ephic'),
-            	'posts'      => __('Recent Posts', 'ephic'),
-            	'agent'      => __('Featured Agent', 'ephic'),
+            	'welcome'    => __('Welcome', 'ephic'),
+            	'parallax'   => __('Parallax', 'ephic'),
+				'parallax2'  => __('Parallax 2', 'ephic'),
+				'parallax3'  => __('Parallax 3', 'ephic'),
+            	'services'   => __('Services', 'ephic'),
+            	'projects'   => __('Projects', 'ephic'),
+            	'about'      => __('About', 'ephic'),
+				'contact'    => __('Contact', 'ephic'),
 				'builder'	 => __('Page Builder Section', 'ephic'),
         	),
         ),
@@ -646,47 +695,6 @@ ephic_Kirki::add_section( 'page_about', array(
     'priority'  => 10,
     'capability'=> 'edit_theme_options',
 ) );
-
-/* About Us Sections Repeater fields */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'repeater',
-    'settings'      => 'about_sections',
-    'label'         => __('About Us Sections', 'ephic'),
-    'section'       => 'page_about',
-    'description'   => __('Add, Remove, and sort your about us page sections.  Sections are setup in the Configure Sections Tab.', 'ephic'),
-    'priority'      => 10,
-    'row_label'   => array(          // row_label is not yet documented in Kirki
-        'type' => 'text',
-        'value' => __('Page Section', 'ephic'),
-    ),
-    'default'       => array(
-    ),
-
-    'fields' => array(
-        'section' => array(
-            'type'        => 'select',
-            'label'       => __('Section', 'ephic'),
-            'description' => __('Choose a section', 'ephic'),
-            'default'     => '',
-            'choices' => array(
-				'na'			=> __('Select A Section', 'ephic'),
-                'topagents'     => __('Top Agents Slider', 'ephic'),
-                'testimonials'  => __('Testimonials', 'ephic'),
-                'contact'       => __('Contact Us Section', 'ephic'),
-                'aboutmap'      => __('Map', 'ephic'),
-                'builder'       => __('Page Builder Section', 'ephic'),
-            ),
-        ),
-        'page'  => array(
-            'type'        => 'dropdown-pages',
-            'label'       => __( 'Page Builder Choice', 'ephic' ),
-            'description' => __( 'If this is a Page Builder Section, choose the page with content to use.', 'ephic'),
-            'default'     => '',
-        ),
-    )
-) );
-
-
 
 /**
  * Add the 404 page template settings

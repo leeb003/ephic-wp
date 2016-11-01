@@ -184,14 +184,13 @@ add_action( 'widgets_init', 'ephic_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ephic_scripts() {
-	$tfn_theme = wp_get_theme();
+	$ephic_theme = wp_get_theme();
 	$templates = array(
         'page-templates/home-template.php',
         'page-templates/home-demo-sticky-template.php',
         'page-templates/home-demo-template.php'
     );
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
-	wp_enqueue_style( 'linearicons', get_template_directory_uri() . '/css/linearicons.min.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.css' );
 	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css' );
@@ -224,17 +223,32 @@ function ephic_scripts() {
 			";
 		wp_add_inline_style( 'ephic-style', $about_css );
 	} else { // home template
-		$color_primary = get_theme_mod('color_primary', '#fec107');
-		$secondary_color = get_theme_mod('color_secondary', '#46505c');
-		$gallery_bg = esc_url(get_theme_mod('gallery_background', get_template_directory_uri() . '/img/gallery-bg.jpg'));
-		$gallery_css = "
-			.overlay-col {
-				background-image: url('$gallery_bg');
-			}
-			.portfolio-section figure .overlay-background .inner {
-			 	background: linear-gradient(to right bottom, $secondary_color 50%, $color_primary 50%);
-			}";
-		wp_add_inline_style( 'ephic-style', $gallery_css );
+		/* Home page slide background images */
+        $sliders_bgs = '';
+        if (get_theme_mod('home_top', '') == 'slider') {
+            $sliders = get_theme_mod('home_slides', array());
+            $i = 1;
+            foreach ($sliders as $k => $v) {
+                $slide_url = $v['slider'];
+				if (is_numeric($slide_url) ) {
+					$slide_url = wp_get_attachment_url($slide_url);
+				}
+				$slide_url = esc_url($slide_url);
+				$slide_class = '.main-image';
+                if ($i > 1) {
+                    $slide_class = '.main-image.main-image' . $i;
+                }
+                $sliders_bgs .= "
+                $slide_class {
+                    background-image: url('$slide_url');
+                }
+                ";
+				$i++;
+            }
+        }
+		$inline_css = $sliders_bgs;
+
+		wp_add_inline_style( 'ephic-style', $inline_css );
 	}
 
 
@@ -249,26 +263,14 @@ function ephic_scripts() {
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array('jquery'), '', true );
 	wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '', true);
 	wp_enqueue_script( 'owlcarousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '', true);
-	// Front Page or demo pages
-	if (is_page_template($templates)) {
-		$agent_map_marker = esc_url(get_theme_mod('agent_map_marker'));
-    	$agent_map_lat = esc_html(get_theme_mod('agent_map_lat'));
-    	$agent_map_lng = esc_html(get_theme_mod('agent_map_lng'));
-    	wp_enqueue_script( 'ephic-js', get_template_directory_uri() . '/js/ephic.js', 
-    	array( 'bootstrap-dropdown' ), $tfn_theme->get('Version'), true);
-    	wp_localize_script(  'ephic-js', 'tfn_vars', array(
-        	'agentMapMarker'  => $agent_map_marker,
-        	'agentMapLat' => $agent_map_lat,
-        	'agentMapLng' => $agent_map_lng,
-			'is_rtl'      => is_rtl()
-    	));
-		
-		// and if map enabled
-		if (get_theme_mod('agent_map') == 'enable' ) {
-			$google_key = esc_html(get_theme_mod('google_key'));
-			wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $google_key);
-		}
-	}
+	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/js/waypoints.min.js', array('owlcarousel'), '', true);
+	wp_enqueue_script( 'parallax', get_template_directory_uri() . '/js/parallax.min.js', array('waypoints'), '', true);
+	wp_enqueue_script( 'mystickymenu', get_template_directory_uri() . '/js/mystickymenu.min.js', array('parallax'), '', true);
+    wp_enqueue_script( 'ephic-js', get_template_directory_uri() . '/js/ephic.js', 
+		array( 'mystickymenu' ), $ephic_theme->get('Version'), true);
+    wp_localize_script(  'ephic-js', 'ephic_vars', array(
+		'is_rtl'      => is_rtl()
+   	));
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -280,12 +282,11 @@ add_action( 'wp_enqueue_scripts', 'ephic_scripts' );
  * Enqueue Customizer scripts and styles.
  */
 function ephic_admin_scripts() {
-	$tfn_theme = wp_get_theme();
+	$ephic_theme = wp_get_theme();
     wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
-    wp_enqueue_style( 'linearicons', get_template_directory_uri() . '/css/linearicons.min.css' );
-	wp_enqueue_style( 'tfn-customizer', get_template_directory_uri() . '/css/tfn-customizer.css' );
+	wp_enqueue_style( 'tfn-customizer', get_template_directory_uri() . '/css/ephic-customizer.css' );
 	wp_enqueue_script( 'ephic_customizer_admin', 
-		get_template_directory_uri() . '/js/customizer-admin.js', array(), $tfn_theme->get('Version'), true );
+		get_template_directory_uri() . '/js/customizer-admin.js', array(), $ephic_theme->get('Version'), true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ephic_admin_scripts'); // only for the customizer
 //add_action( 'admin_enqueue_scripts', 'ephic_admin_scripts');
@@ -429,7 +430,7 @@ require_once EPHIC_ADMIN_DIR . 'theme-resources.php';
  * Theme Custom CSS and JS Code
  */
 require_once EPHIC_ADMIN_DIR . 'custom-code-output.php';
-$custom_code_output = new tfn_custom_code_output;
+$custom_code_output = new ephic_custom_code_output;
 add_action('wp_head', array($custom_code_output, 'output_custom_css') );
 add_action('wp_footer', array($custom_code_output, 'output_custom_js') );
 
@@ -456,7 +457,7 @@ require_once EPHIC_INC_DIR . 'post-like.php';
  */
 if (is_admin()) {
     require_once EPHIC_ADMIN_DIR . '/theme-admin.php';
-    new tfn_themeAdmin();
+    new ephic_themeAdmin();
 }
 
 /**

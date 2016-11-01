@@ -8,34 +8,19 @@
  *
  * @packageEphic
  */
-$footer_text = get_theme_mod( 'footer_text', __('Your Footer Text Here', 'ephic') );
-$footer_social = get_theme_mod( 'footer_social', '' );
-$footer_social_pick = get_theme_mod( 'footer_social_pick', array() );
+$footer_text = get_theme_mod( 'footer_text', __('Copyright &copy; 2016 EPHIC TEMPLATE', 'ephic') );
 ?>
 
 	</main><!-- #main content -->
 	<?php do_action('before_footer'); ?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="footer">
-			<div class="container">
-				<div class="col-md-12">
-					<?php if (isset($footer_social) && $footer_social == 1) { ?>	
-					<div class="footer_text">
-						<?php echo esc_html($footer_text); ?>
-					</div>
-					<span class="footer_icons">
-						<?php 
-						foreach ($footer_social_pick as $k => $v) {
-							echo '<a href="' . esc_url($v['social_url']) . '" target="_blank"><i class="fa ' 
-								. esc_html($v['social_choice']) . '"> </i></a>';
-						}
-						?>
-					</span>
-				<?php } else { // no social links ?>
-					<div class="footer_text text-center">
-						<?php echo esc_html($footer_text); ?>
-					</div>
-				<?php } ?>
+
+	<a href="#" id="toparrow" class="totop"><i class="fa fa-long-arrow-up"> </i></a>
+
+	<footer id="colophon" class="footer">
+		<div class="container container-large">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p><?php echo wp_kses_post($footer_text);?></p>
 				</div>
 			</div>
 		</div>

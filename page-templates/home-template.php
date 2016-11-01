@@ -12,12 +12,48 @@
 get_header(); 
 $home_top = get_theme_mod( 'home_top', 'topimage' );
 $home_slider = get_theme_mod( 'home_slider', '' );
+$home_slides = get_theme_mod( 'home_slides', array());
 $home_features = get_theme_mod( 'home_features', 'off');
 $home_sections = get_theme_mod( 'home_sections', array());
 ?>
 	<?php do_action('before_home_header'); ?>
-	<main>
-	<?php if ($home_top == 'topimage') { // Top Image ?>
+	<?php if ($home_top == 'slider') { // Top Slider ?>
+		<section id="top-section" class="top-section"> <!-- Top Carousel -->
+			<div id="toTop"></div>
+			<!--features -->
+			<div id="owl-carousel-features" class="owl-carousel">
+			<?php 
+				$i = 1; 
+				$slide_class = '';
+			?>
+			<?php foreach ($home_slides as $k => $v) { ?>
+				<?php if ($i > 1) {
+						$slide_class = 'main-image' . $i;
+					  }
+				?>
+				<div class="slide">
+					<div class="main-image <?php echo $slide_class; ?>"></div>
+					<div class="top-info">
+						<div class="container container-large">
+							<div class="row">
+								<div class="col-md-8 col-sm-8 col-xs-10 top-info-sect">
+									<h1><?php echo wp_kses_post($v['home_slide_large'], '');?></h1>
+									<p><?php echo wp_kses_post($v['home_slide_small'], '');?></p>
+								</div>
+							</div>
+						</div>
+						<div class="text-center">
+							<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html('SCROLL DOWN', 'ephic'); ?></a>
+						</div>
+					</div>
+				</div>
+				<!-- End slide -->
+				<?php $i++; ?>
+			<?php } // end slides ?>
+			</div><!-- end owl carousel -->
+		</section>	
+	
+	<?php } else { // Top Image ?>
 		<section id="top-section" class="top-section">
 			<div id="toTop"></div>
 			<div class="main-image"></div>
@@ -36,12 +72,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 			</div>
 		</section><!-- End top section / single image -->	
 
-
-
-	<?php } elseif ( $home_top == 'slider' ) { // Top slider 
-			echo do_shortcode($home_slider);
-		  } 
-	?>
+	<?php } ?>
 
 	<?php do_action('before_home_content'); ?>
 	<?php if ($home_features == 'on') { // display our top features ?>

@@ -3,6 +3,7 @@
  *  Dynamic style generation for Kirki to output
  * 
  */
+/* Primary Color */
 if( ! function_exists('ephic_accent_color') ){
 function ephic_primary_color(){
 	$output = array (
@@ -172,6 +173,5 @@ function ephic_primary_color(){
 		),
     );
 	return $output;
-}
-}
+}}
 

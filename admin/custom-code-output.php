@@ -1,6 +1,6 @@
 <?php
 
-class tfn_custom_code_output {
+class ephic_custom_code_output {
 
     // Properties
 

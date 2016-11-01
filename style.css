@@ -459,7 +459,6 @@ h6 {
  * --- 2.1 Main image section ---
  */
 .main-image {
-  background-image: url('../img/main.jpg');
   /* background-attachment: fixed; */
   background-size: cover;
   background-repeat: no-repeat;
@@ -471,12 +470,6 @@ h6 {
   /* imgh / imgw x containerw(100) */
   margin-bottom: 0px;
   position: relative;
-}
-.main-image.main-image2 {
-  background-image: url('../img/main2.jpg');
-}
-.main-image.main-image3 {
-  background-image: url('../img/main3.jpg');
 }
 .main-image::after {
   content: '';

@@ -3,7 +3,7 @@
    Admin Main Class
 */
 
-class tfn_themeAdmin {
+class ephic_themeAdmin {
 	//properties
 	public $config = array();
 
