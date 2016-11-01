@@ -34,27 +34,11 @@ function ephic_primary_color(){
             'element'  => '.sqft',
             'property' => 'color'
         ),
-        array(
-            'element'  => '.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:focus',
-            'property' => 'color'
-        ),
 		array(
 			'element'  => '.navbar.navbar-default .navbar-nav > li > a:hover',
 			'property' => 'color',
 		),
         array(
-            'element'  => '.navbar-brand  img.smaller-logo',
-            'property' => 'background-color'
-        ),
-        array(
-            'element'  => '.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover',
-            'property' => 'background-color'
-        ),
-        array(
-            'element'  => '.navbar-nav > li > .dropdown-menu',
-            'property' => 'border-color'
-        ),
-        array(
             'element'  => '.btn-sec',
             'property' => 'background-color'
         ),
@@ -70,10 +54,6 @@ function ephic_primary_color(){
             'element'  => '.btn-third',
             'property' => 'color'
         ),
-		array(
-			'element'  => '.top-info-sect h1',
-			'property' => 'color'
-		),
 		array(
 			'element'  => '.top-cta',
 			'property' => 'background-color'
@@ -82,10 +62,6 @@ function ephic_primary_color(){
 			'element'  => '.features i',
 			'property' => 'color'
 		),		
-		array(
-			'element'  => '.btn-pri.vtour',
-			'property' => 'border-color'
-		),
 		array(
 			'element'  => '.decagon .rct',
 			'property' => 'background-color'
@@ -139,20 +115,8 @@ function ephic_primary_color(){
 			'property' => 'color'
 		),
 		array(
-            'element'  => '.agent-social a:hover',
-            'property' => 'border-color'
-        ),
-		array(
-			'element'  => '.stars i',
-			'property' => 'color'
-		),
-		array(
 			'element'  => '.slide .quote-person span',
 			'property' => 'color'
-		),
-		array(
-			'element'  => '.owl-carousel-testimonials .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span',
-			'property' => 'background-color'
 		),
 		array(
 			'element'  => '.statement h4',
@@ -177,14 +141,6 @@ function ephic_primary_color(){
 		array(
 			'element'  => '.blog-sidebar a:hover',
 			'property' => 'color'
-		),
-		array(
-			'element'  => '.tfn-tags ul li a:hover',
-			'property' => 'border-color'
-		),
-		array(
-			'element'  => '.tfn-tags ul li a:hover',
-			'property' => 'background-color'
 		),
 		array(
 			'element'  => '.search-form .submits:hover',

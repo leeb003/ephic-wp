@@ -16,36 +16,33 @@ $home_features = get_theme_mod( 'home_features', 'off');
 $home_sections = get_theme_mod( 'home_sections', array());
 ?>
 	<?php do_action('before_home_header'); ?>
-	<section class="top-section">
+	<main>
 	<?php if ($home_top == 'topimage') { // Top Image ?>
-		<div class="main-image"></div>
+		<section id="top-section" class="top-section">
+			<div id="toTop"></div>
+			<div class="main-image"></div>
+			<div class="top-info">
+				<div class="container container-large">
+					<div class="row">
+						<div class="col-md-8 col-sm-8 col-xs-10 top-info-sect">
+							<h1><?php echo wp_kses_post(get_theme_mod( 'home_si_large', '')); ?></h1>
+							<p><?php echo wp_kses_post(get_theme_mod( 'home_si_small', '')); ?></p>
+						</div>
+					</div>
+				</div>
+				<div class="text-center">
+					<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html('SCROLL DOWN', 'ephic');?></a>
+				</div>
+			</div>
+		</section><!-- End top section / single image -->	
+
+
+
 	<?php } elseif ( $home_top == 'slider' ) { // Top slider 
 			echo do_shortcode($home_slider);
 		  } 
 	?>
-		<div class="top-info">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-xs-10 top-info-sect">
-						<h3>
-							<?php echo esc_html(get_theme_mod( 'home_info_address', __('25 North Street / Your Town, CO 88888 United States', 'ephic') )); ?>
-						</h3>
-						<h1><?php echo esc_html(get_theme_mod( 'home_info_price', '$1,799,000')); ?></h1>
-						<p>
-							<?php echo esc_html(get_theme_mod( 'home_info_desc', __('Lovely one owner home with an open floor plan on a corner lot!  Spacious living room with fireplace and walk out to a fully fenced backyard with patio.', 'ephic') )); ?>
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 col-xs-10 top-cta">
-						<a href="<?php echo esc_url(get_theme_mod( 'home_info_btn_url', '#')); ?>" class="schedule">
-							<?php echo esc_html(get_theme_mod( 'home_info_btn_text', __('SCHEDULE A SHOWING', 'ephic') )); ?>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
 	<?php do_action('before_home_content'); ?>
 	<?php if ($home_features == 'on') { // display our top features ?>
 	<!-- Features -->

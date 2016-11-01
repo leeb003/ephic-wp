@@ -52,7 +52,7 @@ function ephic_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'tfnprimary' => __( 'Primary', 'ephic' ),
+		'ephicprimary' => __( 'Primary', 'ephic' ),
 	) );
 
 	/*
@@ -138,7 +138,7 @@ function add_icons_to_nav( $items, $args ) {
 	$nav_extra = '';
 	$nav_sep = '';
 	//print_r($args);
-	if ($args->theme_location == 'tfnprimary') {
+	if ($args->theme_location == 'ephicprimary') {
 		if (empty($header_social_pick) || $header_social == 0 ) { return $items; }
 		$items .= '<li class="nav-sep"><span></span></li>';
 		foreach ($header_social_pick as $k => $v) {

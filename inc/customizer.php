@@ -54,19 +54,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'output'      => ephic_primary_color(),
 ) );
 
-/* Google Maps API Key */
-/* not using in this theme at this point
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'google_key',
-    'label'     => __('Google Maps API Key', 'ephic'),
-    'priority'  => 10,
-    'default'   => '',
-    'description'=> __('Insert your Google Maps API Key if using the theme map sections.  More information can be found at Google...', 'ephic') . '<a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Google Maps API</a>',
-    'section'   => 'general',
-) );
-*/
-
 /* Add the body typography control */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'        => 'typography',
@@ -78,11 +65,11 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'priority'    => 10,
     'default'     => array(
         'font-family'    => 'Roboto',
-        'variant'        => 'regular',
-        'font-size'      => '14px',
-        'line-height'    => '26px',
+        'variant'        => '300',
+        'font-size'      => '16px',
+        'line-height'    => '25px',
         'letter-spacing' => '0.015em',
-        'color'          => '#6e6e6e',
+        'color'          => '#333',
     ),
     'output' => array(
         array(
@@ -101,12 +88,12 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'section'     => 'general',
     'priority'    => 10,
     'default'     => array(
-        'font-family'    => 'Roboto',
+        'font-family'    => 'Roboto Condensed',
         'variant'        => 'regular',
-        'font-size'      => '40px',
+        'font-size'      => '48px',
         'line-height'    => '1.5',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -127,10 +114,10 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'default'     => array(
         'font-family'    => 'Roboto',
         'variant'        => '900',
-        'font-size'      => '36px',
-        'line-height'    => '36px',
+        'font-size'      => '42px',
+        'line-height'    => '60px',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -154,7 +141,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         'font-size'      => '27px',
         'line-height'    => '35px',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -178,7 +165,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         'font-size'      => '25px',
         'line-height'    => '25px',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -203,7 +190,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         'font-size'      => '1.25em',
         'line-height'    => '1.5',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -227,7 +214,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         'font-size'      => '1.25em',
         'line-height'    => '1.5',
         'letter-spacing' => '0',
-        'color'          => '#46505c',
+        'color'          => '#818181',
     ),
     'output' => array(
         array(
@@ -253,7 +240,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'section'		=> 'header_section',
 	'description'	=> __( 'Be sure to add a logo that will fit well', 'ephic'),
 	'priority'		=> 10,
-	'default'		=> get_template_directory_uri() . '/img/25north.png' 
+	'default'		=> get_template_directory_uri() . '/img/nav-logo.png' 
 ) );
 /* Enable WPML Language Switcher */
 ephic_Kirki::add_field( 'ephic_theme', array(
@@ -265,65 +252,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'default'       => '0',
     'priority'      => '10',
 ) );
-/* Enable Social Links */
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'			=> 'checkbox',
-	'settings'		=> 'header_social',
-	'label'			=> __('Enable Header social links?', 'ephic'),
-	'section'		=> 'header_section',
-	'description' 	=> __('Choose to display social links in the header', 'ephic'),
-	'default'		=> '0',
-	'priority'		=> '10',
-) );
-/* Social Link Repeater fields */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'repeater',
-    'settings'      => 'header_social_pick',
-    'label'         => __('Social Links', 'ephic'),
-    'section'       => 'header_section',
-    'description'   => __('Choose the social network and set a link.', 'ephic'),
-    'priority'      => '10',
-	'row_label'   => array(          // row_label is not yet documented in Kirki
-		'type' => 'text',
-		'value' => __('Social Link', 'ephic'),
-	),
-	'default' => array(
-		array(
-			'social_url' => 'http://www.twitter.com',
-			'social_choice' => 'fa-twitter',
-		),
-		array(
-			'social_url' => 'http://www.facebook.com',
-            'social_choice' => 'fa-facebook',
-        ),
-		array(
-			'social_url' => 'http://www.linkedin.com',
-            'social_choice' => 'fa-linkedin',
-        ),
-	),
-	'active_callback'	=> array(  // Kirki field dependency
-		array(
-			'setting'	=> 'header_social',
-			'operator'	=> '==',
-			'value'		=> 1
-		),
-	),
-	'fields' => array(
-		'social_url' => array(
-			'type'        => 'text',
-			'label'	      => __('Social URL', 'ephic'),
-			'description' => __('This is the Link URL', 'ephic'),
-			'default'	  => '',
-		),
-		'social_choice' => array(
-			'type'		  => 'select',
-			'label'		  => __('Social Network', 'ephic'),
-			'default'	  => '',
-			'choices' => ephic_social_icons(),
-		),
-	)
-) );
-
 /**
  * Add the Footer section
  **/
@@ -420,7 +348,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'settings'    => 'home_image',
     'label'       => __('Home Page Top Image', 'ephic' ),
     'priority'    => 10,
-    'default'     => get_template_directory_uri() . '/img/large-main.jpg',
+    'default'     => get_template_directory_uri() . '/img/main.jpg',
     'description' => esc_attr__('Choose an image for the top of your home page template - our demo image size is 1920 x 1081', 'ephic'),
     'section'     => 'page_home',
     'output'      => array(
@@ -456,54 +384,24 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     ),
 ) );
 
-/* Home Page infobox Address */
+/* Home Page Single Image Large Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'home_info_address',
-    'label'     => __('Top Infobox Address', 'ephic'),
+    'settings'  => 'home_si_large',
+    'label'     => __('Top Large Text', 'ephic'),
     'priority'  => 10,
-    'default'   => "25 North Street / Your Town, CO 88888 United States",
-    'description'=> __('Insert the property address', 'ephic'),
+    'default'   => "Created<br /> With Passion",
+    'description'=> __('Set Your Large Text', 'ephic'),
     'section'   => 'page_home',
 ) );
-/* Home Page infobox Price */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'home_info_price',
-    'label'     => __('Top Infobox Price', 'ephic'),
-    'priority'  => 10,
-    'default'   => __('$1,799,000', 'ephic'),
-    'description'=> __('Insert the property price', 'ephic'),
-    'section'   => 'page_home',
-) );
-/* Home Page infobox Description */
+/* Home Page Single Image Small Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'home_info_desc',
-    'label'     => __('Top Infobox Description', 'ephic'),
+    'settings'  => 'home_si_small',
+    'label'     => __('Top Small Text', 'ephic'),
     'priority'  => 10,
-    'default'   => "Lovely one owner home with an open floor plan on a corner lot!  Spacious living room with fireplace and walk out to a fully fenced backyard with patio.",
-    'description'=> __('Insert a property short description', 'ephic'),
-    'section'   => 'page_home',
-) );
-/* Home Page infobox Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'home_info_btn_text',
-    'label'     => __('Top Infobox Button Text', 'ephic'),
-    'priority'  => 10,
-    'default'   => __('SCHEDULE A SHOWING', 'ephic'),
-    'description'=> __('Insert the button text', 'ephic'),
-    'section'   => 'page_home',
-) );
-/* Home Page infobox Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'home_info_btn_url',
-    'label'     => __('Top Infobox Button Url', 'ephic'),
-    'priority'  => 10,
-    'default'   => __('http://www.example.com', 'ephic'),
-    'description'=> __('Insert the button url e.g. http://www.example.com', 'ephic'),
+    'default'   => "I'm different.  I create things that matter.",
+    'description'=> __('Set Your Smaller Text', 'ephic'),
     'section'   => 'page_home',
 ) );
 

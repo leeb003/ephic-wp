@@ -27,49 +27,47 @@ $options = $theme_resources->return_options();
 $menu_exists = $theme_resources->menu_check('tfn-primary');
 
 $four_o_four = is_404();  // detect 404 page for display
-$header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/img/25north.png' );
+$header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/img/nav-logo.png' );
 ?>
 
 <body <?php body_class(); ?>>
 <?php do_action('after_body'); ?>
-<div id="page" class="site wrapper">
-	<?php do_action('before_header'); ?>
-	<?php 
-	if (!$four_o_four) { ?>
+<div class="wrapper">
 	<header id="totop">
-    	<div class="top-holder top-holder-fixed">
-        	<!-- Main Navigation -->
-        	<div class="main-menu">
-            	<nav class="navbar navbar-default">
-                	<div class="container">
-                    	<div class="navbar-header">
-                        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		<?php do_action('before_header'); ?>
+		<div class="top-holder top-holder-fixed">
+			<!-- Main Navigation -->
+			<div class="main-menu">
+				<nav class="navbar navbar-default">
+					<div class="container container-large">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) );?>">
+							<a class="navbar-brand" href="#">
 								<div class="nav-logo">
-									<img src="<?php echo esc_url($header_logo); ?>" alt="" class="smaller-logo img-responsive center-block" />
+									<img src="<?php echo $header_logo;?>" alt="" class="navbar-logo img-responsive" />
 								</div>
 							</a>
 						</div>
 						<?php
-                       	get_template_part('inc/wp_bootstrap_navwalker');
-                       	$current = get_page_template_slug();
-                       	wp_nav_menu( array(
-							'menu'			 => 'primary',
-                           	'theme_location' => 'tfnprimary',
-                           	'container' => 'div',
-                           	'container_class' => 'collapse navbar-collapse',
+						get_template_part('inc/wp_bootstrap_navwalker');
+						$current = get_page_template_slug();
+						wp_nav_menu( array(
+							'menu'           => 'primary',
+							'theme_location' => 'tfnprimary',
+							'container' => 'div',
+							'container_class' => 'collapse navbar-collapse',
 							'container_id' => 'navbar',
-                           	'depth' => 2, 
-                           	'menu_class' => 'nav navbar-nav',
-							'fallback_cb'	=> 'wp_bootstrap_navwalker::fallback',
-                           	'walker' => new wp_bootstrap_navwalker(),
-                           	'walker_arg' => $current
-                       	));
+							'depth' => 2,
+							'menu_class' => 'nav navbar-nav',
+							'fallback_cb'   => 'wp_bootstrap_navwalker::fallback',
+							'walker' => new wp_bootstrap_navwalker(),
+							'walker_arg' => $current
+						));
 						?>
 					</div>
 				</nav>
@@ -78,5 +76,3 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 	</header>
 	<?php do_action('before_main_content'); ?>
 	<main>
-	<?php
-	} // end 404 check ?>
