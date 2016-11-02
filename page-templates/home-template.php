@@ -75,172 +75,126 @@ $home_sections = get_theme_mod( 'home_sections', array());
 	<?php } ?>
 
 	<?php do_action('before_home_content'); ?>
-	<?php if ($home_features == 'on') { // display our top features ?>
-	<!-- Features -->
-    <section id="features" class="features">
-    	<div class="container">
+
+	<?php foreach ($home_sections as $k => $v) { // cycle through the page sections for display ?>
+		<?php if ($v['section'] == 'welcome') { ?>
+	<section id="intro" class="section-margin">
+		<div class="container container-large">
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-3">
-					 <div class="feature">
-						<div class="feature-inner">
-							<i class="<?php echo esc_html(get_theme_mod( 'feature_1_icon', 'icon-bed')); ?>"></i><br />
-							<span><?php echo esc_html(get_theme_mod( 'feature_1_text', __('4 Bedrooms', 'ephic') )); ?></span>
+				<div class="col-md-12 text-center">
+					<h2 class="sectionh colorh"><?php echo esc_html(get_theme_mod( 'welcome_title', '')); ?></h2>
+					<p class="hdesc"><?php echo esc_html(get_theme_mod( 'welcome_desc', '')); ?></p>
+				</div>
+			</div>
+			<div class="row upper40">
+				<div class="col-md-6 text-right">
+					<p><?php echo esc_html(get_theme_mod( 'welcome_left', ''));?></p>
+				</div>
+				<div class="col-md-6 intro-summary">
+					<p><?php echo esc_html(get_theme_mod( 'welcome_right', ''));?></p>
+				</div>
+			</div>
+			<div class="row intro-info">
+				<div class="col-md-4 text-center">
+					<div class="shape">
+						<div class="hexagon">
+							<i class="fa <?php echo esc_html(get_theme_mod( 'welcome_1_icon', ''));?>"></i>
 						</div>
 					</div>
+					<h4><?php echo esc_html(get_theme_mod( 'welcome_1_title', ''));?></h4>
+					<p><?php echo esc_html(get_theme_mod( 'welcome_1_text', ''));?></p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-					<div class="feature">
-						<div class="feature-inner">
-							<i class="<?php echo esc_html(get_theme_mod( 'feature_2_icon', 'icon-bathtub')); ?>"></i><br />
-							<span><?php echo esc_html(get_theme_mod( 'feature_2_text', __('4 Bathrooms', 'ephic') )); ?></span>
+				<div class="col-md-4 text-center">
+					<div class="shape">
+						<div class="hexagon">
+							<i class="fa <?php echo esc_html(get_theme_mod( 'welcome_2_icon', ''));?>"></i>
 						</div>
 					</div>
+					<h4><?php echo esc_html(get_theme_mod( 'welcome_2_title', ''));?></h4>
+					<p><?php echo esc_html(get_theme_mod( 'welcome_2_text', ''));?></p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-					<div class="feature">
-						<div class="feature-inner">
-							<i class="<?php echo esc_html(get_theme_mod( 'feature_3_icon', 'icon-car2')); ?>"></i><br />
-							<span><?php echo esc_html(get_theme_mod( 'feature_3_text', __('3 Car Garage', 'ephic') )); ?></span>
+				<div class="col-md-4 text-center">
+					<div class="shape">
+						<div class="hexagon">
+							<i class="fa <?php echo esc_html(get_theme_mod( 'welcome_3_icon', '')); ?>"></i>
 						</div>
 					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-					<div class="feature">
-						<div class="feature-inner">
-							<i class="<?php echo esc_html(get_theme_mod( 'feature_4_icon', 'icon-pencil-ruler')); ?>"></i><br />
-							<span><?php echo esc_html(get_theme_mod( 'feature_4_text', __('4078 SQ.FT.', 'ephic') )); ?></span>
-						</div>
+					<h4><?php echo esc_html(get_theme_mod( 'welcome_3_title', ''));?></h4>
+					<p><?php echo esc_html(get_theme_mod( 'welcome_3_text', ''));?></p>
+	 			</div>
+			</div>
+		</div>
+	</section><!-- End Intro -->
+
+	<?php
+		} elseif ($v['section'] == 'parallax') { // Parallax 1 ?>
+	<section id="parallax1" class="section-margin"><!-- Parallax -->
+		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax_bg', ''));?>">
+			<div class="container container-large">
+				<div class="row">
+					<?php 
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					if (get_theme_mod( 'parallax_text_side', '') == 'right') {
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+					} elseif (get_theme_mod( 'parallax_text_side', '') == 'center') {
+						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
+					}
+					?>
+					<div class="<?php echo $parallax_class;?>">
+						<h1><?php echo wp_kses_post(get_theme_mod( 'parallax_large', ''));?></h1>
+						<p><?php echo wp_kses_post(get_theme_mod( 'parallax_small', ''));?></p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<?php } // end top features check ?>
+	</section><!-- End Parallax -->
 
-	<?php foreach ($home_sections as $k => $v) { // cycle through the page sections for display ?>
-		<?php if ($v['section'] == 'highlights') { ?>
-	<section id="details" class="details">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h2 class="sectionh"><?php echo esc_html(get_theme_mod( 'highlights_title', '')); ?></h2>
-					<p><?php echo esc_html(get_theme_mod( 'highlights_desc', '')); ?></p>
-				</div>
-			</div>
-			<div class="row highlight-info">
-				<div class="col-md-4">
-					<div class="shape">
-						<div class="decagon">
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-						</div>
-						<i class="fa <?php echo esc_html(get_theme_mod( 'highlight_1_icon', '')); ?>"></i>
-					</div>
-					<h4><?php echo esc_html(get_theme_mod( 'highlight_1_title', '')); ?></h4>
-					<p><?php echo esc_html(get_theme_mod( 'highlight_1_text', '')); ?></p>
-				</div>
-				<div class="col-md-4">
-					<div class="shape">
-						<div class="decagon">
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-						</div>
-						<i class="fa <?php echo esc_html(get_theme_mod( 'highlight_2_icon', '')); ?>"></i>
-					</div>
-					<h4><?php echo esc_html(get_theme_mod( 'highlight_2_title', '')); ?></h4>
-					<p><?php echo esc_html(get_theme_mod( 'highlight_2_text', '')); ?></p>
-				</div>
-				<div class="col-md-4">
-					<div class="shape">
-						<div class="decagon">
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-							<div class="rct"></div>
-						</div>
-						<i class="fa <?php echo esc_html(get_theme_mod( 'highlight_3_icon', '')); ?>"></i>
-					</div>
-					<h4><?php echo esc_html(get_theme_mod( 'highlight_3_title', '')); ?></h4>
-					<p><?php echo esc_html(get_theme_mod( 'highlight_3_text', '')); ?></p>
-				</div>
-			</div>
-		<!-- Highlights slider -->
-		<?php 
-		$highlight_slides = get_theme_mod( 'highlight_slides', array() );
-		$slide_count = count($highlight_slides);
-		$curr_slide = 1;
-		$prev_btn = '';
-		$highlight_slides_enable = get_theme_mod('highlight_slides_enable', '');
-		if ($highlight_slides_enable == 'enable') {  ?>
-			<div id="owl-carousel-features" class="owl-carousel">
-		<?php
-			foreach ( $highlight_slides as $k => $v ) {
-				if ($slide_count < 2) {
-					$next_text = $v['slide_title'];
-				} elseif ($curr_slide == $slide_count) { // last slide
-					$next_text = $highlight_slides[0]['slide_title'];
-				} else {
-					$next_text = $highlight_slides[$curr_slide]['slide_title']; // use curr_slide because array starts at 0
-				}
-					
-		?>
-				<!-- Start slide -->
-				<div class="slide">
-            		<div class="row vcenter">
-               			<div class="col-sm-12 col-md-5">
-                    		<div class="sideimg">
-                        		<img src="<?php echo wp_get_attachment_url($v['slide_image']) ;?>" alt="" />
-                          		<div class="slide-count">
-                               		<span class="current-slide"><?php echo $curr_slide; ?></span>/<?php echo $slide_count; ?>
-                            	</div>
-                        	</div>
-                    	</div>
-                    	<div class="col-sm-12 col-md-7">
-                    		<div class="infoblock">
-                        		<h3><?php echo esc_html($v['slide_title']); ?></h3>
-                            	<p><?php echo esc_html($v['slide_text']); ?></p>
-                            	<ul class="infoblock-feats">
-								<?php 
-								$feature_list = explode(',', $v['slide_feature_list']);
-								foreach ($feature_list as $k1 => $v1) {
-								?>
-                            		<li><?php echo esc_html($v1); ?></li>
-								<?php
-								} 
-								?>
-                         	   </ul>
-                        		<div class="info-actions">
-                            		<a href="#" class="detail-switch">
-                                		<i class="fa fa-angle-double-left"></i>
-                                    	<span><?php echo esc_html($next_text); ?></span>
-                                	</a>
-                                	<div class="sqft-cont">
-                                		<span class="sqft-desc"><?php echo esc_html($v['slide_feature_text']);?> : </span>
-										<span class="sqft"><?php echo esc_html($v['slide_feature_text_2']);?></span>
-                                	</div>
-                           		</div>
-                        	</div>
-                   		</div>
-               		</div>
-           		</div>
-           		<!-- \slide -->
-		<?php
-			$curr_slide++;
-			} // end foreach slide 
-		?>
-			</div> <!-- \Owl Carousel -->
-		<?php
-		} // end if slides enabled check
-		?>
-		</div><!-- \container -->
-	</section>
+	<?php
+        } elseif ($v['section'] == 'parallax2') { // Parallax 2 ?>
+    <section id="parallax2" class="section-margin"><!-- Parallax -->
+        <div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax2_bg', ''));?>">
+            <div class="container container-large">
+                <div class="row">
+                    <?php
+                    $parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+                    if (get_theme_mod( 'parallax2_text_side', '') == 'right') {
+                        $parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+                    } elseif (get_theme_mod( 'parallax2_text_side', '') == 'center') {
+                        $parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
+                    }
+                    ?>
+                    <div class="<?php echo $parallax_class;?>">
+                        <h1><?php echo wp_kses_post(get_theme_mod( 'parallax2_large', ''));?></h1>
+                        <p><?php echo wp_kses_post(get_theme_mod( 'parallax2_small', ''));?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Parallax 2 -->
+
+	<?php
+        } elseif ($v['section'] == 'parallax2') { // Parallax 3 ?>
+    <section id="parallax3" class="section-margin"><!-- Parallax -->
+        <div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax3_bg', ''));?>">
+            <div class="container container-large">
+                <div class="row">
+                    <?php
+                    $parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+                    if (get_theme_mod( 'parallax3_text_side', '') == 'right') {
+                        $parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+                    } elseif (get_theme_mod( 'parallax3_text_side', '') == 'center') {
+                        $parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
+                    }
+                    ?>
+                    <div class="<?php echo $parallax_class;?>">
+                        <h1><?php echo wp_kses_post(get_theme_mod( 'parallax3_large', ''));?></h1>
+                        <p><?php echo wp_kses_post(get_theme_mod( 'parallax3_small', ''));?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Parallax 3 -->
+
 	<?php
 		} elseif ($v['section'] == 'gallery') { // Gallery ?>
 

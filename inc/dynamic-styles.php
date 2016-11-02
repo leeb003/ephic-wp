@@ -107,16 +107,12 @@ function ephic_primary_color(){
 			'element'  => '.owl-carousel-agents .owl-prev:hover,.owl-carousel-agents .owl-next:hover',
 			'property' => 'background-color'
 		),
-		array(
-			'element'  => '.agent-data > h4',
+		array( 
+			'element'  => 'h2.colorh',
 			'property' => 'color'
 		),
 		array(
-			'element'  => '.agent-social a:hover',
-			'property' => 'color'
-		),
-		array(
-			'element'  => '.slide .quote-person span',
+			'element'  => '.intro-info .col-md-4:hover i',
 			'property' => 'color'
 		),
 		array(

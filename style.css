@@ -108,9 +108,6 @@ h2 {
   color: #818181;
 	
 }
-h2.colorh {
-  color: #ff8103;
-}
 h3 {
 
 }
@@ -637,15 +634,6 @@ h6 {
   border-color: #ff8103;
 }
 .services-icons .col-md-4:hover i {
-  color: #ff8103;
-}
-
-.intro-info .col-md-4:hover .hexagon,
-.intro-info .col-md-4:hover .hexagon:before,
-.intro-info .col-md-4:hover .hexagon:after {
-  border-color: #ff8103;
-}
-.intro-info .col-md-4:hover i {
   color: #ff8103;
 }
 

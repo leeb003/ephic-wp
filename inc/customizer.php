@@ -756,7 +756,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ) );
 
 /**
- * Configure Sections - Configuration of the Home and about us page sections, also will be available via shortcode
+ * Configure Sections - Configuration of the Home page sections
  */
 ephic_Kirki::add_section( 'configure_sections', array(
 	'title'		=> esc_attr__( 'Configure Sections', 'ephic' ),
@@ -776,55 +776,86 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'default'     => '',
 	'choices' => array(
 		'na'		   => __('Choose a section', 'ephic'),
-		'highlights'   => __('Home - Property Highlights', 'ephic'),
-		'gallery'      => __('Home - Photo Gallery', 'ephic'),
-		'additional'   => __('Home - Additional Information', 'ephic'),
-		'posts'        => __('Home - Recent Posts', 'ephic'),
-		'agent'        => __('Home - Featured Agent', 'ephic'),
-		'topagents'    => __('About - Top Agents', 'ephic'),
-		'testimonials' => __('About - Testimonials', 'ephic'),
-		'contact'      => __('About - Contact', 'ephic'),
-		'aboutmap'     => __('About - Map', 'ephic'),
+		'welcome'      => __('Home - Welcome', 'ephic'),
+		'parallax'     => __('Home - Parallax 1', 'ephic'),
+		'parallax2'    => __('Home - Parallax 2', 'ephic'),
+		'parallax3'    => __('Home - Parallax 3', 'ephic'),
+		'services'     => __('Home - Services', 'ephic'),
+		'projects'     => __('Home - Projects', 'ephic'),
+		'about'        => __('Home - About', 'ephic'),
+		'contact'      => __('Home - Contact', 'ephic'),
     ),
 	/* 'transport' => 'postMessage', */  // just prevent refreshing, nothing needs to be sent...I think
 	/* Doesn't work with active_callback dependencies...maybe we can do our own javascript to hide / show options this way */
 ) );
 
-/* Highlight Title */
+/* Welcome Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'text',
-	'settings'		=> 'highlights_title',
+	'settings'		=> 'welcome_title',
 	'priority'		=> 10,
-	'default'		=> 'Property Highlights',
+	'default'		=> 'Welcome Title',
 	'section'		=> 'configure_sections',
-	'label'			=> __('Set the Highlights section title', 'ephic'),
+	'label'			=> __('Set the Welcome section title', 'ephic'),
 	'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlights Description */
+/* Welcome Description */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'          => 'textarea',
-    'settings'      => 'highlights_desc',
+    'settings'      => 'welcome_desc',
     'priority'      => 10,
-    'default'       => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
+    'default'       => 'Welcome Description',
     'section'       => 'configure_sections',
-    'label'         => __('Set the Highlights section description', 'ephic'),
+    'label'         => __('Set the Welcome section description', 'ephic'),
 	'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
+        ),
+    ),
+) );
+/* Welcome Left Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+	'type'          => 'textarea',
+	'settings'	    => 'welcome_left',
+	'priority'	    => 10,
+	'default'       => 'Is ut graece delectus repudiare, in habeo labore electram cum. Iracundia percipitur et usu. Nonumes consequat vix et, mea inani veritus democritum ei. His ullum feugait cu, ipsum semper molestiae no ius, eam deleniti. Eam ut purto singulis consequat.',
+	'section'       => 'configure_sections',
+	'label'         => __('Set the Welcome section left side text', 'ephic'),
+	'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'welcome'
+        ),
+    ),
+) );
+/* Welcome Right Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'          => 'textarea',
+    'settings'      => 'welcome_right',
+    'priority'      => 10,
+    'default'       => "10 Years experience in Graphic Design & Photography. Let's create memorable Digital Experiences.",
+    'section'       => 'configure_sections',
+    'label'         => __('Set the Welcome section right side text', 'ephic'),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlights Section Icons
+/* Welcome Section Icons
  * Using customizer select list since Kirki's won't let us add icons.  
  * All direct customize calls go in this block for this section 
  * The priority will keep them all in the correct order
@@ -839,58 +870,58 @@ function configure_sections_customize($wp_customize) {
         $fa_icons[$k] = $v . ' ' . str_replace('\f', '&#xf', $theme_font_awesome_num[$k]);
     }
 
-	/* Highlights icon 1 */
-    $wp_customize->add_setting ( 'highlight_1_icon', array (
-            'default' => 'fa-heart',
+	/* Welcome icon 1 */
+    $wp_customize->add_setting ( 'welcome_1_icon', array (
+            'default' => 'fa-paper-plane',
         )
     );
-    $wp_customize->add_control ( 'highlight_1_icon', array (
+    $wp_customize->add_control ( 'welcome_1_icon', array (
             'type'  => 'select',
-            'label' => __('Highlight Icon 1', 'ephic'),
-            'description'   => __('Choose an icon for the Home Page Highlight Section', 'ephic'),
+            'label' => __('Welcome Icon 1', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Welcome Section', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
             'priority'  => 11,
-            'active_callback' => 'highlights_enabled',
+            'active_callback' => 'welcome_enabled',
         )
     );
 
-	/* Highlights icon 2 */
-    $wp_customize->add_setting ( 'highlight_2_icon', array (
-            'default' => 'fa-file-image-o',
+	/* Welcome icon 2 */
+    $wp_customize->add_setting ( 'welcome_2_icon', array (
+            'default' => 'fa-life-ring',
         )
     );
-    $wp_customize->add_control ( 'highlight_2_icon', array (
+    $wp_customize->add_control ( 'welcome_2_icon', array (
             'type'  => 'select',
-            'label' => __('Highlight Icon 2', 'ephic'),
-            'description'   => __('Choose an icon for the Home Page Highlight Section', 'ephic'),
+            'label' => __('Welcome Icon 2', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Welcome Section', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
             'priority'  => 14,
-            'active_callback' => 'highlights_enabled',
+            'active_callback' => 'welcome_enabled',
         )
     );
 	
-	/* Highlights icon 3 */
-    $wp_customize->add_setting ( 'highlight_3_icon', array (
-            'default' => 'fa-briefcase',
+	/* Welcome icon 3 */
+    $wp_customize->add_setting ( 'welcome_3_icon', array (
+            'default' => 'fa-laptop',
         )
     );
-    $wp_customize->add_control ( 'highlight_3_icon', array (
+    $wp_customize->add_control ( 'welcome_3_icon', array (
             'type'  => 'select',
-            'label' => __('Highlight Icon 3', 'ephic'),
-            'description'   => __('Choose an icon for the Home Page Highlight Section', 'ephic'),
+            'label' => __('Welcome Icon 3', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Welcome Section', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
             'priority'  => 17,
-            'active_callback' => 'highlights_enabled',
+            'active_callback' => 'welcome_enabled',
         )
     );
 }
 
-/* The check for highlights being selected to display the icons */
-function highlights_enabled($control) {
-    if( $control->manager->get_setting('section_choice')->value() == 'highlights') {
+/* The check for Welcome being selected to display the icons */
+function welcome_enabled($control) {
+    if( $control->manager->get_setting('section_choice')->value() == 'welcome') {
         return true;
     } else {
         return false;
@@ -899,128 +930,104 @@ function highlights_enabled($control) {
 
 add_action( 'customize_register', 'configure_sections_customize');
 
-/* Highlight 1 Title */
+/* Welcome 1 Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'highlight_1_title',
-    'label'     => __('Highlight 1 Title', 'ephic'),
+    'settings'  => 'welcome_1_title',
+    'label'     => __('Icon 1 Title', 'ephic'),
     'priority'  => 12,
-    'default'   => 'Creative Interior Design',
+    'default'   => 'Stunning Design',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlight 1 Text */
+/* Welcome 1 Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'highlight_1_text',
-    'label'     => __('Highlight 1 Text', 'ephic'),
+    'settings'  => 'welcome_1_text',
+    'label'     => __('Welcome 1 Text', 'ephic'),
     'priority'  => 13,
-    'default'   => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lauda.',
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlight 2 Title */
+/* Welcome 2 Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'highlight_2_title',
-    'label'     => __('Highlight 2 Title', 'ephic'),
+    'settings'  => 'welcome_2_title',
+    'label'     => __('Welcome 2 Title', 'ephic'),
     'priority'  => 15,
-    'default'   => 'Fabulous Views',
+    'default'   => 'Lifetime Support',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlight 2 Text */
+/* Welcome 2 Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'highlight_2_text',
-    'label'     => __('Highlight 2 Text', 'ephic'),
+    'settings'  => 'welcome_2_text',
+    'label'     => __('Welcome 2 Text', 'ephic'),
     'priority'  => 16,
-    'default'   => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lauda.',
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlight 3 Title */
+/* Welcome 3 Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'highlight_3_title',
-    'label'     => __('Highlight 3 Title', 'ephic'),
+    'settings'  => 'welcome_3_title',
+    'label'     => __('Welcome 3 Title', 'ephic'),
     'priority'  => 18,
-    'default'   => 'Quite Neighborhood',
+    'default'   => 'Responsive Design',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
+            'value'     => 'welcome'
         ),
     ),
 ) );
 
-/* Highlight 3 Text */
+/* Welcome 3 Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'highlight_3_text',
-    'label'     => __('Highlight 3 Text', 'ephic'),
+    'settings'  => 'welcome_3_text',
+    'label'     => __('Welcome 3 Text', 'ephic'),
     'priority'  => 19,
-    'default'   => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lauda.',
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'highlights'
-        ),
-    ),
-) );
-
-/* Highlight Icon Hover Color */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'color',
-    'settings'    => 'highlight_icon_color',
-    'label'       => __( 'Highlight Icon Hover Color', 'ephic' ),
-    'section'     => 'configure_sections',
-    'default'     => '#daa70a',
-    'priority'    => 20,
-    'alpha'       => true,
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'highlights'
-        ),
-    ),
-    'output'      => array(
-        array(
-            'element'  => '.highlight-info .col-md-4:hover .rct',
-            'property' => 'background-color',
+            'value'     => 'welcome'
         ),
     ),
 ) );
@@ -1119,6 +1126,217 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 		),
     )
 ) );
+
+/* Parallax Sections */
+
+/* Parallax 1 Section */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'image',
+    'settings'  => 'parallax_bg',
+    'label'     => __('Parallax Background Image', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax_large',
+    'label'     => __('Parallax Large Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax_small',
+    'label'     => __('Parallax Small Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'select',
+    'settings'  => 'parallax_text_side',
+    'label'     => __('Parallax Text Side', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'left',
+    'section'   => 'configure_sections',
+	'multiple'  => '1',
+	'choices'   => array(
+		'left'  => __('Left Side', 'ephic'),
+		'right' => __('Right Side', 'ephic'),
+		'center'=> __('Center', 'ephic'),
+	),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax'
+        ),
+    ),
+) );
+
+/* Parallax 2 Section */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'image',
+    'settings'  => 'parallax2_bg',
+    'label'     => __('Parallax Background Image', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax2'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax2_large',
+    'label'     => __('Parallax Large Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax2'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax2_small',
+    'label'     => __('Parallax Small Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax2'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'select',
+    'settings'  => 'parallax2_text_side',
+    'label'     => __('Parallax Text Side', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'left',
+    'section'   => 'configure_sections',
+    'multiple'  => '1',
+    'choices'   => array(
+        'left'  => __('Left Side', 'ephic'),
+        'right' => __('Right Side', 'ephic'),
+        'center'=> __('Center', 'ephic'),
+    ),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax2'
+        ),
+    ),
+) );
+
+/* Parallax 3 Section */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'image',
+    'settings'  => 'parallax3_bg',
+    'label'     => __('Parallax Background Image', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax3'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax3_large',
+    'label'     => __('Parallax Large Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax3'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'parallax3_small',
+    'label'     => __('Parallax Small Text', 'ephic'),
+    'priority'  => 10,
+    'default'   => '',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax3'
+        ),
+    ),
+) );
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'select',
+    'settings'  => 'parallax3_text_side',
+    'label'     => __('Parallax Text Side', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'left',
+    'section'   => 'configure_sections',
+    'multiple'  => '1',
+    'choices'   => array(
+        'left'  => __('Left Side', 'ephic'),
+        'right' => __('Right Side', 'ephic'),
+        'center'=> __('Center', 'ephic'),
+    ),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'parallax3'
+        ),
+    ),
+) );
+
+/* Configure Services Sectino */
+
+
+
 
 /* Configure Sections Photo Section */
 
