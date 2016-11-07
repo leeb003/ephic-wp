@@ -22,17 +22,6 @@ function ephic_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-		//mystickymenu
-		array(
-			'name'				 => 'My Sticky Menu',
-			'slug'				 => 'mystickymenu',
-			'source'			 => 'https://wordpress.org/plugins/mystickymenu',
-			'version'			 => '1.8.3',
-			'force_activation'   => false,
-			'force_deactivation' => false,
-			'external_url'       => 'https://wordpress.org/plugins/mystickymenu/faq/',
-			'required'			 => false
-		),
 		// Envato Market plugin
 		array(
 			'name' 				 => 'WP Envato Market',

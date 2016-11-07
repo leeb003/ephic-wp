@@ -7,6 +7,6 @@
     <div class="search-wrap">
 		<input type="search" class="searchbox" placeholder="<?php echo esc_html__('Search', 'ephic');?>" 
 			value="<?php echo esc_attr( get_search_query() ); ?>" name="s" />
-        <input type="submit" id="search-submit" class="submits" value="&#xe922;" />
+        <input type="submit" id="search-submit" class="submits" value="&#xf002;" />
     </div>
 </form>

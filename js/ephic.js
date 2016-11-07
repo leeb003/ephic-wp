@@ -122,6 +122,20 @@
 		// Functions Initializers
 		myTemplate.Isotope();
 
+		/* CF7 event trigger resize */
+		$(document).on('spam.wpcf7', function() {
+			$(window).trigger('resize').trigger('scroll');
+		});
+		$(document).on('invalid.wpcf7', function() {
+			$(window).trigger('resize').trigger('scroll');
+		});
+		$(document).on('mailsent.wpcf7', function() {
+			$(window).trigger('resize').trigger('scroll');
+		});
+		$(document).on('mailfailed.wpcf7', function() {
+			$(window).trigger('resize').trigger('scroll');
+		});
+
 		/* Statistics elements Increment */
 		if ($('#stats').length) {
 			$('.stat', '#stats').waypoint(function(direction) {
@@ -224,34 +238,6 @@
 				$(dots[i]).text(number);
 			}
 		};
-	});
-
-	/* Main Page Form Submission */
-	var form="form-send.php";  // The PHP handler script used that we submit to
-	$(document).on('submit', '#contact', function() {
-		var btnText = $('#submit').val();
-		$('#submit').val('Sending...');
-		$('#submit').attr('disabled', 'disabled');
-
-		var name      = $('#contact .input_name').val();
-		var email     = $('#contact .input_email').val();
-		var subject   = $('#contact .input_subject').val();
-		var message   = $('#contact .input_message').val();
-		var from_form = 'main-page';
-		$.ajax({
-			type: "POST",
-			dataType: 'json',
-			url: form,
-			data: {from_form:from_form, name:name, email:email, subject: subject, message:message},
-			success: function(response) {
-				$('.response').html(response);
-				$('#submit').val(btnText);
-				$('#submit').removeAttr('disabled');
-				$('#submit').hide();
-				$('#contact-form').trigger('reset');
-			}
-		});
-		return false;  // Don't trigger normal form post, since this handles it
 	});
 
 })(jQuery);

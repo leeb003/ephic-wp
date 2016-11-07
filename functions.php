@@ -217,9 +217,9 @@ function ephic_scripts() {
 			.testimonials-section {
 				background-image: url('$testimonial_bg');
 			}
-			.overlay-col {
-                background-image: url('$four_o_four_bg');
-            }
+			.four-header {
+  				background: transparent url('$four_o_four_bg') no-repeat fixed top;
+			}
 			";
 		wp_add_inline_style( 'ephic-style', $about_css );
 	} else { // home template

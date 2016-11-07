@@ -144,7 +144,7 @@ h6 {
   margin-top: 100px;
 }
 .section-border {
-  border-top: 1px solid #a1a1a1;
+  border-top: 1px solid #dddddd;
   content:"";
   display:block;
 }
@@ -628,14 +628,6 @@ h6 {
   -webkit-transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-.services-icons .col-md-4:hover .hexagon,
-.services-icons .col-md-4:hover .hexagon:before,
-.services-icons .col-md-4:hover .hexagon:after {
-  border-color: #ff8103;
-}
-.services-icons .col-md-4:hover i {
-  color: #ff8103;
-}
 
 /*
  * --- 2.3 Parallax sections ---
@@ -801,7 +793,6 @@ ul.filter > li.active a {
   color: #fff;
 }
 .image-info {
-  font-family: "roboto condensed";
   font-size: 30px;
   line-height: 35px;
   text-align:left;
@@ -831,9 +822,6 @@ ul.filter > li.active a {
   display: block;
   clear: both;
 }
-.stat.colorh {
-  color: #ff8103;
-}
 /*
  * --- 2.7 About Section ---
  */
@@ -850,10 +838,6 @@ svg{
   }
 }
 #hex{
-  /*
-  stroke-width:1px;
-  stroke: #a1a1a1;
-  */
   fill-opacity:1;
 }
 #hex:before {
@@ -890,11 +874,6 @@ ul.social-links li a {
   width: 35px;
   border-radius: 50%;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-ul.social-links li a:active,
-ul.social-links li a:focus,
-ul.social-links li a:hover {
-  background-color: #ff8103;
 }
 .about-details {
   background-color: #f5f5f5;
@@ -946,6 +925,16 @@ ul.social-links li a:hover {
   min-height: 35px;
   margin-bottom: 20px;
 }
+#contact .primary-btn {
+  margin-bottom: 10px;
+}
+
+#contact .wpcf7-response-output {
+  clear:both;
+  padding: 10px;
+  margin: 25px;
+  background-color: #fff;
+}
 
 /*
  * === 3. ABOUT US PAGE STYLES ===
@@ -954,7 +943,6 @@ ul.social-links li a:hover {
  * === 4. 404 Page ===
  */
 .four-header {
-  background: transparent url('../img/main2.jpg') no-repeat fixed top;
   background-size: cover;
   height: 300px;
   width: 100%;
@@ -1013,10 +1001,7 @@ ul.social-links li a:hover {
   filter: grayscale(100%);
   opacity: .75;
 }
-#hex404:before {
-}
 #text404{
-  fill:#ff8103;
   font-weight: 600;
 }
 /*
@@ -1235,10 +1220,6 @@ span.sep {
   background-color: #ccc;
   padding: 10px 20px;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-.search-form .submits:hover {
-  background-color: #ff8103;
-  border-color: #ff8103;
 }
 .widget_search {
   position: relative;

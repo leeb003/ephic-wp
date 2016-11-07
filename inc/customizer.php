@@ -708,10 +708,10 @@ ephic_Kirki::add_section( 'page_404', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'background_404',
-	'label'		=> __('404 Page background image', 'ephic' ),
+	'label'		=> __('404 Page top background image', 'ephic' ),
 	'priority'	=> 10,
-	'default'	=>  get_template_directory_uri() . '/img/gallery-bg.jpg',
-	'description'=> esc_attr__('Choose an image for the background for your 404 page template - our demo image size is 1920 x 1438', 'ephic'),
+	'default'	=>  get_template_directory_uri() . '/img/main2.jpg',
+	'description'=> esc_attr__('Choose an image for the background at the top of the 404 page template', 'ephic'),
 	'section'   => 'page_404',
 ) );
 /* 404 Top Heading */
@@ -720,38 +720,28 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'settings'  => 'page_404_heading',
     'label'     => __('Top Heading', 'ephic'),
     'priority'  => 10,
-    'default'   => "The Page Cannot Be Found",
-    'description'=> __('Insert the Heading below 404', 'ephic'),
+    'default'   => "404 Top Heading",
+    'description'=> __('Insert your top heading', 'ephic'),
+    'section'   => 'page_404',
+) );
+/* 404 text Background Image */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'image',
+    'settings'  => 'background_text_404',
+    'label'     => __('404 text background image', 'ephic' ),
+    'priority'  => 10,
+    'default'   =>  get_template_directory_uri() . '/img/404.jpg',
+    'description'=> esc_attr__('Choose an image for the background behind the 404 text.', 'ephic'),
     'section'   => 'page_404',
 ) );
 /* 404 Heading Description */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'page_404_hdesc',
-    'label'     => __('Heading description', 'ephic'),
+    'settings'  => 'page_404_desc',
+    'label'     => __('404 Description', 'ephic'),
     'priority'  => 10,
-    'default'   => 'The page you are looking for has either moved or does not exist.  Please use the link below to return to our home page.',
-    'description'=> __('Insert the description below the heading', 'ephic'),
-    'section'   => 'page_404',
-) );
-/* 404 Banner */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'page_404_banner',
-    'label'     => __('Banner Text', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Let us help you find your way home.',
-    'description'=> __('Insert the text for the banner below', 'ephic'),
-    'section'   => 'page_404',
-) );
-/* 404 Banner Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'page_404_btn',
-    'label'     => __('Banner Button Text', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Go Home',
-    'description'=> __('Insert the home button text', 'ephic'),
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'description'=> __('Insert the description below the 404', 'ephic'),
     'section'   => 'page_404',
 ) );
 
@@ -1043,90 +1033,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'priority'  => 21
 ) );
 
-/* Highlight slider enable */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'highlight_slides_enable',
-    'label'       => __( 'Highlight Slider', 'ephic' ),
-    'description' => __( 'Enable or disable the highlight slider. Note - you need at least 2 slides.', 'ephic'),
-    'section'     => 'configure_sections',
-    'default'     => 'enable',
-    'priority'    => 22,
-    'choices'     => array(
-        'enable'   => esc_attr__( 'Enable', 'ephic' ),
-        'disable' => esc_attr__( 'Disable', 'ephic' ),
-    ),
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'highlights'
-        ),
-    ),
-) );
-
-/* Highligh slides */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'repeater',
-    'settings'      => 'highlight_slides',
-    'label'         => __('Slide settings', 'ephic'),
-    'section'       => 'configure_sections',
-    'description'   => __('Set up the slides for the highlights section.', 'ephic'),
-    'priority'      => 23,
-    'row_label'   => array(          // row_label is not yet documented in Kirki
-        'type' => 'text',
-        'value' => __('Slide', 'ephic'),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'highlight_slides_enable',
-            'operator'  => '==',
-            'value'     => 'enable'
-        ),
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'highlights'
-        ),
-    ),
-    'default'       => array(
-    ),
-
-    'fields' => array(
-        'slide_title' => array(
-            'type'        => 'text',
-            'label'       => __('Title', 'ephic'),
-            'description' => __('This is the slide title', 'ephic'),
-            'default'     => 'Interior Details',
-        ),
-        'slide_text' => array(
-            'type'        => 'textarea',
-            'label'       => __('Slide Text', 'ephic'),
-            'default'     => 'Debitis euripidis expetendis eos an, vim case complectitur ut, ex discere utroque contentiones qui. Augue vitae reprimique cu usu.',
-        ),
-		'slide_feature_list' => array(
-			'type'		  => 'textarea',
-			'label'		  => __('Feature list, separate items with commas', 'ephic'),
-			'default'	  => 'Year Built: 2016, Appliances: Included, Fireplace: Gas, Heating: Natural Gas, Laundry: Main Level, Basement: Full',
-		),
-		'slide_feature_text' => array(
-			'type'		  => 'text',
-			'label'		  => __('Slide feature text', 'ephic'),
-			'default'	  => 'Total sq.ft.',
-		),
-		'slide_feature_text_2' => array(
-			'type'		  => 'text',
-			'label'		  => __('Slide feature text 2', 'ephic'),
-			'default'	  => '4,078',
-		),
-		'slide_image'	=> array(
-			'type'		  => 'image',
-			'label'		  => __('Slide Image', 'ephic'),
-			'default'	  => '',
-		),
-    )
-) );
-
 /* Parallax Sections */
 
 /* Parallax 1 Section */
@@ -1333,53 +1239,458 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     ),
 ) );
 
-/* Configure Services Sectino */
-
-
-
-
-/* Configure Sections Photo Section */
-
-/* Photo Section Title */
+/* Configure Services Section */
+/* Services Section Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'gallery_title',
-    'label'     => __('Photo Gallery Title', 'ephic'),
+    'settings'  => 'services_title',
+    'label'     => __('Services Title', 'ephic'),
     'priority'  => 10,
-    'default'   => 'Photo Gallery',
+    'default'   => 'Your Title',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'gallery'
+            'value'     => 'services'
         ),
     ),
 ) );
 
-/* Photo Section Description */
+/* Services Section Description */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'gallery_text',
-    'label'     => __('Photo Gallery Description', 'ephic'),
+    'settings'  => 'services_text',
+    'label'     => __('Services Description', 'ephic'),
     'priority'  => 10,
-    'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
+    'default'   => 'Services Description.',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'gallery'
+            'value'     => 'services'
         ),
     ),
 ) );
 
-/* Photo Section Banner Enable */
+/* Services Section Icons
+ * Using customizer select list since Kirki's won't let us add icons.  
+ * All direct customize calls go in this block for this section 
+ * The priority will keep them all in the correct order
+*/
+function configure_services_customize($wp_customize) {
+    /* Get the icon arrays from font-arrays.php */
+    $theme_font_awesome = theme_font_awesome();
+    $theme_font_awesome_num = theme_font_awesome_num();
+    // build new array with name and icon
+    $fa_icons = array();
+    foreach ($theme_font_awesome as $k => $v) {
+        $fa_icons[$k] = $v . ' ' . str_replace('\f', '&#xf', $theme_font_awesome_num[$k]);
+    }
+
+    /* Services icon 1 */
+    $wp_customize->add_setting ( 'services_1_icon', array (
+            'default' => 'fa-paper-plane',
+        )
+    );
+    $wp_customize->add_control ( 'services_1_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 1', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 11,
+            'active_callback' => 'services_enabled',
+        )
+    );
+
+    /* Services icon 2 */
+    $wp_customize->add_setting ( 'services_2_icon', array (
+            'default' => 'fa-life-ring',
+        )
+    );
+    $wp_customize->add_control ( 'services_2_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 2', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 14,
+            'active_callback' => 'services_enabled',
+        )
+    );
+   
+    /* Services icon 3 */
+    $wp_customize->add_setting ( 'services_3_icon', array (
+            'default' => 'fa-laptop',
+        )
+    );
+    $wp_customize->add_control ( 'services_3_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 3', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 17,
+            'active_callback' => 'services_enabled',
+        )
+    );
+		
+	/* Services icon 4 */
+    $wp_customize->add_setting ( 'services_4_icon', array (
+            'default' => 'fa-paper-plane',
+        )
+    );
+    $wp_customize->add_control ( 'services_4_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 4', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 20,
+            'active_callback' => 'services_enabled',
+        )
+    );
+
+    /* Services icon 5 */
+    $wp_customize->add_setting ( 'services_5_icon', array (
+            'default' => 'fa-life-ring',
+        )
+    );
+    $wp_customize->add_control ( 'services_5_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 5', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 23,
+            'active_callback' => 'services_enabled',
+        )
+    );
+   
+    /* Services icon 6 */
+    $wp_customize->add_setting ( 'services_6_icon', array (
+            'default' => 'fa-laptop',
+        )
+    );
+    $wp_customize->add_control ( 'services_6_icon', array (
+            'type'  => 'select',
+            'label' => __('Services Icon 6', 'ephic'),
+            'description'   => __('Choose an icon for the Home Page Services Section', 'ephic'),
+            'choices'   => $fa_icons,
+            'section'   => 'configure_sections',
+            'priority'  => 26,
+            'active_callback' => 'services_enabled',
+        )
+    );
+}
+
+/* The check for Welcome being selected to display the icons */
+function services_enabled($control) {
+    if( $control->manager->get_setting('section_choice')->value() == 'services') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+add_action( 'customize_register', 'configure_services_customize');
+
+/* Services 1 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_1_title',
+    'label'     => __('Services 1 Title', 'ephic'),
+    'priority'  => 12,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 1 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_1_text',
+    'label'     => __('Services 1 Text', 'ephic'),
+    'priority'  => 13,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 2 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_2_title',
+    'label'     => __('Services 2 Title', 'ephic'),
+    'priority'  => 15,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 2 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_2_text',
+    'label'     => __('Services 2 Text', 'ephic'),
+    'priority'  => 16,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );/* Services 3 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_3_title',
+    'label'     => __('Services 3 Title', 'ephic'),
+    'priority'  => 18,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 3 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_3_text',
+    'label'     => __('Services 3 Text', 'ephic'),
+    'priority'  => 19,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );/* Services 4 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_4_title',
+    'label'     => __('Services 4 Title', 'ephic'),
+    'priority'  => 21,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 4 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_4_text',
+    'label'     => __('Services 4 Text', 'ephic'),
+    'priority'  => 22,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );/* Services 5 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_5_title',
+    'label'     => __('Services 5 Title', 'ephic'),
+    'priority'  => 24,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 5 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_5_text',
+    'label'     => __('Services 5 Text', 'ephic'),
+    'priority'  => 25,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );/* Services 6 Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_6_title',
+    'label'     => __('Services 6 Title', 'ephic'),
+    'priority'  => 27,
+    'default'   => 'Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services 6 Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'services_6_text',
+    'label'     => __('Services 6 Text', 'ephic'),
+    'priority'  => 28,
+    'default'   => 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Services Button Text */
+ephic_Kirki::add_field( 'ephic_theme', array(
+	'type'      => 'text',
+    'settings'  => 'services_btn_text',
+    'label'     => __('Services Button Text', 'ephic'),
+    'priority'  => 29,
+    'default'   => 'Button Text',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+
+/* Services Button Link */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'services_btn_link',
+    'label'     => __('Services Button Link', 'ephic'),
+    'priority'  => 29,
+    'default'   => 'http://google.com',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+/* Services Button Window */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'        => 'radio-buttonset',
-    'settings'    => 'gallery_banner_enable',
-    'label'       => __( 'Enable Banner', 'ephic' ),
-    'description' => __( 'Enable or disable the bottom gallery banner and link.', 'ephic'),
+    'settings'    => 'services_btn_window',
+    'label'       => __( 'Services Button Link Window', 'ephic' ),
+    'description' => __( 'Choose to open link in new or existing window.', 'ephic'),
+    'section'     => 'configure_sections',
+    'default'     => 'blank',
+    'priority'    => 30,
+    'choices'     => array(
+        'blank'   => __( 'Blank Page', 'ephic' ),
+        'self' => __( 'Same Page', 'ephic' ),
+    ),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'services'
+        ),
+    ),
+) );
+
+/* Configure Section Projects Section */
+
+/* Projects Section Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'projects_title',
+    'label'     => __('Projects Title', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'Project Gallery',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'projects'
+        ),
+    ),
+) );
+
+/* Projects Section Description */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'textarea',
+    'settings'  => 'projects_text',
+    'label'     => __('Projects Description', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'The Project Gallery',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'projects'
+        ),
+    ),
+) );
+
+/* Project Section Stats Enable */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'        => 'radio-buttonset',
+    'settings'    => 'projects_stats_enable',
+    'label'       => __( 'Enable stats below projects', 'ephic' ),
+    'description' => __( 'Enable or disable the bottom statistics.', 'ephic'),
     'section'     => 'configure_sections',
     'default'     => 'enable',
     'priority'    => 10,
@@ -1391,641 +1702,204 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'gallery'
+            'value'     => 'projects'
         ),
     ),
 ) );
 
-/* Photo Section Banner Text */
+/* Projects Sections Stats Repeater */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'          => 'repeater',
+    'settings'      => 'stats',
+    'label'         => __('Statistics', 'ephic'),
+    'section'       => 'configure_sections',
+    'description'   => __('Add, Remove, and sort your statistics.  4 is recommended.', 'ephic'),
+    'priority'      => 11,
+    'row_label'   => array(          // row_label is not yet documented in Kirki
+        'type' => 'text',
+        'value' => __('Statistic', 'ephic'),
+    ),
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'projects'
+        ),
+		array(
+			'setting'   => 'projects_stats_enable',
+			'operator'  => '==',
+			'value'     => 'enable'
+		),
+    ),
+    'default'       => array(
+    ),
+
+    'fields' => array(
+        'number' => array(
+            'type'        => 'text',
+            'label'       => __('The Ending Number', 'ephic'),
+            'default'     => '',
+        ),
+        'text' => array(
+            'type'        => 'text',
+            'label'       => __('Text Below The Number', 'ephic'),
+            'default'     => ''
+        ),
+    ),
+) );
+
+/* Configure About Section */
+
+/* About Section Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'      => 'text',
+    'settings'  => 'about_title',
+    'label'     => __('About Title', 'ephic'),
+    'priority'  => 10,
+    'default'   => 'About Title',
+    'section'   => 'configure_sections',
+    'active_callback'   => array(  // Kirki field dependency
+        array(
+            'setting'   => 'section_choice',
+            'operator'  => '==',
+            'value'     => 'about'
+        ),
+    ),
+) );
+
+/* About Section Description */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'gallery_banner_text',
-    'label'     => __('Photo Gallery Banner Text', 'ephic'),
+    'settings'  => 'about_text',
+    'label'     => __('About Description', 'ephic'),
     'priority'  => 10,
-    'default'   => 'TRY A 360° VIRTUAL TOUR IN THIS HOUSE',
+    'default'   => 'The About Description',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'gallery'
-        ),
-		array(
-            'setting'   => 'gallery_banner_enable',
-            'operator'  => '==',
-            'value'     => 'enable'
-        ),
-    ),
-) );
-/* Photo Section Banner Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'gallery_banner_btn_text',
-    'label'     => __('Photo Gallery Banner Text', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Take a Look',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'gallery'
-        ),
-        array(
-            'setting'   => 'gallery_banner_enable',
-            'operator'  => '==',
-            'value'     => 'enable'
-        ),
-    ),
-) );
-/* Photo Section Banner Button Link */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'gallery_banner_btn_link',
-    'label'     => __('Photo Gallery Banner Link', 'ephic'),
-	'description' => __('Link in the form http://www.example.com', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'http://www.example.com',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'gallery'
-        ),
-        array(
-            'setting'   => 'gallery_banner_enable',
-            'operator'  => '==',
-            'value'     => 'enable'
-        ),
-    ),
-) );
-/* Photo Section Banner Enable */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'gallery_banner_btn_window',
-    'label'       => __( 'Banner Button Link Window', 'ephic' ),
-    'description' => __( 'Choose to open link in new or existing window.', 'ephic'),
-    'section'     => 'configure_sections',
-    'default'     => 'blank',
-    'priority'    => 10,
-    'choices'     => array(
-        'blank'   => __( 'Blank Page', 'ephic' ),
-        'self' => __( 'Same Page', 'ephic' ),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'gallery'
-        ),
-		array(
-            'setting'   => 'gallery_banner_enable',
-            'operator'  => '==',
-            'value'     => 'enable'
+            'value'     => 'about'
         ),
     ),
 ) );
 
-/* Photo Section Background Image */
+/* About Image */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'        => 'image',
-    'settings'    => 'gallery_background',
-    'label'       => __( 'Photo Gallery Background Image', 'ephic' ),
-    'description' => __( 'Choose a background image for the photo gallery section.  All images and categories are set under the Port
-folio Entries tab in your WordPress admin.', 'ephic' ),
+    'settings'    => 'about_photo',
+    'label'       => __( 'About Section Image', 'ephic' ),
+    'description' => __( 'Choose an image for the about section.', 'ephic' ),
     'section'     => 'configure_sections',
-    'default'     => '',
+    'default'     => get_template_directory_uri() . '/img/author.png',
     'priority'    => 10,
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'gallery'
+            'value'     => 'about'
         ),
     ),
 ) );
 
-
-/* 
- * Additional Information Section 
- */
-/* Additional Information title */
+/* About Section Small secondary title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'additional_title',
-    'label'     => __('Additional Information Title', 'ephic'),
+    'settings'  => 'about_small_title',
+    'label'     => __('Below Image Title', 'ephic'),
     'priority'  => 10,
-    'default'   => 'Additional Information',
+    'default'   => 'About Smaller Title',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'additional'
+            'value'     => 'about'
         ),
     ),
 ) );
-/* Additional Information description */
+
+/* About Section Lower Description */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'textarea',
-    'settings'  => 'additional_text',
-    'label'     => __('Additional Information Description', 'ephic'),
+    'settings'  => 'about_lower_text',
+    'label'     => __('About Section Large Text', 'ephic'),
     'priority'  => 10,
-    'default'   => 'Lorum ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
+    'default'   => 'Is ut graece delectus repudiare, in habeo labore electram cum. Iracundia percipitur et usu. Nonumes consequat vix et, mea inani veritus democritum ei. His ullum feugait cu, ipsum semper molestiae no ius, eam deleniti.
+
+Everti praesent sed an. Animal noluisse usu te. Abhorreant voluptatibus eu vis, eos an putent nusquam. Pri veri iracundia necessitatibus an, per id iisque imperdiet, possit utamur neglegentur ius ne.',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'additional'
+            'value'     => 'about'
         ),
     ),
 ) );
 
-/* Additional Information Icons */
-function configure_additional_customize($wp_customize) {
-    /* Linear icons */
-    $theme_linearicons = theme_linearicons();
-    $theme_linearicons_num = theme_linearicons_num();
-    $linear_icons = array();
-    foreach ($theme_linearicons as $k => $v) {
-        $linear_icons[$k] = $v . ' ' . str_replace('\e', '&#xe', $theme_linearicons_num[$k]);
-    }
-
-
-    $wp_customize->add_setting ( 'additional_1_icon', array (
-            'default' => 'icon-bandage',
-        )
-    );
-    $wp_customize->add_control ( 'additional_1_icon', array (
-            'type'  => 'select',
-            'label' => __('Additional Icon 1', 'ephic'),
-            'description'   => __('Choose an icon for the Additional Information area.', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 11,
-            'active_callback' => 'additional_enabled',
-        )
-    );
-
-	$wp_customize->add_setting ( 'additional_2_icon', array (
-            'default' => 'icon-bus',
-        )
-    );
-    $wp_customize->add_control ( 'additional_2_icon', array (
-            'type'  => 'select',
-            'label' => __('Additional Icon 2', 'ephic'),
-            'description'   => __('Choose an icon for the Additional Information area.', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 13,
-            'active_callback' => 'additional_enabled',
-        )
-    );
-	
-	$wp_customize->add_setting ( 'additional_3_icon', array (
-            'default' => 'icon-cart',
-        )
-    );
-    $wp_customize->add_control ( 'additional_3_icon', array (
-            'type'  => 'select',
-            'label' => __('Additional Icon 3', 'ephic'),
-            'description'   => __('Choose an icon for the Additional Information area.', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 15,
-            'active_callback' => 'additional_enabled',
-        )
-    );
-
-	$wp_customize->add_setting ( 'additional_4_icon', array (
-            'default' => 'icon-tree',
-        )
-    );
-    $wp_customize->add_control ( 'additional_4_icon', array (
-            'type'  => 'select',
-            'label' => __('Additional Icon 4', 'ephic'),
-            'description'   => __('Choose an icon for the Additional Information area.', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 17,
-            'active_callback' => 'additional_enabled',
-        )
-    );
-}
-
-/* The check for the additional information section being selected to display the icons */
-function additional_enabled($control) {
-    if( $control->manager->get_setting('section_choice')->value() == 'additional') {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-add_action( 'customize_register', 'configure_additional_customize');
-
-/* Additional Icon Text */
+/* About Section Signature */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_1_text',
-    'label'     => __('Icon 1 Text', 'ephic'),
-    'priority'  => 12,
-    'default'   => 'Nearby Hostpitals',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Icon Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_2_text',
-    'label'     => __('Icon 2 Text', 'ephic'),
-    'priority'  => 14,
-    'default'   => 'Excellent Schools',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Icon Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_3_text',
-    'label'     => __('Icon 3 Text', 'ephic'),
-    'priority'  => 16,
-    'default'   => 'Nearby Shopping',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Icon Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_4_text',
-    'label'     => __('Icon 4 Text', 'ephic'),
-    'priority'  => 18,
-    'default'   => 'Neighborhood Parks',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_btn_text',
-    'label'     => __('Additional Information Button Text', 'ephic'),
-    'priority'  => 19,
-    'default'   => 'Contact Us',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'additional_btn_link',
-    'label'     => __('Additional Information Button Link', 'ephic'),
-    'priority'  => 20,
-    'default'   => 'http://www.example.com',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* Additional Button Window */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'additional_btn_window',
-    'label'       => __( 'Button Link Window', 'ephic' ),
-    'description' => __( 'Choose to open link in new or existing window.', 'ephic'),
+    'type'        => 'image',
+    'settings'    => 'about_signature',
+    'label'       => __( 'About Section Signature', 'ephic' ),
+    'description' => __( 'Choose an image for your signature.', 'ephic' ),
     'section'     => 'configure_sections',
-    'default'     => 'blank',
-    'priority'    => 21,
-    'choices'     => array(
-        'blank'   => __( 'Blank Page', 'ephic' ),
-        'self' => __( 'Same Page', 'ephic' ),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'additional'
-        ),
-    ),
-) );
-
-/* 
- * Posts Section Configure
- */
-
-/* Posts Title */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'posts_title',
-    'label'     => __('Posts Section Title', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Recent Posts',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'posts'
-        ),
-    ),
-) );
-
-/* Posts Description */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'posts_text',
-    'label'     => __('Posts Section Description', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'posts'
-        ),
-    ),
-) );
-
-/* Section to configure choice */
-$posts_num = array();
-for ($i=1;$i<=25; $i++) {
-	$posts_num[$i] = $i;
-}
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'select',
-    'settings'    => 'posts_number',
+    'default'     => get_template_directory_uri() . '/img/signature.png',
     'priority'    => 10,
-    'default'     => 'na',
-    'section'     => 'configure_sections',
-    'label'       => __('Posts', 'ephic'),
-    'description' => __('Choose the number of posts to display in this section', 'ephic'),
-    'default'     => '2',
-    'choices' => $posts_num,
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'posts'
-        ),
-    ),
-) );
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'select',
-    'settings'    => 'posts_sort',
-    'priority'    => 10,
-    'default'     => 'na',
-    'section'     => 'configure_sections',
-    'label'       => __('Posts Sorting', 'ephic'),
-    'description' => __('Choose how you would like to sort the posts', 'ephic'),
-    'default'     => 'asc',
-    'choices' => array( 
-		'ASC' => __('Ascending', 'ephic'),
-		'DESC'=> __('Descending', 'ephic')
-	),
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'posts'
-        ),
-    ),
-) );
-/* Post Attributes */
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'        => 'sortable',
-	'settings'    => 'posts_atts',
-	'label'       => __( 'Choose the meta attributes to display', 'ephic' ),
-	'description' => __( '3 or less recommended for display', 'ephic' ),
-	'section'     => 'configure_sections',
-	'default'     => array(
-		'comments',
-		'like',
-	),
-	'choices'     => array(
-		'comments' => esc_attr__( 'Comments', 'ephic' ),
-		'like' => esc_attr__( 'Like', 'ephic' ),
-		'author' => esc_attr__( 'Author', 'ephic' ),
-		'date' => esc_attr__( 'Date', 'ephic' ),
-	),
-	'priority'    => 10,
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'posts'
+            'value'     => 'about'
         ),
     ),
 ) );
 
-/**
- * Featured Agent Section
- */
-
-/* Agent Title */
+/* About Section Social Link Repeater fields */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'agent_title',
-    'label'     => __('Agent Title', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Presented By',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Description */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'agent_desc',
-    'label'     => __('Agent Description', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Name */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'agent_name',
-    'label'     => __('Agent Name', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Janice Smith',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Credentials */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'agent_cred',
-    'label'     => __('Agent Credentials', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Realtor / Broker Associate - GRI, ABR',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Credentials */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'agent_info',
-    'label'     => __('Agent Information', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'His nonumes consequat id, ignota iriure mei in. Elit latine fastidii ex mea, ius cu solet veritus concludaturque. Mel at appetere salutatus intellegat, ut per posse iriure propriae, minim oblique ut nam. Quem necessitatibus eu sit, duo ne phaedrum aliquando dissentiet, simul persecuti te usu.',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Photo */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'image',
-    'settings'      => 'agent_photo',
-    'label'         => __('Insert your agent photo', 'ephic'),
+    'type'          => 'repeater',
+    'settings'      => 'about_social_pick',
+    'label'         => __('Social Links', 'ephic'),
     'section'       => 'configure_sections',
-    'description'   => __( 'Demo image is 350px x 558px', 'ephic'),
+    'description'   => __('Choose the social network and set a link.', 'ephic'),
     'priority'      => 10,
-    'default'       => '',
-	'active_callback'   => array(  // Kirki field dependency
+    'row_label'   => array(          // row_label is not yet documented in Kirki
+        'type' => 'text',
+        'value' => __('Social Link', 'ephic'),
+    ),
+    'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
     ),
+    'default'       => array(
+    ),
+
+    'fields' => array(
+        'social_url' => array(
+            'type'        => 'text',
+            'label'       => __('Social URL', 'ephic'),
+            'description' => __('This is the Link URL', 'ephic'),
+            'default'     => '',
+        ),
+        'social_choice' => array(
+            'type'        => 'select',
+            'label'       => __('Social Network', 'ephic'),
+            'default'     => '',
+            'choices' => ephic_social_icons(),
+        ),
+    )
 ) );
 
-/* Agent Button Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'agent_btn_text',
-    'label'     => __('Agent Button Text', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'Schedule A Showing',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-/* Agent Button Link */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'text',
-    'settings'  => 'agent_btn_link',
-    'label'     => __('Agent Button Link', 'ephic'),
-    'description' => __('Link in the form http://www.example.com', 'ephic'),
-    'priority'  => 10,
-    'default'   => 'http://www.example.com',
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-/* Agent Button Window */
+/* About Section Contact Info */
+/* About Enable Infobar */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'        => 'radio-buttonset',
-    'settings'    => 'agent_btn_window',
-    'label'       => __( 'Agent Button Link Window', 'ephic' ),
-    'description' => __( 'Choose to open link in new or existing window.', 'ephic'),
-    'section'     => 'configure_sections',
-    'default'     => 'blank',
-    'priority'    => 10,
-    'choices'     => array(
-        'blank'   => __( 'Blank Page', 'ephic' ),
-        'self' => __( 'Same Page', 'ephic' ),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-		),
-	),
-) );
-
-/* Agent Enable Infobar */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'agent_infobar',
-    'label'       => __( 'Enable Infobar below agent?', 'ephic' ),
+    'settings'    => 'about_infobar',
+    'label'       => __( 'Enable Infobar at the bottom of the about section?', 'ephic' ),
     'section'     => 'configure_sections',
     'default'     => 'enable',
     'priority'    => 10,
@@ -2037,17 +1911,18 @@ ephic_Kirki::add_field( 'ephic_theme', array(
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
     ),
 ) );
 
-/* Agent Contacts
+
+/*
  * Using customizer select list since Kirki's won't let us add icons.  
  * All direct customize calls go in this block for this section 
  * The priority will keep them all in the correct order
 */
-function configure_agent_customize($wp_customize) {
+function configure_about_contact_info($wp_customize) {
     /* Get the icon arrays from font-arrays.php */
     $theme_font_awesome = theme_font_awesome();
     $theme_font_awesome_num = theme_font_awesome_num();
@@ -2057,467 +1932,206 @@ function configure_agent_customize($wp_customize) {
         $fa_icons[$k] = $v . ' ' . str_replace('\f', '&#xf', $theme_font_awesome_num[$k]);
     }
 
-    $wp_customize->add_setting ( 'agent_1_icon', array (
-            'default' => 'fa-map-marker',
+    $wp_customize->add_setting ( 'about_1_icon', array (
+            'default' => '',
         )
     );
-    $wp_customize->add_control ( 'agent_1_icon', array (
+    $wp_customize->add_control ( 'about_1_icon', array (
             'type'  => 'select',
-            'label' => __('Agent Info Icon 1', 'ephic'),
+            'label' => __('About Contact Info Icon 1', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
             'priority'  => 11,
-            'active_callback' => 'agent_infobar_enabled',
+            'active_callback' => 'about_enabled',
         )
     );
-   
-    $wp_customize->add_setting ( 'agent_2_icon', array (
-            'default' => 'fa-phone',
+  
+    $wp_customize->add_setting ( 'about_2_icon', array (
+            'default' => '',
         )
     );
-    $wp_customize->add_control ( 'agent_2_icon', array (
+    $wp_customize->add_control ( 'about_2_icon', array (
             'type'  => 'select',
-            'label' => __('Agent Info Icon 2', 'ephic'),
+            'label' => __('About Contact Info Icon 2', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
-            'priority'  => 13,
-            'active_callback' => 'agent_infobar_enabled',
+            'priority'  => 14,
+            'active_callback' => 'about_enabled',
         )
     );
 
-    $wp_customize->add_setting ( 'agent_3_icon', array (
-            'default' => 'fa-envelope-o',
+    $wp_customize->add_setting ( 'about_3_icon', array (
+            'default' => '',
         )
     );
-    $wp_customize->add_control ( 'agent_3_icon', array (
+    $wp_customize->add_control ( 'about_3_icon', array (
             'type'  => 'select',
-            'label' => __('Agent Info Icon 3', 'ephic'),
+            'label' => __('About Contact Info Icon 3', 'ephic'),
             'choices'   => $fa_icons,
             'section'   => 'configure_sections',
-            'priority'  => 15,
-            'active_callback' => 'agent_infobar_enabled',
+            'priority'  => 17,
+            'active_callback' => 'about_enabled',
         )
     );
 }
 
-/* The check for home features being enabled to display the icons */
-function agent_infobar_enabled($control) {
-    if( $control->manager->get_setting('agent_infobar')->value() == 'enable'
-		&& $control->manager->get_setting('section_choice')->value() == 'agent' ) {
+/* The check for the about section being enabled to display the icons */
+function about_enabled($control) {
+    if ($control->manager->get_setting('section_choice')->value() == 'about' 
+		&& $control->manager->get_setting('about_infobar')->value() == 'enable' ) {
         return true;
     } else {
         return false;
     }
 }
 
-add_action( 'customize_register', 'configure_agent_customize');
+add_action( 'customize_register', 'configure_about_contact_info');
 
-/* Agent Infobar text */
+/* About Info Icon title 1 */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'agent_1_text',
-    'label'     => __('Agent Info 1 Text', 'ephic'),
+    'settings'  => 'about_1_title',
+    'label'     => __('About Contact Info 1 Title', 'ephic'),
     'priority'  => 12,
-    'default'   => '25 North Street / Your Town, CO 88888 United States.',
+    'default'   => 'Title 1',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
 		array(
-			'setting'	=> 'agent_infobar',
-			'operator'	=> '==',
-			'value'		=> 'enable'
+			'setting'   => 'about_infobar',
+			'operator'  => '==',
+			'value'     => 'enable'
 		),
     ),
 ) );
 
-/* Agent Infobar text */
+/* About Info Icon title 2 */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'agent_2_text',
-    'label'     => __('Agent Info 2 Text', 'ephic'),
-    'priority'  => 14,
-    'default'   => 'Phone: (+314) 0454 3234 23',
+    'settings'  => 'about_2_title',
+    'label'     => __('About Contact Info 2 Title', 'ephic'),
+    'priority'  => 15,
+    'default'   => 'Title 2',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
-        array(
-            'setting'   => 'agent_infobar',
+		array(
+            'setting'   => 'about_infobar',
             'operator'  => '==',
             'value'     => 'enable'
-		),
+        ),
     ),
 ) );
 
-/* Agent Infobar text */
+/* About Info Icon title 3 */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'      => 'text',
-    'settings'  => 'agent_3_text',
-    'label'     => __('Agent Info 3 Text', 'ephic'),
-    'priority'  => 16,
-    'default'   => 'Email: NOREPLY@GMAIL.COM',
+    'settings'  => 'about_3_title',
+    'label'     => __('About Contact Info 3 Title', 'ephic'),
+    'priority'  => 18,
+    'default'   => 'Title 3',
     'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
-        ),
-        array(
-            'setting'   => 'agent_infobar',
-            'operator'  => '==',
-            'value'     => 'enable'
-		),
-    ),
-) );
-
-/* Agent Enable Map */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'agent_map',
-    'label'       => __( 'Enable Map below agent?', 'ephic' ),
-    'section'     => 'configure_sections',
-    'default'     => 'enable',
-    'priority'    => 17,
-    'choices'     => array(
-        'enable'   => __( 'Enable', 'ephic' ),
-        'disable' => __( 'Disable', 'ephic' ),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
-        ),
-    ),
-) );
-
-/* Agent Map Marker */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'image',
-    'settings'      => 'agent_map_marker',
-    'label'         => __('Insert your map marker', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 18,
-    'default'       => '',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
 		array(
-            'setting'   => 'agent_map',
+            'setting'   => 'about_infobar',
             'operator'  => '==',
             'value'     => 'enable'
         ),
     ),
 ) );
 
-/* Agent Map latitude */
+/* About Info Icon text 1 */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'agent_map_lat',
-    'label'         => __('Insert the location latitude', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 19,
-    'default'       => '39.7645187',
+    'type'      => 'text',
+    'settings'  => 'about_1_text',
+    'label'     => __('About Contact Info 1 Text', 'ephic'),
+    'priority'  => 12,
+    'default'   => 'Text 1 below',
+    'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
 		array(
-            'setting'   => 'agent_map',
+            'setting'   => 'about_infobar',
             'operator'  => '==',
             'value'     => 'enable'
         ),
     ),
 ) );
 
-/* Agent Map longitude */
+/* About Info Icon text 2 */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'agent_map_lng',
-    'label'         => __('Insert the location longitude', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 20,
-    'default'       => '-104.9951951',
+    'type'      => 'text',
+    'settings'  => 'about_2_text',
+    'label'     => __('About Contact Info 2 Text', 'ephic'),
+    'priority'  => 15,
+    'default'   => 'Text 2 below',
+    'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'agent'
+            'value'     => 'about'
         ),
-        array(
-            'setting'   => 'agent_map',
+		array(
+            'setting'   => 'about_infobar',
             'operator'  => '==',
             'value'     => 'enable'
         ),
     ),
 ) );
 
-/**
- * About Us - Top Agents 
- */
-/* Top Agents Title */
+/* About Info Icon text 3 */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'topagents_title',
-    'label'         => __('Add your Agents Slider Title', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => 'Our Top Agents',
+    'type'      => 'text',
+    'settings'  => 'about_3_text',
+    'label'     => __('About Contact Info 3 Text', 'ephic'),
+    'priority'  => 18,
+    'default'   => 'Text 3 below',
+    'section'   => 'configure_sections',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
             'operator'  => '==',
-            'value'     => 'topagents'
+            'value'     => 'about'
         ),
-    ),
-) );
-/* Top Agents Description */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'textarea',
-    'settings'      => 'topagents_text',
-    'label'         => __('Add your Agents Slider Description', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nisi a dictum tristique.',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
+		array(
+            'setting'   => 'about_infobar',
             'operator'  => '==',
-            'value'     => 'topagents'
+            'value'     => 'enable'
         ),
     ),
 ) );
 
-/* Add empty icon for no social icon to display */
-$orig_social_icons = ephic_social_icons();
-$prepend = array(
-	'na' => __('Select An Icon', 'ephic')
-);
-$mod_social_icons = array_merge($prepend, $orig_social_icons);
-
-/* Top Agents Section Repeater fields */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'repeater',
-    'settings'      => 'topagents_agents',
-    'label'         => __('Agents', 'ephic'),
-    'section'       => 'configure_sections',
-    'description'   => __('Add, Remove, and sort your agents and their info.', 'ephic'),
-    'priority'      => 10,
-    'row_label'   => array(          // row_label is not yet documented in Kirki
-        'type' => 'text',
-        'value' => __('Agent', 'ephic'),
-    ),
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'topagents'
-        ),
-    ),
-    'default'       => array(
-    ),
-
-    'fields' => array(
-        'agent_photo' => array(
-            'type'        => 'image',
-            'label'       => __('Agent Photo', 'ephic'),
-            'default'     => '',
-        ),
-		'agent_name' => array(
-			'type'		  => 'text',
-			'label'		  => __('Agent Name', 'ephic'),
-			'default'	  => 'Stephan Ivanovs'
-		),
-		'agent_title' => array(
-			'type'		  => 'text',
-			'label'		  => __('Agent Title', 'ephic'),
-			'default'	  => 'Real Estate Agent',
-		),
-		'agent_phone' => array(
-			'type'		  => 'text',
-			'label'		  => __('Agent Phone', 'ephic'),
-			'default'	  => '(220) 345 675',
-		),
-		'agent_email' => array(
-			'type'		  => 'text',
-			'label'		  => __('Agent Email', 'ephic'),
-			'default'	  => 'noreply@gmail.com',
-		),
-		'social_choice_1' => array(
-            'type'        => 'select',
-            'label'       => __('Social Network', 'ephic'),
-            'default'     => 'na',
-            'choices' => $mod_social_icons,
-        ),
-		'social_url_1'	  => array(
-			'type'		  => 'text',
-			'label'		  => __('Social Link (e.g. http://www.example.com)', 'ephic'),
-			'default'	  => 'http://www.example.com',
-		),
-		'social_choice_2' => array(
-            'type'        => 'select',
-            'label'       => __('Social Network 2', 'ephic'),
-            'default'     => 'na',
-            'choices' => $mod_social_icons,
-        ),
-        'social_url_2'    => array(
-            'type'        => 'text',
-            'label'       => __('Social Link 2 (e.g. http://www.example.com)', 'ephic'),
-            'default'     => 'http://www.example.com',
-        ),  
-		'social_choice_3' => array(
-            'type'        => 'select',
-            'label'       => __('Social Network 3', 'ephic'),
-            'default'     => 'na',
-            'choices' => $mod_social_icons,
-        ),
-        'social_url_3'    => array(
-            'type'        => 'text',
-            'label'       => __('Social Link 3 (e.g. http://www.example.com)', 'ephic'),
-            'default'     => 'http://www.example.com',
-        ),  
-    )
-) );
-
-/**
- * Testimonials - Top Agents 
- */
-/* Testimonials Title */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'testimonial_title',
-    'label'         => __('Add your Testimonial Title', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => 'Testimonials',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'testimonials'
-        ),
-    ),
-) );
-
-/* Testimonials Background Image */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'image',
-    'settings'      => 'testimonial_bg',
-    'label'         => __('Insert a background image for this section', 'ephic'),
-    'description'   => __( 'Our demo uses a transparent image', 'ephic'),
-	'section'       => 'configure_sections',
-	'default'       => '',
-    'priority'      => 11,
-/*  Changes are being lost for this and testimonial color so we moved the setting to add_inline_style in functions
-	'output'      => array(
-        array(
-            'element'  => '.testimonials-section',
-            'property' => 'background-image',
-        ),
-    ),
-*/
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'testimonials'
-        ),
-    ),
-) );
-
-/* Testimonials Background Color */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'color',
-    'settings'    => 'testimonial_color',
-    'label'       => __( 'Testimonial Background Color', 'ephic' ),
-    'section'     => 'configure_sections',
-    'default'     => 'rgba(1, 11, 32, 0.7)',
-    'priority'    => 12,
-    'alpha'       => true,
-	'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'testimonials'
-        ),
-    ),
-/*
-	'output'      => array(
-        array(
-            'element'  => '.testimonials-overlay',
-            'property' => 'background-color',
-        ),
-    ),
-*/
-) );
-
-
-/* Testimonials */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'repeater',
-    'settings'      => 'testimonials',
-    'label'         => __('Agents', 'ephic'),
-    'section'       => 'configure_sections',
-    'description'   => __('Add, Remove, and sort your testimonials.  You need at least 2 to display.', 'ephic'),
-    'priority'      => 13,
-    'row_label'   => array(          // row_label is not yet documented in Kirki
-        'type' => 'text',
-        'value' => __('Testimonial', 'ephic'),
-    ),
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'testimonials'
-        ),
-    ),
-    'default'       => array(
-    ),
-
-    'fields' => array(
-        'testimonial' => array(
-            'type'        => 'textarea',
-            'label'       => __('The Testimonial', 'ephic'),
-            'default'     => 'An vel utinam impetus moderatius. Commodo copiosae ocurreret id sit. Ius enim mollis scaevola cu, at natum malis decore per. Id usu eius ancillae Doming ponderum mei ei.',
-        ),
-        'name' => array(
-            'type'        => 'text',
-            'label'       => __('Name', 'ephic'),
-            'default'     => 'Michael Richardson'
-        ),
-        'title' => array(
-            'type'        => 'text',
-            'label'       => __('Title', 'ephic'),
-            'default'     => 'Happy Client',
-        ),
-	),
-) );
 
 /*
- * About Page Contact Section
+ * Contact Section
  */
 
-/* Blurb 1 Title */
+/* Cpmtact Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'          => 'text',
-    'settings'      => 'contact_title_1',
-    'label'         => __('First Text Section Title', 'ephic'),
+    'settings'      => 'contact_title',
+    'label'         => __('Section Title', 'ephic'),
     'section'       => 'configure_sections',
     'priority'      => 10,
-    'default'       => 'Our Values',
+    'default'       => 'Contact Title',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
@@ -2527,169 +2141,14 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     ),
 ) );
 
-/* Blurb 1 Text */
+/* Contact Text */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'          => 'textarea',
-    'settings'      => 'contact_text_1',
-    'label'         => __('First Text Section', 'ephic'),
+    'settings'      => 'contact_text',
+    'label'         => __('Text below title', 'ephic'),
     'section'       => 'configure_sections',
     'priority'      => 10,
-    'default'       => 'Ex quaestio corrumpit consetetur mea, ne posse blandit nec. Quodsi oporteat constituto ea nec, ex nam dolor expetenda concludaturque. Pro ex nulla deleniti, magna soleat mollis duo an. Ut mel praesent dissentias. Has ea exerci constituto.',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'contact'
-        ),
-    ),
-) );
-
-/* Blurb 2 Title */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'contact_title_2',
-    'label'         => __('Second Text Section Title', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => 'Our Mission',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'contact'
-        ),
-    ),
-) );
-
-/* Blurb 2 Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'textarea',
-    'settings'      => 'contact_text_2',
-    'label'         => __('Second Text Section', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => 'Ex quaestio corrumpit consetetur mea, ne posse blandit nec. Quodsi oporteat constituto ea nec, ex nam dolor expetenda concludaturque. Pro ex nulla deleniti, magna soleat mollis duo an. Ut mel praesent dissentias. Has ea exerci constituto.',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'contact'
-        ),
-    ),
-) );
-
-function configure_contacts_customize($wp_customize) {
-    /* Linear icons */
-    $theme_linearicons = theme_linearicons();
-    $theme_linearicons_num = theme_linearicons_num();
-    $linear_icons = array();
-    foreach ($theme_linearicons as $k => $v) {
-        $linear_icons[$k] = $v . ' ' . str_replace('\e', '&#xe', $theme_linearicons_num[$k]);
-    }
-
-	/* Contact Info icon 1 */
-    $wp_customize->add_setting ( 'contact_1_icon', array (
-            'default' => 'icon-map-marker',
-        )
-    );
-    $wp_customize->add_control ( 'contact_1_icon', array (
-            'type'  => 'select',
-            'label' => __('Contact Section Icon 1', 'ephic'),
-            'description'   => __('Choose the first icon for the contact section', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 11,
-            'active_callback' => 'contact_selected',
-        )
-    );
-	
-	$wp_customize->add_setting ( 'contact_2_icon', array (
-            'default' => 'icon-telephone',
-        )
-    );
-    $wp_customize->add_control ( 'contact_2_icon', array (
-            'type'  => 'select',
-            'label' => __('Contact Section Icon 2', 'ephic'),
-            'description'   => __('Choose the second icon for the contact section', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 13,
-            'active_callback' => 'contact_selected',
-        )
-    );
-
-	$wp_customize->add_setting ( 'contact_3_icon', array (
-            'default' => 'icon-envelope',
-        )
-    );
-    $wp_customize->add_control ( 'contact_3_icon', array (
-            'type'  => 'select',
-            'label' => __('Contact Section Icon 3', 'ephic'),
-            'description'   => __('Choose the third icon for the contact section', 'ephic'),
-            'choices'   => $linear_icons,
-            'section'   => 'configure_sections',
-            'priority'  => 15,
-            'active_callback' => 'contact_selected',
-        )
-    );
-}
-
-/* The check for the additional information section being selected to display the icons */
-function contact_selected($control) {
-    if( $control->manager->get_setting('section_choice')->value() == 'contact') {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-add_action( 'customize_register', 'configure_contacts_customize');
-
-/* Contact Icon 1 Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'contact_1_text',
-    'label'     => __('Contact Icon Text 1', 'ephic'),
-    'priority'  => 12,
-    'default'   => '25 North Street / Your Town,<br />CO 88888 United States',
-    'description'=> __('Add your short description', 'ephic'),
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'contact'
-        ),
-    ),
-) );
-
-/* Contact Icon 2 Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'contact_2_text',
-    'label'     => __('Contact Icon Text 2', 'ephic'),
-    'priority'  => 14,
-    'default'   => '(+312) 0454 3234 23',
-    'description'=> __('Add your short description', 'ephic'),
-    'section'   => 'configure_sections',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'contact'
-        ),
-    ),
-) );
-
-/* Contact Icon 3 Text */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'      => 'textarea',
-    'settings'  => 'contact_3_text',
-    'label'     => __('Contact Icon Text 3', 'ephic'),
-    'priority'  => 16,
-    'default'   => 'Email: noreply@gmail.com',
-    'description'=> __('Add your short description', 'ephic'),
-    'section'   => 'configure_sections',
+    'default'       => 'Title Text below',
     'active_callback'   => array(  // Kirki field dependency
         array(
             'setting'   => 'section_choice',
@@ -2705,7 +2164,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'settings'  => 'contact_form_shortcode',
     'label'     => __('Contact Form', 'ephic'),
     'priority'  => 17,
-    'default'   => '[contact-form-7 title="25North Contact Form"]',
+    'default'   => '[contact-form-7 title="Ephic Contact Form"]',
     'description'=> __('Set the Shortcode for the Contact Form you want to use.', 'ephic'),
     'help'      => __('We include Contact Form 7 and style it but you can use other contact forms as well', 'ephic'),
     'section'   => 'configure_sections',
@@ -2715,61 +2174,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
             'setting'   => 'section_choice',
             'operator'  => '==',
             'value'     => 'contact'
-        ),
-    ),
-) );
-
-/**
- * About Page Map
- */
-
-/* About Map Marker */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'image',
-    'settings'      => 'about_map_marker',
-    'label'         => __('Insert your map marker', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => '',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'aboutmap'
-        ),
-    ),
-) );
-
-/* About Map latitude */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'about_map_lat',
-    'label'         => __('Insert the location latitude', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => '39.7645187',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'aboutmap'
-        ),
-    ),
-) );
-
-/* About Map longitude */
-ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'          => 'text',
-    'settings'      => 'about_map_lng',
-    'label'         => __('Insert the location longitude', 'ephic'),
-    'section'       => 'configure_sections',
-    'priority'      => 10,
-    'default'       => '-104.9951951',
-    'active_callback'   => array(  // Kirki field dependency
-        array(
-            'setting'   => 'section_choice',
-            'operator'  => '==',
-            'value'     => 'aboutmap'
         ),
     ),
 ) );
@@ -2812,16 +2216,17 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 
 /* Blog Left or Right sidebar */
 ephic_Kirki::add_field( 'ephic_theme', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'blog_sidebar',
-    'label'       => __( 'Blog Sidebar', 'ephic' ),
-    'description' => __( 'Choose the blog sidebar location.', 'ephic'),
-    'section'     => 'blog_settings',
-    'default'     => 'right',
-    'priority'    => 10,
-    'choices'     => array(
-        'left'   => esc_attr__( 'Left', 'ephic' ),
-        'right' => esc_attr__( 'Right', 'ephic' ),
+    'type'          => 'radio-buttonset',
+    'settings'      => 'blog_sidebar',
+    'label'         => __( 'Blog Sidebar', 'ephic' ),
+    'description'   => __( 'Choose the blog sidebar location.', 'ephic'),
+    'section'       => 'blog_settings',
+    'default'       => 'right',
+    'priority'      => 10,
+    'choices'       => array(
+        'left'      => __( 'Left', 'ephic' ),
+        'right'     => __( 'Right', 'ephic' ),
+		'nosidebar' => __( 'No Sidebar', 'ephic' ),
     ),
 ) );
 
@@ -2883,10 +2288,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     ),
     'priority'    => 10,
 ) );
-
-
-
-
 
 
 /**

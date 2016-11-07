@@ -11,30 +11,51 @@
 get_header(); ?>
 		<div class="wrapper">
 			<main>
-				<section class="nothing-found">
-					<div class="overlay-col">
-						<div class="container">
-							<h1>404</h1>
-							<h2 class="sectionh"><?php echo esc_html(get_theme_mod( 'page_404_heading', '' )); ?></h2>
-							<p><?php echo esc_html(get_theme_mod( 'page_404_hdesc', '' )); ?></p>
-						</div> <!-- End Container -->
-
-						<div class="virtual upper80">
-							<div class="container-fluid color-back">
-                        		<div class="row text-center">
-                            		<div class="col-md-12">
-                                		<span><?php echo esc_html(get_theme_mod( 'page_404_banner', '' )); ?></span>
-                                		<a href="<?php echo esc_url( home_url( '/' ) );?>" 
-                                    		class="vtour btn-pri"><?php echo esc_html(get_theme_mod( 'page_404_btn', '' )); ?></a>
-                            		</div>
-                        		</div>
+				<section id="top-section" class="top-section">
+					<div class="four-header"> 
+						<div class="four-header-inner"></div>
+						<div class="four-header-overlay"></div>
+					</div>
+				</section>
+				<!-- content -->
+				<section class="page-section">
+					<div class="page-banner">
+						<div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+							<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+							<?php echo esc_html__('404', 'ephic');?>
+						</div>
+					</div>
+					<div class="container-fluid upper100 page-not-found">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="text-center">
+									<h2><?php echo esc_html(get_theme_mod('page_404_heading', ''));?></h2>
+								</div>
 							</div>
-                    	</div>
-					</div> <!-- End Overlay -->
+						</div>
+					</div>
+					<div class="container container-large">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- Main Section -->
+								<div class="page-content text-center">
+									<svg viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<defs>
+											<pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
+												<image xlink:href="<?php echo esc_url(get_theme_mod('background_text_404',''));?>" x="-25" width="150" height="100" />
+											</pattern>
+										</defs>
+										<polygon id="hex404" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
+										<text id="text404" font-size="35" x="50" y="60" text-anchor="middle">404</text>
+									</svg>
+									<p class="upper40">
+										<?php echo esc_html(get_theme_mod('page_404_desc', ''));?>
+									</p>
+								</div>
+							</div><!-- End Main Section -->
+						</div>
+					</div>
 				</section>
 			</main>
 			<?php get_footer(); ?>
 
-		</div><!-- End Wrapper -->
-	</body>
-</html>

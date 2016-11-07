@@ -1,6 +1,15 @@
 /* Show icons in customizer select groups */
 #customize-control-welcome_1_icon select, 
 #customize-control-welcome_2_icon select,
-#customize-control-welcome_3_icon select {
+#customize-control-welcome_3_icon select,
+#customize-control-services_1_icon select,
+#customize-control-services_2_icon select,
+#customize-control-services_3_icon select,
+#customize-control-services_4_icon select,
+#customize-control-services_5_icon select,
+#customize-control-services_6_icon select,
+#customize-control-about_1_icon select,
+#customize-control-about_2_icon select,
+#customize-control-about_3_icon select {
 	font-family: FontAwesome, sans-serif;
 }

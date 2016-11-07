@@ -73,7 +73,7 @@ function ephic_primary_color(){
 		),
 		array(
 			'element'  => 'ul.filter > li > a:hover, ul.filter > li > a:hover, ul.filter > li.active a',
-			'property' => 'background-color'
+			'property' => 'color'
 		),
 		array(
 			'element'  => '.bl-date',
@@ -108,11 +108,27 @@ function ephic_primary_color(){
 			'property' => 'background-color'
 		),
 		array( 
-			'element'  => 'h2.colorh',
+			'element'  => 'h2.colorh, .stat.colorh',
 			'property' => 'color'
 		),
 		array(
-			'element'  => '.intro-info .col-md-4:hover i',
+			'element'  => '.search-form .submits:hover',
+			'property' => 'background-color'
+		),
+		array(
+            'element'  => '.search-form .submits:hover',
+            'property' => 'border-color'
+        ),
+		array(
+			'element'  => 'ul.social-links li a:active, ul.social-links li a:focus, ul.social-links li a:hover',
+			'property' => 'background-color'
+		),
+		array(
+			'element'  => '#text404',
+			'property' => 'fill'
+		),
+		array(
+			'element'  => '.intro-info .col-md-4:hover i, .services-icons .col-md-4:hover i',
 			'property' => 'color'
 		),
 		array(

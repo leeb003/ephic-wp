@@ -43,7 +43,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 							</div>
 						</div>
 						<div class="text-center">
-							<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html('SCROLL DOWN', 'ephic'); ?></a>
+							<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html__('SCROLL DOWN', 'ephic'); ?></a>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					</div>
 				</div>
 				<div class="text-center">
-					<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html('SCROLL DOWN', 'ephic');?></a>
+					<a href="#scroll-down" class="scroll-down">&#8592;&nbsp; <?php echo esc_html__('SCROLL DOWN', 'ephic');?></a>
 				</div>
 			</div>
 		</section><!-- End top section / single image -->	
@@ -195,41 +195,136 @@ $home_sections = get_theme_mod( 'home_sections', array());
         </div>
     </section><!-- End Parallax 3 -->
 
-	<?php
-		} elseif ($v['section'] == 'gallery') { // Gallery ?>
+	<?php 
+		} elseif ($v['section'] == 'services') { // Services 
+			/* Build array to loop through for icons */
+			$services = array(
+				'1' => array(
+					'icon'  => esc_html(get_theme_mod('services_1_icon')),
+					'title' => esc_html(get_theme_mod('services_1_title')),
+					'text'  => esc_html(get_theme_mod('services_1_text')),
+				),
+				'2' => array(
+                    'icon'  => esc_html(get_theme_mod('services_2_icon')),
+                    'title' => esc_html(get_theme_mod('services_2_title')),
+                    'text'  => esc_html(get_theme_mod('services_2_text')),
+                ),
+				'3' => array(
+                    'icon'  => esc_html(get_theme_mod('services_3_icon')),
+                    'title' => esc_html(get_theme_mod('services_3_title')),
+                    'text'  => esc_html(get_theme_mod('services_3_text')),
+                ),
+				'4' => array(
+                    'icon'  => esc_html(get_theme_mod('services_4_icon')),
+                    'title' => esc_html(get_theme_mod('services_4_title')),
+                    'text'  => esc_html(get_theme_mod('services_4_text')),
+                ),
+				'5' => array(
+                    'icon'  => esc_html(get_theme_mod('services_5_icon')),
+                    'title' => esc_html(get_theme_mod('services_5_title')),
+                    'text'  => esc_html(get_theme_mod('services_5_text')),
+                ),
+				'6' => array(
+                    'icon'  => esc_html(get_theme_mod('services_6_icon')),
+                    'title' => esc_html(get_theme_mod('services_6_title')),
+                    'text'  => esc_html(get_theme_mod('services_6_text')),
+                ),
+			); ?>
+	<section id="services" class="section-margin"><!-- Services -->
+		<div class="container container-large">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 class="sectionh"><?php echo esc_html(get_theme_mod('services_title'));?></h2>
+					<p class="hdesc"><?php echo esc_html(get_theme_mod('services_text'));?></p>
+				</div>
+			</div>
+			<div class="row services-icons">
+				<?php 
+				foreach ($services as $k => $v) { 
+					if ($v['title']) { // Only if we have a title ?>
+				<div class="col-md-4 text-center">
+					<div class="shape">
+						<div class="hexagon">
+							<i class="fa <?php echo esc_html($v['icon']);?>"></i>
+						</div>
+					</div>
+					<h4><?php echo esc_html($v['title']);?></h4>
+					<p><?php echo esc_html($v['text']);?></p>
+				</div>
 
-	<section id="images" class="media portfolio-section port-col">
-    	<div class="overlay-col">
-        	<div class="container">
-            	<h2 class="sectionh"><?php echo esc_html(get_theme_mod('gallery_title', ''));?></h2>
-               	<p><?php echo esc_html(get_theme_mod('gallery_text', ''));?></p>
-                <div class="row">
-                  	<div class="col-md-12">
-                       	<div id="isotope-filters2" class="filter-container isotopeFilters2">
-                           	<ul class="list-inline filter">
-                               	<li class="active"><a href="#" data-filter="*"><?php echo esc_html__('All', 'ephic');?></a></li>
+				<?php
+					}
+				}
+				?>
+			</div>
+			<div class="row">
+				<?php if (get_theme_mod('services_btn_text')) { // only if there is text in the button display ?>
+				<div class="col-md-12 text-center upper60">
+					<a href="<?php echo esc_url(get_theme_mod('services_btn_link', '#'));?>" 
+						target="_<?php echo esc_html(get_theme_mod('services_btn_window', 'self'));?>"
+						class="primary-btn"><?php echo esc_html(get_theme_mod('services_btn_text', ''));?></a>
+				<?php } ?>
+				</div>
+				<div class="col-md-12">
+					<div class="section-border upper100"></div>
+  				</div>
+			</div>
+		</div>	
+	</section><!-- End Services -->
+
+	<?php
+		} elseif ($v['section'] == 'projects') { // Projects Gallery ?>
+
+	<section id="gallery" class="gallery section-margin">
+    	<div class="container container-large">
+			<div class="row">
+				<div class="col-md-12 text-center">
+            		<h2 class="sectionh"><?php echo esc_html(get_theme_mod('projects_title', ''));?></h2>
+               		<p><?php echo esc_html(get_theme_mod('projects_text', ''));?></p>
+				</div>
+			</div>
+
+			<div class="row">
+               	<div class="col-md-12 text-center">
+					<div id="isotope-filters" class="filter-container isotopeFilters2">
+						<ul class="list-inline filter">
 				<?php
 				// list terms in a given taxonomy
-				$taxonomy = 'tfnphotocat';
+				$taxonomy = 'ephic_projectcat';
 				$tax_terms = get_terms($taxonomy);
+				$tax_count = count($tax_terms);
+				$i = 1;
+				?>
+								<li class="active"><a href="#" data-filter="*"><?php echo esc_html__('All', 'ephic');?></a></li>
+				<?php
+				if ($tax_count > 0) {
+					echo '<li class="sep"> / </li>';
+				}
 				foreach ($tax_terms as $tax_term) { 
 				?>
-                                <li><a href="#" data-filter=".<?php echo $tax_term->slug;?>"><?php echo $tax_term->name; ?></a></li>
+								<li><a href="#" data-filter=".<?php echo $tax_term->slug;?>"><?php echo $tax_term->name; ?></a></li>
+
 				<?php
+					if ($i != $tax_count) {
+						echo '<li class="sep"> / </li>';
+					}
+					$i++;
 				} // end categories link display
 				?>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- End Filter -->
-				<div class="row photos-row">
-					<div id="isotope-container2" class="isotopeContainer2">
+						</ul>
+					</div>
+				</div>
+			</div> <!-- Isotope Selector -->
+		</div>
 
+		<div class="container-fluid">
+			<div class="row">
+				<div id="isotope-container" class="isotopeContainer">
 				<?php
 				// display the gallery images
 				$photo = '';
 				$args = array(
-            		'post_type' => 'photo_entry',
+            		'post_type' => 'project_entry',
 					'order'	=> 'ASC',
         		);
 
@@ -237,12 +332,10 @@ $home_sections = get_theme_mod( 'home_sections', array());
 				$i = 0;
         		while ( $my_query->have_posts() ) : $my_query->the_post();
             		$i++;
-					$column = 'col-sm-6';
-					if ($i > 2) {
-						$column = 'col-sm-4';
-					}
+					$column = 'col-md-4 col-sm-6 nopadding';
             		// Pull category for each unique post using the ID 
-            		$terms = get_the_terms( $post->ID, 'tfnphotocat' );
+            		$terms = get_the_terms( $post->ID, 'ephic_projectcat' );
+					$gallery_date = get_the_date('', $post->ID);
 
             		if ( $terms && ! is_wp_error( $terms ) ) {
 
@@ -257,6 +350,8 @@ $home_sections = get_theme_mod( 'home_sections', array());
             		} else {
                 		$tax = '';
             		}
+					preg_match("/^\S+/", $tax, $first_tax);
+
             		$thumbnail = get_the_post_thumbnail($post->ID);
             		//get post thumbnail id
             		$image_id = get_post_thumbnail_id();
@@ -265,253 +360,171 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					$full_image_url = $image_url[0];
             		$title = get_the_title($post->ID);
 			?>
-                        <div class="<?php echo $column; ?> isotopeSelector <?php echo $tax; ?>">
-                            <article class="">
-                                <figure>
-                                    <img src="<?php echo $full_image_url;?>" alt="">
-                                    <div class="overlay-background">
-                                        <div class="inner"></div>
-                                    </div>
-                                    <div class="overlay">
-                                        <div class="inner-overlay">
-                                            <div class="inner-overlay-content with-icons">
-                                                <a title="<?php echo $title; ?>" class="fancybox-pop" data-fancybox-group="<?php echo $tax; ?>" href="<?php echo $full_image_url; ?>"><span class="crosshair"></span></a>
-                                            </div>
+                    <div class="<?php echo $column; ?> isotopeSelector <?php echo $tax; ?>">
+                        <article class="">
+                            <figure>
+                                <img src="<?php echo $full_image_url;?>" alt="" />
+                                <div class="overlay-background">
+                                    <div class="inner"></div>
+                                </div>
+                                <div class="overlay">
+                                    <div class="inner-overlay">
+                                        <div class="inner-overlay-content">
+                                            <a title="<?php echo $title; ?>" class="fancybox-pop" data-fancybox-group="<?php echo $tax; ?>" href="<?php echo $full_image_url; ?>">
+												<div class="image-info"><i>"<?php echo $title;?>"</i>
+													<p class="image-group"><?php echo ucfirst($first_tax[0]);?> - <?php echo $gallery_date;?></p>
+												</div>
+											</a>
                                         </div>
                                     </div>
-                                </figure>
-                                <div class="article-title"><a href="#"><?php echo $title; ?></a></div>
-                            </article>
-                        </div> <!-- End isotopeSelector -->
+                                </div>
+                            </figure>
+                        </article>
+                    </div> <!-- End isotopeSelector -->
 				
 		<?php
         endwhile;
         wp_reset_query()
 		?>
-					</div> <!-- End Isotope Container -->
-				</div> <!-- End Row -->
-            </div> <!-- End Container -->
-        </div> <!-- End Overlay -->
+				</div> <!-- End Isotope Container -->
+            </div> <!-- End Row -->
+        </div> <!-- End Container -->
     </section>
-			<?php
-			if (get_theme_mod('gallery_banner_enable', '') == 'enable') { ?>
-	<!-- Virtual Tour Section -->
-    <section class="virtual">
-    	<div class="container-fluid color-back">
-        	<div class="row text-center">
-            	<div class="col-md-12">
-                	<span><?php echo esc_html(get_theme_mod('gallery_banner_text', '')); ?></span>
-					<a href="<?php echo esc_url(get_theme_mod('gallery_banner_btn_link', '')); ?>" target="_<?php echo esc_html(get_theme_mod('gallery_banner_btn_window', '')); ?>" class="vtour btn-pri"><?php echo esc_html(get_theme_mod('gallery_banner_btn_text', '')); ?></a>
-                </div>
-            </div>
-		</div>
-    </section>
-			<?php
-			}
-			?>
-
 	<?php
-		} elseif ($v['section'] == 'additional') {
-	?>
-	<!-- Additional Information Section -->
-    <section class="additional">
-    	<div class="container">
-        	<div class="row text-center">
-            	<div class="col-md-12">
-                	<h2 class="sectionh"><?php echo esc_html(get_theme_mod('additional_title', '')); ?></h2>
-                    <p><?php echo esc_html(get_theme_mod('additional_text', '')); ?></p>
-                </div>
-            </div>
-            <div class="row additional-items">
-            	<div class="col-xs-6 col-sm-6 col-md-3">
-                	<div class="add-item">
-                    	<div class="add-inner">
-                        	<i class="<?php echo esc_html(get_theme_mod('additional_1_icon', '')); ?>"></i><br />
-                            <span><?php echo esc_html(get_theme_mod('additional_1_text', '')); ?></span>
-                        </div>
-                    </div>
-                </div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-                    <div class="add-item">
-                        <div class="add-inner">
-                            <i class="<?php echo esc_html(get_theme_mod('additional_2_icon', '')); ?>"></i><br />
-                            <span><?php echo esc_html(get_theme_mod('additional_2_text', '')); ?></span>
-                        </div>
-                    </div>
-                </div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-                    <div class="add-item">
-                        <div class="add-inner">
-                            <i class="<?php echo esc_html(get_theme_mod('additional_3_icon', '')); ?>"></i><br />
-                            <span><?php echo esc_html(get_theme_mod('additional_3_text', '')); ?></span>
-                        </div>
-                    </div>
-                </div>
-				<div class="col-xs-6 col-sm-6 col-md-3">
-                    <div class="add-item">
-                        <div class="add-inner">
-                            <i class="<?php echo esc_html(get_theme_mod('additional_4_icon', '')); ?>"></i><br />
-                            <span><?php echo esc_html(get_theme_mod('additional_4_text', '')); ?></span>
-                        </div>
-                    </div>
-                </div>
-			</div>
-            <div class="row text-center">
-            	<div class="col-md-12">
-                  	<a class="btn-sec" 
-					   href="<?php echo esc_url(get_theme_mod('additional_btn_link', '')); ?>" 
-					   target="<?php echo esc_html(get_theme_mod('additional_btn_window', '')); ?>"><?php echo esc_html(get_theme_mod('additional_btn_text', '')); ?></a>
-                </div>
-            </div>
-        </div>
-	</section>
-	<?php
-		} elseif ($v['section'] == 'posts') {
-			$args = array(
-				'numberposts' => get_theme_mod('posts_number', '2'),
-				'order'       => get_theme_mod('posts_sort', 'asc'),
-			);
-			$postslist = get_posts( $args );
-	?>
-	<!-- Blog Section -->
-    <section id="blog" class="blog-posts">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="sectionh"><?php echo esc_html(get_theme_mod('posts_title', '')); ?></h2>
-                    <p><?php echo esc_html(get_theme_mod('posts_text', '')); ?></p>
-                </div>
-            </div>
-			<div class="posts-container">
+        $statistics = get_theme_mod('stats', array());
+		$stat_count = count($statistics);
+        if ($stat_count > 0) { ?>
+	<section id="stats" class="stats section-margin"><!-- Statistics -->
+		<div class="container container-large">
+			<div class="row">
+		<?php
+			$i = 0;
+            foreach ($statistics as $k => $v) {
+				$extra_class = '';
+				if ($i&1) {
+					$extra_class = 'colorh';
+				}	
+				$i++;
+        ?>
+				<div class="col-md-3 col-sm-6 text-center stat-div">
+					<span class="stat <?php echo $extra_class;?>" data-start="1" data-stop="<?php echo intval($v['number']);?>" 
+					data-speed="1500">1</span>
+					<?php echo esc_html($v['text']); ?>
+				</div>	
 
 		<?php
-			$i = 1;
-			foreach ( $postslist as $post ) {
-				//echo '<p>' . print_r($post) . '</p>';
-				$featured = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-				$partial_content = strip_shortcodes($post->post_content);
-				$partial_content = wp_trim_words( $partial_content, 35, '...');
-				$theme_resources = new tfn_theme_resources;
-				$meta = $theme_resources->tfn_meta($post, 'posts_atts'); // pass the post array and theme option to get
-				if ($i&1) { // odd entries
+			} // foreach
+		} // if 
 		?>
-				<div class="row vcenter">
-					<div class="col-md-6 col-xs-12 post-image">
-						<div class="bl-entry-img">
-							<img class="img-responsive" src="<?php echo $featured; ?>" alt="" />
+			</div>
+			
+			<div class="row">
+				<div class="section-border upper100"></div>
+			</div>
+		</div>
+	</section>
+	
+	<?php 
+		} elseif ($v['section'] == 'about') {
+	?>
+	<!-- About Section -->
+	<section id="about" class="section-margin">
+		<div class="container container-large">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 class="sectionh colorh"><?php echo esc_html(get_theme_mod('about_title', ''));?></h2>
+					<p class="hdesc"><?php echo esc_html(get_theme_mod('about_text', ''));?></p>
+				</div>
+			</div>
+			<div class="row upper40">
+				<div class="col-md-12 text-center">
+					<svg viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  						<defs>
+							<pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
+								<image xlink:href="<?php echo esc_url(get_theme_mod('about_photo', get_template_directory_uri() . '/img/author.png'));?>" x="-25" width="150" height="100" />
+							</pattern>
+  						</defs>
+  						<polygon id="hex" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
+					</svg>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center upper40">
+					<h4><?php echo esc_html(get_theme_mod('about_small_title', ''));?></h4>
+					<?php echo  wp_kses_post(get_theme_mod('about_lower_text', ''));?>
+					<div class="upper40">
+						<img class="img-responsive center-block" 
+							src="<?php echo esc_url(get_theme_mod('about_signature', get_template_directory_uri() . '/img/signature.png'));?>" alt="" />
+						<ul class="social-links">
+						<?php 
+						$about_social = get_theme_mod('about_social_pick', array());
+						if (count($about_social > 0)) {
+							foreach ($about_social as $k => $v) {
+						?>
+							<li>
+								<a href="<?php echo esc_url($v['social_url']);?>" target="_blank">
+									<i class="fa <?php echo esc_html($v['social_choice']);?>"></i>
+								</a>
+							</li>
+						<?php
+							} //foreach
+						} // if
+						?>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!-- container -->
+		<div class="about-details upper60">
+			<?php if (get_theme_mod('about_infobar') == 'enable') { ?>
+			<div class="container container-large">
+				<div class="about-row row">
+					<div class="col-md-4">
+						<i class="fa <?php echo esc_html(get_theme_mod('about_1_icon'));?>"></i><span class="vertical-sep"></span>
+						<div class="details">
+							<span class="detail-top"><?php echo esc_html(get_theme_mod('about_1_title'));?></span>
+							<span class="detail-bot"><?php echo esc_html(get_theme_mod('about_1_text'));?></span>
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12">
-						<div class="post-content">
-							<div class="bl-title">
-								<h3><?php echo $post->post_title;?></h3>
-							</div>
-							<div class="bl-excerpt">
-								<p><?php echo $partial_content; ?></p>
-							</div>
-							<?php echo implode(' ', $meta);?>
-							<a href="<?php echo get_permalink($post->ID);?>" 
-								class="readmore"><?php echo esc_html__('Read more', 'ephic');?></a>
+					<div class="col-md-4">
+						<i class="fa <?php echo esc_html(get_theme_mod('about_2_icon'));?>"></i><span class="vertical-sep"></span>
+						<div class="details">
+							<span class="detail-top"><?php echo esc_html(get_theme_mod('about_2_title'));?></span>
+							<span class="detail-bot"><?php echo esc_html(get_theme_mod('about_2_text'));?></span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<i class="fa <?php echo esc_html(get_theme_mod('about_3_icon'));?>"></i><span class="vertical-sep"></span>
+						<div class="details">
+							<span class="detail-top"><?php echo esc_html(get_theme_mod('about_3_title'));?></span>
+							<span class="detail-bot"><?php echo esc_html(get_theme_mod('about_3_text'));?></span>
 						</div>
 					</div>
 				</div>
-				<?php
-				} else { // even entries
-				?>
-				<div class="row vcenter">
-					<div class="col-md-6 col-xs-12 pull-left">
-						<div class="post-content">
-							<div class="bl-title">
-								<h3><?php echo $post->post_title;?></h3>
-							</div>
-							<div class="bl-excerpt">
-								<p><?php echo $partial_content; ?></p>
-							</div>
-							<a href="<?php echo get_permalink($post->ID);?>" 
-								class="readmore"><?php echo esc_html__('Read more', 'ephic');?></a>
-							<?php echo implode(' ', array_reverse($meta, true));?>
-						</div>
-					</div>
-					<div class="col-md-6 col-xs-12 post-image">
-						<div class="bl-entry-img">
-							<img class="img-responsive" src="<?php echo $featured; ?>" alt="" />
-						</div>
-					</div>
+			</div>
+			<?php } ?>
+		</div>
+	</section>
+		<?php 
+		} elseif ($v['section'] == 'contact') {
+			$contact_form = get_theme_mod( 'contact_form_shortcode', '' );
+		?>
+	<section id="contact" class="section-margin">
+		 <div class="container container-large">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 class="sectionh"><?php echo esc_html(get_theme_mod('contact_title', ''));?></h2>
+					<p class="hdesc"><?php echo esc_html(get_theme_mod('contact_text', ''));?></p>
 				</div>
-				<?php 
-				} // end odd even check
-				$i++;
-			} // end foreach post loop
-			?>
-
-			</div> <!-- /post container -->
-		</div> <!-- /container -->
+			</div>
+			<div class="row upper80">
+				<?php echo do_shortcode($contact_form);?>
+			</div>
+		</div>
 	</section>
 
-		<?php			
-		} elseif ($v['section'] == 'agent') {
-		?>
-	<!-- Agent Section -->
-	<section id="agent" class="agent">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2 class="sectionh"><?php echo esc_html(get_theme_mod('agent_title', '')); ?></h2>
-					<p><?php echo esc_html(get_theme_mod('agent_desc', '')); ?></p>
-				</div>
-			</div>
-			<div class="row vcenter agent-info">
-				<div class="col-md-6 col-sm-12">
-					<img class="img-responsive" src="<?php echo esc_html(get_theme_mod('agent_photo', ''));?>" alt="" />
-				</div>
-				<div class="col-md-6 text-left agent-details">
-					<h3><?php echo esc_html(get_theme_mod('agent_name', '')); ?></h3>
-					<span><?php echo esc_html(get_theme_mod('agent_cred', '')); ?></span>
-					<p><?php echo esc_html(get_theme_mod('agent_info', '')); ?></p>
-					<a class="btn-third" href="<?php echo esc_url(get_theme_mod('agent_btn_link', '')); ?>" target="_<?php echo esc_html(get_theme_mod('agent_btn_window', '')); ?>"><?php echo esc_html(get_theme_mod('agent_btn_text', '')); ?></a>
-				</div>
-			</div>
-		</div>
-			<?php
-			if (get_theme_mod('agent_infobar', '') == 'enable') { // show infobar
-			?>
-		<div class="contact-items">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-lg-4">
-						<div class="icon-ring"><i class="fa <?php echo esc_html(get_theme_mod('agent_1_icon', ''));?>"></i></div>
-						<p class="text"><?php echo esc_html(get_theme_mod('agent_1_text', ''));?></p>
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="icon-ring"><i class="fa <?php echo esc_html(get_theme_mod('agent_2_icon', ''));?>"></i></div>
-						<p class="text"><?php echo esc_html(get_theme_mod('agent_2_text', ''));?></p>
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="icon-ring"><i class="fa <?php echo esc_html(get_theme_mod('agent_3_icon', ''));?>"></i></div>
-						<p class="text"><?php echo esc_html(get_theme_mod('agent_3_text', ''));?></p>
-					</div>
-				</div>
-			</div>
-		</div>
-			<?php
-			} // end infobar display
-			?>
 
-			<?php
-			if (get_theme_mod('agent_map', '') == 'enable') { // map display
-			?>
 
-		<div class="container-fluid">
-			<div class="row">
-				<div class="map-holder">
-					<div id="mapSection"></div>
-				</div>
-			</div>
-		</div>
-			<?php
-			} // end map display
-			?>
-	</section>
 		<?php
 		} elseif ($v['section'] == 'builder') {
 			$builder_page = get_post(intval($v['page'])); ?>
