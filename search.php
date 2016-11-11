@@ -15,29 +15,36 @@
 get_header(); 
 $sidebar_pos = get_theme_mod('blog_sidebar');
 $main_class = '';
+$sidebar_class = '';
 if ($sidebar_pos == 'left') {
     $main_class = 'pull-right';
+	$sidebar_class = 'left-sidebar';
 }
 ?>
-
-	<section id="top-section" class="top-section">
+    <section id="top-section" class="top-section">
         <div class="blog-header">
             <div class="blog-header-inner">
-                <h1><?php printf( esc_html__( 'Search Results for: %s', 'ephic' ), '<span>' . get_search_query() . '
-						</span>' ); ?></h1>
+                <h1><?php printf( esc_html__( 'Search Results for: %s', 'ephic' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
             </div>
             <div class="blog-header-overlay">
             </div>
         </div>
     </section>
 
-	<!-- Blog -->
+    <!-- Blog -->
     <section class="blog-section">
-        <div class="container">
+        <div class="page-banner">
+            <div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+                <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+                <?php echo esc_html__('SEARCH', 'ephic');?>
+            </div>
+        </div>
+
+        <div class="container container-large upper100">
             <div class="row">
                 <!-- Main Blog -->
-                <div class="col-xs-12 col-sm-12 col-md-8 <?php echo $main_class;?>">
-
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 <?php echo $main_class;?>">
+                    <div class="blog-content">
 		<?php
 		if ( have_posts() ) :
 
@@ -60,19 +67,18 @@ if ($sidebar_pos == 'left') {
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-				
-				</div><!-- .col-md-8 -->
+                    </div><!--.blog-content-->
+                </div><!-- .col-lg-9 -->
 
-				<!-- Blog Sidebar -->
-                <div class="col-xs-12 col-sm-12 col-md-4">
-                    <div class="blog-sidebar">
+                <!-- Blog Sidebar -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                    <div class="blog-sidebar <?php echo $sidebar_class; ?>">
                         <?php get_sidebar(); ?>
                     </div>
                 </div> <!-- \sidebar -->
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>				
 
 <?php
 get_footer();

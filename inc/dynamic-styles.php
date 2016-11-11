@@ -84,7 +84,7 @@ function ephic_primary_color(){
 			'property' => 'color'
 		),
 		array(
-			'element'  => '.bl-comments i, .bl-views i',
+			'element'  => '.entry-title a:hover, .entry-title a:active, .entry-title a:focus',
 			'property' => 'color'
 		),
 		array(
@@ -119,6 +119,10 @@ function ephic_primary_color(){
             'element'  => '.search-form .submits:hover',
             'property' => 'border-color'
         ),
+		array(
+			'element'  => '.blog-post a',
+			'property' => 'color'
+		),
 		array(
 			'element'  => 'ul.social-links li a:active, ul.social-links li a:focus, ul.social-links li a:hover',
 			'property' => 'background-color'

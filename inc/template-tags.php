@@ -39,6 +39,21 @@ function ephic_posted_on() {
 }
 endif;
 
+if ( ! function_exists( 'ephic_tag_list' )) :
+/**
+ * Prints HTML with meta information for the tags
+ */
+function ephic_tag_list() {
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+        $tags_list = get_the_tag_list( '', esc_html__( ', ', 'ephic' ) );
+        if ( $tags_list ) {
+            printf( '<p class="post-categories">' . esc_html__( 'Tags', 'ephic' ) . ': ' . $tags_list . '</p>' ); // WPCS: XSS OK.
+        }
+	}
+}
+endif;
+
 if ( ! function_exists( 'ephic_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -52,13 +67,16 @@ function ephic_entry_footer() {
 		if ( $categories_list && ephic_categorized_blog() ) {
 			printf( '<p class="post-categories">' . esc_html__( 'Categories', 'ephic' ) . ': ' . $categories_list . '</p>' ); // WPCS: XSS OK.
 		}
+		printf( '</div>' );
 
 		/* translators: used between list items, there is a space after the comma */
+		/*
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'ephic' ) );
 		if ( $tags_list ) {
 			printf( '<p class="post-tags">' . esc_html__( 'Tags', 'ephic' ) . ': ' . $tags_list . '</p>' ); // WPCS: XSS OK.
 		}
 		printf( '</div>' );
+		*/
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

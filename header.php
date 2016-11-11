@@ -21,7 +21,7 @@
 </head>
 
 <?php 
-$theme_resources = new tfn_theme_resources();
+$theme_resources = new ephic_theme_resources();
 $options = $theme_resources->return_options();
 // print_r($options);
 $menu_exists = $theme_resources->menu_check('tfn-primary');

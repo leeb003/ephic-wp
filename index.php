@@ -34,10 +34,18 @@ if ($sidebar_pos == 'left') {
 
 	<!-- Blog -->
     <section class="blog-section">
-        <div class="container">
+		<div class="page-banner">
+			<div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<?php echo esc_html(get_theme_mod('blog_breadcrumb', ''))?>
+			</div>
+		</div>
+
+        <div class="container container-large upper100">
             <div class="row">
                 <!-- Main Blog -->
-                <div class="col-xs-12 col-sm-12 col-md-8 <?php echo $main_class;?>">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 <?php echo $main_class;?>">
+					<div class="blog-content">
 
 		<?php
 		if ( have_posts() ) :
@@ -62,16 +70,15 @@ if ($sidebar_pos == 'left') {
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-				
-				</div><!-- .col-md-8 -->
+					</div><!--.blog-content-->
+				</div><!-- .col-lg-9 -->
 
 				<!-- Blog Sidebar -->
-                <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                     <div class="blog-sidebar <?php echo $sidebar_class; ?>">
                         <?php get_sidebar(); ?>
                     </div>
                 </div> <!-- \sidebar -->
-
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</section>

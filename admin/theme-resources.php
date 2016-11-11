@@ -5,7 +5,7 @@
  * @theme_resources
  */
 
-class tfn_theme_resources {
+class ephic_theme_resources {
 
     //properties
 	public $options = array();	
@@ -19,7 +19,7 @@ class tfn_theme_resources {
 	 * Options 
 	 */
 	public function return_options() {
-		//global $tfn_options;
+		//global $ephic_options;
 		$this->options = get_theme_mods();
 		return $this->options;
 	}
@@ -49,10 +49,10 @@ class tfn_theme_resources {
     }
 
 	/**
-	 * tfn_meta
+	 * ephic_meta
 	 * Post meta layout (date, comments etc.) used in front page and in blog sections
 	 */
-	public function tfn_meta($post, $theme_mod) {
+	public function ephic_meta($post, $theme_mod) {
 		$posts_atts = get_theme_mod($theme_mod, array());
 		$comments_text = __('Comments', 'ephic');
 		$meta = array();

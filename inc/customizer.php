@@ -78,6 +78,30 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     ),
 ) );
 
+/* Add the other page top header font style */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'        => 'typography',
+    'settings'    => 'other_page_top_header',
+    'label'       => esc_attr__( 'Other pages Top Typography (e.g. blog title, etc.)', 'ephic' ),
+    'description' => esc_attr__( 'Select the typography options for your H1 headers.', 'ephic' ),
+    'help'        => esc_attr__( 'The typography options you set here will apply to the H1 elements at the top of other pages.', 'ephic' ),
+    'section'     => 'general',
+    'priority'    => 10,
+    'default'     => array(
+        'font-family'    => 'Roboto',
+        'variant'        => '500',
+        'font-size'      => '36px',
+        'line-height'    => '1.5',
+        'letter-spacing' => '0',
+        'color'          => '#fff',
+    ),
+    'output' => array(
+        array(
+            'element' => array( '.blog-header-inner h1' ),
+        ),
+    ),
+) );
+
 /* Add the header typography control H1 */
 ephic_Kirki::add_field( 'ephic_theme', array(
     'type'        => 'typography',
@@ -2194,7 +2218,18 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'label'       => __( 'Blog Title', 'ephic' ),
     'description' => __( 'Set the title to be displayed for your blog.', 'ephic'),
     'section'     => 'blog_settings',
-    'default'     => 'Blog Entries',
+    'default'     => 'Blog Title',
+    'priority'    => 10,
+) );
+
+/* Blog Section Title */
+ephic_Kirki::add_field( 'ephic_theme', array(
+    'type'        => 'text',
+    'settings'    => 'blog_breadcrumb',
+    'label'       => __( 'Blog Breadcrumb Text', 'ephic' ),
+    'description' => __( 'Set the blog breadcrumb page name.', 'ephic'),
+    'section'     => 'blog_settings',
+    'default'     => 'Blog Breadcrumb Text',
     'priority'    => 10,
 ) );
 
@@ -2205,7 +2240,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
     'label'         => __('Insert the blog top background image', 'ephic'),
     'section'       => 'blog_settings',
     'priority'      => 10,
-    'default'       => '',
+    'default'       => get_template_directory_uri() . '/img/main2.jpg',
 	'output'      => array(
         array(
             'element'  => '.blog-header',

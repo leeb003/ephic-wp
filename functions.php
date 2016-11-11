@@ -210,6 +210,9 @@ function ephic_scripts() {
 			}
 			.blog-header h1 {
 				color: #fff;
+				font-size: 36px;
+				font-style: normal;
+				font-weight: 500;
 			}
 			.testimonials-overlay {
 				background: $testimonial_color;
@@ -470,3 +473,17 @@ add_filter( 'masterslider_disable_auto_update', '__return_true' );
  * Load Jetpack compatibility file.
  */
 require EPHIC_INC_DIR . 'jetpack.php';
+
+/**
+ * Remove Tags, Search, Author, etc. from page titles
+ */
+add_filter( 'get_the_archive_title', function ($title) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+	}
+	return $title;
+});
