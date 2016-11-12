@@ -152,17 +152,17 @@ add_action('after_home_content', 'ephic_after_home_content');
 /* About Us - page-templates/about-us-template.php
 /*-----------------------------------------------------------------------------------*/
 function ephic_before_about_header() {
-    // Your Code Here
+	// Your Code Here
 }
 add_action('before_about_header', 'ephic_before_about_header');
 
 function ephic_before_about_content() {
-    // Your Code Here
+	// Your Code Here
 }
 add_action('before_about_content', 'ephic_before_about_content');
 
 function ephic_after_about_content() {
-    // Your Code Here
+	// Your Code Here
 }
 add_action('after_about_content', 'ephic_after_about_content');
 

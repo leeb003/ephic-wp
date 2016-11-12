@@ -121,7 +121,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					</div>
 					<h4><?php echo esc_html(get_theme_mod( 'welcome_3_title', ''));?></h4>
 					<p><?php echo esc_html(get_theme_mod( 'welcome_3_text', ''));?></p>
-	 			</div>
+				</div>
 			</div>
 		</div>
 	</section><!-- End Intro -->
@@ -150,85 +150,85 @@ $home_sections = get_theme_mod( 'home_sections', array());
 	</section><!-- End Parallax -->
 
 	<?php
-        } elseif ($v['section'] == 'parallax2') { // Parallax 2 ?>
-    <section id="parallax2" class="section-margin"><!-- Parallax -->
-        <div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax2_bg', ''));?>">
-            <div class="container container-large">
-                <div class="row">
-                    <?php
-                    $parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
-                    if (get_theme_mod( 'parallax2_text_side', '') == 'right') {
-                        $parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
-                    } elseif (get_theme_mod( 'parallax2_text_side', '') == 'center') {
-                        $parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
-                    }
-                    ?>
-                    <div class="<?php echo $parallax_class;?>">
-                        <h1><?php echo wp_kses_post(get_theme_mod( 'parallax2_large', ''));?></h1>
-                        <p><?php echo wp_kses_post(get_theme_mod( 'parallax2_small', ''));?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End Parallax 2 -->
+		} elseif ($v['section'] == 'parallax2') { // Parallax 2 ?>
+	<section id="parallax2" class="section-margin"><!-- Parallax -->
+		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax2_bg', ''));?>">
+			<div class="container container-large">
+				<div class="row">
+					<?php
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					if (get_theme_mod( 'parallax2_text_side', '') == 'right') {
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+					} elseif (get_theme_mod( 'parallax2_text_side', '') == 'center') {
+						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
+					}
+					?>
+					<div class="<?php echo $parallax_class;?>">
+						<h1><?php echo wp_kses_post(get_theme_mod( 'parallax2_large', ''));?></h1>
+						<p><?php echo wp_kses_post(get_theme_mod( 'parallax2_small', ''));?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End Parallax 2 -->
 
 	<?php
-        } elseif ($v['section'] == 'parallax2') { // Parallax 3 ?>
-    <section id="parallax3" class="section-margin"><!-- Parallax -->
-        <div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax3_bg', ''));?>">
-            <div class="container container-large">
-                <div class="row">
-                    <?php
-                    $parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
-                    if (get_theme_mod( 'parallax3_text_side', '') == 'right') {
-                        $parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
-                    } elseif (get_theme_mod( 'parallax3_text_side', '') == 'center') {
-                        $parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
-                    }
-                    ?>
-                    <div class="<?php echo $parallax_class;?>">
-                        <h1><?php echo wp_kses_post(get_theme_mod( 'parallax3_large', ''));?></h1>
-                        <p><?php echo wp_kses_post(get_theme_mod( 'parallax3_small', ''));?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End Parallax 3 -->
+		} elseif ($v['section'] == 'parallax2') { // Parallax 3 ?>
+	<section id="parallax3" class="section-margin"><!-- Parallax -->
+		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax3_bg', ''));?>">
+			<div class="container container-large">
+				<div class="row">
+					<?php
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					if (get_theme_mod( 'parallax3_text_side', '') == 'right') {
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+					} elseif (get_theme_mod( 'parallax3_text_side', '') == 'center') {
+						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
+					}
+					?>
+					<div class="<?php echo $parallax_class;?>">
+						<h1><?php echo wp_kses_post(get_theme_mod( 'parallax3_large', ''));?></h1>
+						<p><?php echo wp_kses_post(get_theme_mod( 'parallax3_small', ''));?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End Parallax 3 -->
 
 	<?php 
 		} elseif ($v['section'] == 'services') { // Services 
 			/* Build array to loop through for icons */
 			$services = array(
 				'1' => array(
-					'icon'  => esc_html(get_theme_mod('services_1_icon')),
+					'icon'	=> esc_html(get_theme_mod('services_1_icon')),
 					'title' => esc_html(get_theme_mod('services_1_title')),
-					'text'  => esc_html(get_theme_mod('services_1_text')),
+					'text'	=> esc_html(get_theme_mod('services_1_text')),
 				),
 				'2' => array(
-                    'icon'  => esc_html(get_theme_mod('services_2_icon')),
-                    'title' => esc_html(get_theme_mod('services_2_title')),
-                    'text'  => esc_html(get_theme_mod('services_2_text')),
-                ),
+					'icon'	=> esc_html(get_theme_mod('services_2_icon')),
+					'title' => esc_html(get_theme_mod('services_2_title')),
+					'text'	=> esc_html(get_theme_mod('services_2_text')),
+				),
 				'3' => array(
-                    'icon'  => esc_html(get_theme_mod('services_3_icon')),
-                    'title' => esc_html(get_theme_mod('services_3_title')),
-                    'text'  => esc_html(get_theme_mod('services_3_text')),
-                ),
+					'icon'	=> esc_html(get_theme_mod('services_3_icon')),
+					'title' => esc_html(get_theme_mod('services_3_title')),
+					'text'	=> esc_html(get_theme_mod('services_3_text')),
+				),
 				'4' => array(
-                    'icon'  => esc_html(get_theme_mod('services_4_icon')),
-                    'title' => esc_html(get_theme_mod('services_4_title')),
-                    'text'  => esc_html(get_theme_mod('services_4_text')),
-                ),
+					'icon'	=> esc_html(get_theme_mod('services_4_icon')),
+					'title' => esc_html(get_theme_mod('services_4_title')),
+					'text'	=> esc_html(get_theme_mod('services_4_text')),
+				),
 				'5' => array(
-                    'icon'  => esc_html(get_theme_mod('services_5_icon')),
-                    'title' => esc_html(get_theme_mod('services_5_title')),
-                    'text'  => esc_html(get_theme_mod('services_5_text')),
-                ),
+					'icon'	=> esc_html(get_theme_mod('services_5_icon')),
+					'title' => esc_html(get_theme_mod('services_5_title')),
+					'text'	=> esc_html(get_theme_mod('services_5_text')),
+				),
 				'6' => array(
-                    'icon'  => esc_html(get_theme_mod('services_6_icon')),
-                    'title' => esc_html(get_theme_mod('services_6_title')),
-                    'text'  => esc_html(get_theme_mod('services_6_text')),
-                ),
+					'icon'	=> esc_html(get_theme_mod('services_6_icon')),
+					'title' => esc_html(get_theme_mod('services_6_title')),
+					'text'	=> esc_html(get_theme_mod('services_6_text')),
+				),
 			); ?>
 	<section id="services" class="section-margin"><!-- Services -->
 		<div class="container container-large">
@@ -267,7 +267,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 				</div>
 				<div class="col-md-12">
 					<div class="section-border upper100"></div>
-  				</div>
+				</div>
 			</div>
 		</div>	
 	</section><!-- End Services -->
@@ -276,16 +276,16 @@ $home_sections = get_theme_mod( 'home_sections', array());
 		} elseif ($v['section'] == 'projects') { // Projects Gallery ?>
 
 	<section id="gallery" class="gallery section-margin">
-    	<div class="container container-large">
+		<div class="container container-large">
 			<div class="row">
 				<div class="col-md-12 text-center">
-            		<h2 class="sectionh"><?php echo esc_html(get_theme_mod('projects_title', ''));?></h2>
-               		<p><?php echo esc_html(get_theme_mod('projects_text', ''));?></p>
+					<h2 class="sectionh"><?php echo esc_html(get_theme_mod('projects_title', ''));?></h2>
+					<p><?php echo esc_html(get_theme_mod('projects_text', ''));?></p>
 				</div>
 			</div>
 
 			<div class="row">
-               	<div class="col-md-12 text-center">
+				<div class="col-md-12 text-center">
 					<div id="isotope-filters" class="filter-container isotopeFilters2">
 						<ul class="list-inline filter">
 				<?php
@@ -324,88 +324,88 @@ $home_sections = get_theme_mod( 'home_sections', array());
 				// display the gallery images
 				$photo = '';
 				$args = array(
-            		'post_type' => 'project_entry',
+					'post_type' => 'project_entry',
 					'order'	=> 'ASC',
-        		);
+				);
 
-        		$my_query = new WP_Query( $args );
+				$my_query = new WP_Query( $args );
 				$i = 0;
-        		while ( $my_query->have_posts() ) : $my_query->the_post();
-            		$i++;
+				while ( $my_query->have_posts() ) : $my_query->the_post();
+					$i++;
 					$column = 'col-md-4 col-sm-6 nopadding';
-            		// Pull category for each unique post using the ID 
-            		$terms = get_the_terms( $post->ID, 'ephic_projectcat' );
+					// Pull category for each unique post using the ID 
+					$terms = get_the_terms( $post->ID, 'ephic_projectcat' );
 					$gallery_date = get_the_date('', $post->ID);
 
-            		if ( $terms && ! is_wp_error( $terms ) ) {
+					if ( $terms && ! is_wp_error( $terms ) ) {
 
-                		$links = array();
+						$links = array();
 
-                		foreach ( $terms as $term ) {
-                       		$links[] = $term->slug;
-                		}
+						foreach ( $terms as $term ) {
+							$links[] = $term->slug;
+						}
 
-                		$tax_links = join( " ", $links);
-                		$tax = $tax_links;
-            		} else {
-                		$tax = '';
-            		}
+						$tax_links = join( " ", $links);
+						$tax = $tax_links;
+					} else {
+						$tax = '';
+					}
 					preg_match("/^\S+/", $tax, $first_tax);
 
-            		$thumbnail = get_the_post_thumbnail($post->ID);
-            		//get post thumbnail id
-            		$image_id = get_post_thumbnail_id();
-            		//go get image attributes [0] => url, [1] => width, [2] => height
-            		$image_url = wp_get_attachment_image_src($image_id,'', true);
+					$thumbnail = get_the_post_thumbnail($post->ID);
+					//get post thumbnail id
+					$image_id = get_post_thumbnail_id();
+					//go get image attributes [0] => url, [1] => width, [2] => height
+					$image_url = wp_get_attachment_image_src($image_id,'', true);
 					$full_image_url = $image_url[0];
-            		$title = get_the_title($post->ID);
+					$title = get_the_title($post->ID);
 			?>
-                    <div class="<?php echo $column; ?> isotopeSelector <?php echo $tax; ?>">
-                        <article class="">
-                            <figure>
-                                <img src="<?php echo $full_image_url;?>" alt="" />
-                                <div class="overlay-background">
-                                    <div class="inner"></div>
-                                </div>
-                                <div class="overlay">
-                                    <div class="inner-overlay">
-                                        <div class="inner-overlay-content">
-                                            <a title="<?php echo $title; ?>" class="fancybox-pop" data-fancybox-group="<?php echo $tax; ?>" href="<?php echo $full_image_url; ?>">
+					<div class="<?php echo $column; ?> isotopeSelector <?php echo $tax; ?>">
+						<article class="">
+							<figure>
+								<img src="<?php echo $full_image_url;?>" alt="" />
+								<div class="overlay-background">
+									<div class="inner"></div>
+								</div>
+								<div class="overlay">
+									<div class="inner-overlay">
+										<div class="inner-overlay-content">
+											<a title="<?php echo $title; ?>" class="fancybox-pop" data-fancybox-group="<?php echo $tax; ?>" href="<?php echo $full_image_url; ?>">
 												<div class="image-info"><i>"<?php echo $title;?>"</i>
 													<p class="image-group"><?php echo ucfirst($first_tax[0]);?> - <?php echo $gallery_date;?></p>
 												</div>
 											</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                        </article>
-                    </div> <!-- End isotopeSelector -->
+										</div>
+									</div>
+								</div>
+							</figure>
+						</article>
+					</div> <!-- End isotopeSelector -->
 				
 		<?php
-        endwhile;
-        wp_reset_query()
+		endwhile;
+		wp_reset_query()
 		?>
 				</div> <!-- End Isotope Container -->
-            </div> <!-- End Row -->
-        </div> <!-- End Container -->
-    </section>
+			</div> <!-- End Row -->
+		</div> <!-- End Container -->
+	</section>
 	<?php
-        $statistics = get_theme_mod('stats', array());
+		$statistics = get_theme_mod('stats', array());
 		$stat_count = count($statistics);
-        if ($stat_count > 0) { ?>
+		if ($stat_count > 0) { ?>
 	<section id="stats" class="stats section-margin"><!-- Statistics -->
 		<div class="container container-large">
 			<div class="row">
 		<?php
 			$i = 0;
-            foreach ($statistics as $k => $v) {
+			foreach ($statistics as $k => $v) {
 				$extra_class = '';
 				if ($i&1) {
 					$extra_class = 'colorh';
 				}	
 				$i++;
-        ?>
+		?>
 				<div class="col-md-3 col-sm-6 text-center stat-div">
 					<span class="stat <?php echo $extra_class;?>" data-start="1" data-stop="<?php echo intval($v['number']);?>" 
 					data-speed="1500">1</span>
@@ -439,19 +439,19 @@ $home_sections = get_theme_mod( 'home_sections', array());
 			<div class="row upper40">
 				<div class="col-md-12 text-center">
 					<svg viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  						<defs>
+						<defs>
 							<pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
 								<image xlink:href="<?php echo esc_url(get_theme_mod('about_photo', get_template_directory_uri() . '/img/author.png'));?>" x="-25" width="150" height="100" />
 							</pattern>
-  						</defs>
-  						<polygon id="hex" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
+						</defs>
+						<polygon id="hex" points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
 					</svg>	
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center upper40">
 					<h4><?php echo esc_html(get_theme_mod('about_small_title', ''));?></h4>
-					<?php echo  wp_kses_post(get_theme_mod('about_lower_text', ''));?>
+					<?php echo	wp_kses_post(get_theme_mod('about_lower_text', ''));?>
 					<div class="upper40">
 						<img class="img-responsive center-block" 
 							src="<?php echo esc_url(get_theme_mod('about_signature', get_template_directory_uri() . '/img/signature.png'));?>" alt="" />

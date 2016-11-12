@@ -13,38 +13,38 @@ $main_class = 'col-md-8 col-lg-9';
 $sidebar_class = '';
 $no_sidebar = false;
 if ($sidebar_pos == 'left') {
-    $main_class .= ' pull-right';
-    $sidebar_class = 'left-sidebar';
+		$main_class .= ' pull-right';
+		$sidebar_class = 'left-sidebar';
 } elseif ($sidebar_pos == 'nosidebar') {
-    $main_class = 'col-sm-12';
-    $no_sidebar = true;
+		$main_class = 'col-sm-12';
+		$no_sidebar = true;
 }
 ?>
 	<?php do_action('before_archive_header'); ?>
 	<section id="top-section" class="top-section">
-        <div class="blog-header">
-            <div class="blog-header-inner">
-                <h1><?php the_archive_title(); ?></h1>
-            </div>
-            <div class="blog-header-overlay">
-            </div>
-        </div>
-    </section>
+				<div class="blog-header">
+						<div class="blog-header-inner">
+								<h1><?php the_archive_title(); ?></h1>
+						</div>
+						<div class="blog-header-overlay">
+						</div>
+				</div>
+		</section>
 	<?php do_action('before_archive_content'); ?>
-    <!-- Blog -->
-    <section class="blog-section">
-        <div class="page-banner">
-            <div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
-                <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-                <?php echo esc_html__('ARCHIVES', 'ephic');?>
-            </div>
-        </div>
+		<!-- Blog -->
+		<section class="blog-section">
+				<div class="page-banner">
+						<div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+								<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+								<?php echo esc_html__('ARCHIVES', 'ephic');?>
+						</div>
+				</div>
 
-        <div class="container container-large upper100">
-            <div class="row">
-                <!-- Main Blog -->
-                <div class="col-xs-12 col-sm-12 <?php echo $main_class;?>">
-                    <div class="blog-content">
+				<div class="container container-large upper100">
+						<div class="row">
+								<!-- Main Blog -->
+								<div class="col-xs-12 col-sm-12 <?php echo $main_class;?>">
+										<div class="blog-content">
 
 		<?php
 		if ( have_posts() ) :
@@ -69,19 +69,19 @@ if ($sidebar_pos == 'left') {
 
 		endif; ?>
 
-                    </div><!--.blog-content-->
-                </div><!-- .col-lg-9 -->
+										</div><!--.blog-content-->
+								</div><!-- .col-lg-9 -->
 
 		<?php if (!$no_sidebar) { // if sidebar is set to left or right ?>
-                <!-- Blog Sidebar -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-                    <div class="blog-sidebar <?php echo $sidebar_class; ?>">
-                        <?php get_sidebar(); ?>
-                    </div>
-                </div> <!-- \sidebar -->
+								<!-- Blog Sidebar -->
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+										<div class="blog-sidebar <?php echo $sidebar_class; ?>">
+												<?php get_sidebar(); ?>
+										</div>
+								</div> <!-- \sidebar -->
 		<?php } ?>
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </section>				
+						</div><!-- .row -->
+				</div><!-- .container -->
+		</section>				
 <?php
 get_footer();

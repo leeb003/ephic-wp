@@ -47,7 +47,7 @@
 		navMain.on("click", 'a[href]:not([href="#"])', null, function () {
 			navMain.collapse('hide');
 		});
- 	});
+	});
 
 	/* To Top display */
 	$(window).scroll(function() {
@@ -117,7 +117,7 @@
 			isotopeContainer.isotope('on', 'layoutComplete', function( isoInstance, laidOutItems ) {
 				$(window).trigger('resize').trigger('scroll');
 			});
- 			//isotopeContainer.isotope('layout');
+			//isotopeContainer.isotope('layout');
 		};
 		// Functions Initializers
 		myTemplate.Isotope();
@@ -152,14 +152,14 @@
 				});
 			}, { offset: '90%', triggerOnce: true });
 		}
-	 	/* scroll add class to menu items */
+		/* scroll add class to menu items */
 		if ($('section#intro').length) { // target an existing section on the home page for single page scrolling for this page only
 			$('section').waypoint(function(direction) {
 				if (direction === 'down') {
 					var section = $(this).attr('id');
 					navlinkSelect(section);
 				}
-   	 		}, { offset: '180'}).waypoint(function(direction) {
+			}, { offset: '180'}).waypoint(function(direction) {
 				if (direction === 'up') {
 					var section = $(this).attr('id');
 					navlinkSelect(section);
@@ -197,7 +197,7 @@
 			$(".fancybox-pop").fancybox({
 				maxWidth	: 900,
 				maxHeight	: 700,
-				padding     : 0,
+				padding		: 0,
 				fitToView	: true,
 				width		: 'auto',
 				height		: 'auto',

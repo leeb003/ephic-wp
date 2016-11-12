@@ -1,60 +1,60 @@
 <?php
 /**
- *  Dynamic style generation for Kirki to output
+ *	Dynamic style generation for Kirki to output
  * 
  */
 /* Primary Color */
 if( ! function_exists('ephic_accent_color') ){
 function ephic_primary_color(){
 	$output = array (
-        array(
-            'element'  => 'a, a:active',
-            'property' => 'color',
-        ),
-        array(
-            'element'  => '.alert-status',
-            'property' => 'background-color'
-        ),
-        array(
-            'element'  => '.alert-status',
-            'property' => '.border-color'
-        ),
-        array(
-            'element'  => '.infoblock h3:after',
-            'property' => 'border-color'
-        ),
-        array(
-            'element'  => '.infoblock ul li:before, .infoblock ul li::after',
-            'property' => 'color'
-        ),
-        array(
-            'element'  => 'a.detail-switch i',
-            'property' => 'background-color'
-        ),
-        array(
-            'element'  => '.sqft',
-            'property' => 'color'
-        ),
+		array(
+			'element'  => 'a, a:active',
+			'property' => 'color',
+		),
+		array(
+			'element'  => '.alert-status',
+			'property' => 'background-color'
+		),
+		array(
+			'element'  => '.alert-status',
+			'property' => '.border-color'
+		),
+		array(
+			'element'  => '.infoblock h3:after',
+			'property' => 'border-color'
+		),
+		array(
+			'element'  => '.infoblock ul li:before, .infoblock ul li::after',
+			'property' => 'color'
+		),
+		array(
+			'element'  => 'a.detail-switch i',
+			'property' => 'background-color'
+		),
+		array(
+			'element'  => '.sqft',
+			'property' => 'color'
+		),
 		array(
 			'element'  => '.navbar.navbar-default .navbar-nav > li > a:hover',
 			'property' => 'color',
 		),
-        array(
-            'element'  => '.btn-sec',
-            'property' => 'background-color'
-        ),
-        array(
-            'element'  => '.btn-sec',
-            'property' => 'border-color'
-        ),
-        array(
-            'element'  => '.btn-third',
-            'property' => 'border-color'
-        ),
-        array(
-            'element'  => '.btn-third',
-            'property' => 'color'
-        ),
+		array(
+			'element'  => '.btn-sec',
+			'property' => 'background-color'
+		),
+		array(
+			'element'  => '.btn-sec',
+			'property' => 'border-color'
+		),
+		array(
+			'element'  => '.btn-third',
+			'property' => 'border-color'
+		),
+		array(
+			'element'  => '.btn-third',
+			'property' => 'color'
+		),
 		array(
 			'element'  => '.top-cta',
 			'property' => 'background-color'
@@ -100,9 +100,9 @@ function ephic_primary_color(){
 			'property' => 'border-color'
 		),
 		array(
-            'element'  => '.owl-carousel-agents .owl-prev, .owl-carousel-agents .owl-next',
-            'property' => 'color'
-        ),
+			'element'  => '.owl-carousel-agents .owl-prev, .owl-carousel-agents .owl-next',
+			'property' => 'color'
+		),
 		array(
 			'element'  => '.owl-carousel-agents .owl-prev:hover,.owl-carousel-agents .owl-next:hover',
 			'property' => 'background-color'
@@ -116,9 +116,9 @@ function ephic_primary_color(){
 			'property' => 'background-color'
 		),
 		array(
-            'element'  => '.search-form .submits:hover',
-            'property' => 'border-color'
-        ),
+			'element'  => '.search-form .submits:hover',
+			'property' => 'border-color'
+		),
 		array(
 			'element'  => '.blog-post a',
 			'property' => 'color'
@@ -164,9 +164,9 @@ function ephic_primary_color(){
 			'property' => 'background-color'
 		),
 		array(
-            'element'  => '.search-form .submits:hover',
-            'property' => 'border-color'
-        ),
+			'element'  => '.search-form .submits:hover',
+			'property' => 'border-color'
+		),
 		array(
 			'element'  => '.comment-actions a:hover',
 			'property' => 'background-color'
@@ -183,7 +183,7 @@ function ephic_primary_color(){
 			'element'  => '.footer_icons a:hover',
 			'property' => 'color'
 		),
-    );
+	);
 	return $output;
 }}
 

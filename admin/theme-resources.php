@@ -7,13 +7,13 @@
 
 class ephic_theme_resources {
 
-    //properties
+	//properties
 	public $options = array();	
 
-    //methods
-    public function __construct() {
+	//methods
+	public function __construct() {
 
-    }
+	}
 
 	/*
 	 * Options 
@@ -28,25 +28,25 @@ class ephic_theme_resources {
 	 * Menu Exists Check
 	 */
 	/**
-     * Check for the existance of our menu
-     **/
-    public function menu_check($menu_key) {
-        $menu_name = false;
-        $all_menus = wp_get_nav_menus();
-        // We need the nav-menu location registered for 'Navigation Menu' in theme-settings.php
-        $nav_menus = (get_nav_menu_locations());
-        foreach ($nav_menus as $k => $v) {
-            if ($k == $menu_key) {
-                $menu_id = $v;
-                foreach ($all_menus as $all => $m) {
-                    if ($menu_id == $m->term_id) {
-                        $menu_name = $m->name;
-                    }
-                }
-            }
-        }
-        return $menu_name;
-    }
+	 * Check for the existance of our menu
+	 **/
+	public function menu_check($menu_key) {
+		$menu_name = false;
+		$all_menus = wp_get_nav_menus();
+		// We need the nav-menu location registered for 'Navigation Menu' in theme-settings.php
+		$nav_menus = (get_nav_menu_locations());
+		foreach ($nav_menus as $k => $v) {
+			if ($k == $menu_key) {
+				$menu_id = $v;
+				foreach ($all_menus as $all => $m) {
+					if ($menu_id == $m->term_id) {
+						$menu_name = $m->name;
+					}
+				}
+			}
+		}
+		return $menu_name;
+	}
 
 	/**
 	 * ephic_meta
@@ -64,11 +64,6 @@ class ephic_theme_resources {
 						<i class="icon-bubbles"></i>
 							$post->comment_count <a href="$comments_link">$comments_text</a>
 						</div>
-EOT;
-	        } elseif ($v == 'like') {
-				$like = getPostLikeLink( $post->ID );
-				$meta[] = <<<EOT
-					<div class="bl-views">$like</div>
 EOT;
 			} elseif ($v == 'date') {
 			$format_prefix = '%2$s';
@@ -92,8 +87,8 @@ EOT;
 	}
 
 	/*
-     * Container layout
-     */
+	 * Container layout
+	 */
 	/*
 	public function container() {
 		$container_class = array();
@@ -103,7 +98,7 @@ EOT;
 			$container_class['container'] = 'container-fluid';
 			$container_class['inner'] = 'nested-container';
 		}
-        return $container_class;
+		return $container_class;
 	}
 	*/	
 }
