@@ -37,7 +37,7 @@ function ephic_register_required_plugins() {
 		array(
 			'name'				 => 'Ephic Plugin',
 			'slug'				 => 'ephic-plugin',
-			'source'			 => 'http://ephic-plugins.sh-themes.com/ephic-plugin.zip',
+			'source'			 => EPHIC_INC_DIR . 'plugins/ephic-plugin.zip',
 			'version'			 => '1.0',
 			'force_activation'	 => false,
 			'force_deactivation' => false,

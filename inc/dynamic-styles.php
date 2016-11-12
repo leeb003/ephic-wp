@@ -12,72 +12,68 @@ function ephic_primary_color(){
 			'property' => 'color',
 		),
 		array(
-			'element'  => '.alert-status',
-			'property' => 'background-color'
+			'element'  => '.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > li > a:focus',
+			'property' => 'color',
 		),
 		array(
-			'element'  => '.alert-status',
-			'property' => '.border-color'
+			'element'  => '.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span',
+			'property' => 'color',
 		),
 		array(
-			'element'  => '.infoblock h3:after',
-			'property' => 'border-color'
+			'element'  => '.totop:hover, .totop:focus, .totop:active',
+			'property' => 'color',
 		),
 		array(
-			'element'  => '.infoblock ul li:before, .infoblock ul li::after',
-			'property' => 'color'
+			'element'  => '.totop:hover, .totop:focus, .totop:active',
+			'property' => 'border-color',
 		),
 		array(
-			'element'  => 'a.detail-switch i',
-			'property' => 'background-color'
-		),
-		array(
-			'element'  => '.sqft',
-			'property' => 'color'
+			'element'  => '.page-banner-inner a:hover',
+			'property' => 'color',
 		),
 		array(
 			'element'  => '.navbar.navbar-default .navbar-nav > li > a:hover',
 			'property' => 'color',
 		),
 		array(
-			'element'  => '.btn-sec',
+			'element'  => '.primary-btn',
 			'property' => 'background-color'
 		),
-		array(
-			'element'  => '.btn-sec',
+		array( 
+			'element'  => '.primary-btn',
 			'property' => 'border-color'
 		),
-		array(
-			'element'  => '.btn-third',
-			'property' => 'border-color'
-		),
-		array(
-			'element'  => '.btn-third',
+		array( 
+			'element'  => '.primary-btn:hover, .primary-btn:focus, .primary-btn:active',
 			'property' => 'color'
 		),
 		array(
-			'element'  => '.top-cta',
-			'property' => 'background-color'
+			'element'  => '.primary-btn:hover, .primary-btn:focus, .primary-btn:active',
+			'property' => 'border-color'
+		),
+		array(
+			'element'  => '.comment-form input[type="submit"]:hover, .comment-form input[type="submit"]:focus, .comment-form input[type="submit"]:active',
+			'property' => 'color',
+		),
+		array(
+			'element'  => '.comment-form input[type="submit"]',
+			'property' => 'border-color',
+		),
+		array(
+			'element'  => '.tags ul li a:hover',
+			'property' => 'border-color',
+		),
+		array(
+			'element'  => '.tags ul li a:hover',
+			'property'  => 'background-color',
 		),
 		array( 
 			'element'  => '.features i',
 			'property' => 'color'
 		),		
 		array(
-			'element'  => '.decagon .rct',
-			'property' => 'background-color'
-		),
-		array(
-			'element'  => '.add-item i',
-			'property' => 'color'
-		),
-		array(
 			'element'  => 'ul.filter > li > a:hover, ul.filter > li > a:hover, ul.filter > li.active a',
 			'property' => 'color'
-		),
-		array(
-			'element'  => '.bl-date',
-			'property' => 'background-color'
 		),
 		array(
 			'element'  => '.bl-title h3',
@@ -86,26 +82,6 @@ function ephic_primary_color(){
 		array(
 			'element'  => '.entry-title a:hover, .entry-title a:active, .entry-title a:focus',
 			'property' => 'color'
-		),
-		array(
-			'element'  => '.agent-info h3',
-			'property' => 'color'
-		),
-		array(
-			'element'  => '.contact-items',
-			'property' => 'background-color'
-		),
-		array(
-			'element'  => '.owl-carousel-agents .owl-prev, .owl-carousel-agents .owl-next',
-			'property' => 'border-color'
-		),
-		array(
-			'element'  => '.owl-carousel-agents .owl-prev, .owl-carousel-agents .owl-next',
-			'property' => 'color'
-		),
-		array(
-			'element'  => '.owl-carousel-agents .owl-prev:hover,.owl-carousel-agents .owl-next:hover',
-			'property' => 'background-color'
 		),
 		array( 
 			'element'  => 'h2.colorh, .stat.colorh',
@@ -133,22 +109,6 @@ function ephic_primary_color(){
 		),
 		array(
 			'element'  => '.intro-info .col-md-4:hover i, .services-icons .col-md-4:hover i',
-			'property' => 'color'
-		),
-		array(
-			'element'  => '.statement h4',
-			'property' => 'color'
-		),
-		array(
-			'element'  => '.statement h4::before',
-			'property' => 'border-color'
-		),
-		array(
-			'element'  => '.icon-holder .icon-surround',
-			'property' => 'border-color'
-		),
-		array(
-			'element'  => '.icon-surround i',
 			'property' => 'color'
 		),
 		array(
@@ -180,8 +140,18 @@ function ephic_primary_color(){
 			'property' => 'background-color'
 		),
 		array(
-			'element'  => '.footer_icons a:hover',
-			'property' => 'color'
+			'element'  => '.dropdown-menu',
+			'property' => 'border-top',
+			'prefix'   => '1px solid',
+		),
+		array( 
+			'element'  => '.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover',
+			'property' => 'color',
+		),
+		array(
+			'element'  => '.navbar-default .navbar-nav > li::before, .navbar-default .navbar-nav > li > a::before, .navbar-default .navbar-nav > li > a::after',
+			'property' => 'background',
+			'media_query' => '@media (min-width: 991px)'
 		),
 	);
 	return $output;

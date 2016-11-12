@@ -191,10 +191,10 @@ function ephic_scripts() {
 	if (!is_page_template($templates)) {
 		$top_background = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
 		$top_background = $top_background[0];
-		$testimonial_color = get_theme_mod('testimonial_color');
 		$testimonial_bg = esc_url(get_theme_mod('testimonial_bg'));
 		$four_o_four_bg = esc_url(get_theme_mod('background_404'));
-		$about_css = "
+		$color_primary = get_theme_mod('color_primary');
+		$other_css = "
 			.page-template.blog-header {
 				background: transparent url('$top_background') no-repeat fixed top;
 				background-size: cover;
@@ -205,18 +205,15 @@ function ephic_scripts() {
 				font-style: normal;
 				font-weight: 500;
 			}
-			.testimonials-overlay {
-				background: $testimonial_color;
-			}
-			.testimonials-section {
-				background-image: url('$testimonial_bg');
-			}
 			.four-header {
 				background: transparent url('$four_o_four_bg') no-repeat fixed top;
 			}
 			";
-		wp_add_inline_style( 'ephic-style', $about_css );
+		wp_add_inline_style( 'ephic-style', $other_css );
 	} else { // home template
+		$color_primary = get_theme_mod('color_primary');
+		$inline_css = "
+		";
 		/* Home page slide background images */
 		$sliders_bgs = '';
 		if (get_theme_mod('home_top', '') == 'slider') {
@@ -240,7 +237,7 @@ function ephic_scripts() {
 				$i++;
 			}
 		}
-		$inline_css = $sliders_bgs;
+		$inline_css .= $sliders_bgs;
 
 		wp_add_inline_style( 'ephic-style', $inline_css );
 	}
@@ -278,7 +275,7 @@ add_action( 'wp_enqueue_scripts', 'ephic_scripts' );
 function ephic_admin_scripts() {
 	$ephic_theme = wp_get_theme();
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
-	wp_enqueue_style( 'tfn-customizer', get_template_directory_uri() . '/css/ephic-customizer.css' );
+	wp_enqueue_style( 'ephic-customizer', get_template_directory_uri() . '/css/ephic-customizer.css' );
 	wp_enqueue_script( 'ephic_customizer_admin', 
 		get_template_directory_uri() . '/js/customizer-admin.js', array(), $ephic_theme->get('Version'), true );
 }
