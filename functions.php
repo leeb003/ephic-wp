@@ -204,7 +204,7 @@ function ephic_scripts() {
 		$testimonial_bg = esc_url(get_theme_mod('testimonial_bg'));
 		$four_o_four_bg = esc_url(get_theme_mod('background_404'));
 		$about_css = "
-			.tfn-page-header.blog-header {
+			.page-template.blog-header {
 				background: transparent url('$top_background') no-repeat fixed top;
 				background-size: cover;
 			}

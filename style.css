@@ -1115,6 +1115,7 @@ span.sep {
 }
 img.main-img {
   z-index: -1;
+  width: 100%;
 }
 .blog-post-main {
   position: relative;
@@ -1219,6 +1220,14 @@ h2.entry-title a {
   padding-left: 10px;
   right: 0;
   color: #ccc;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
@@ -1368,11 +1377,9 @@ h2.entry-title a {
 }
 .sb-auth {
   float: left;
-  color: #9c9c9c;
 }
 .sb-smdate {
   float: right;
-  color: #9c9c9c;
 }
 .sb-auth,
 .sb-smdate {
@@ -1421,13 +1428,11 @@ blockquote cite {
 .comments-title {
   font-size: 1.75em;
   font-weight: 400;
-  color: #333333;
   margin-bottom: 30px;
 }
 #reply-title {
   font-size: 1.75em;
   font-weight: 400;
-  color: #333333;
   margin-bottom: 20px;
 }
 .pingbacks-title {
@@ -1442,6 +1447,9 @@ li.comment {
 li > div.comment {
   margin-bottom: 40px;
   position: relative;
+}
+.comment-content.post-content {
+  padding: 10px;
 }
 .comment .children {
   padding-left: 5%;

@@ -168,10 +168,6 @@ function ephic_primary_color(){
             'property' => 'border-color'
         ),
 		array(
-			'element'  => '.sb-title i',
-			'property' => 'color'
-		),
-		array(
 			'element'  => '.comment-actions a:hover',
 			'property' => 'background-color'
 		),	

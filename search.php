@@ -12,13 +12,17 @@
  * @packageEphic
  */
 
-get_header(); 
+get_header();
 $sidebar_pos = get_theme_mod('blog_sidebar');
-$main_class = '';
+$main_class = 'col-md-8 col-lg-9';
 $sidebar_class = '';
+$no_sidebar = false;
 if ($sidebar_pos == 'left') {
-    $main_class = 'pull-right';
-	$sidebar_class = 'left-sidebar';
+    $main_class .= ' pull-right';
+    $sidebar_class = 'left-sidebar';
+} elseif ($sidebar_pos == 'nosidebar') {
+    $main_class = 'col-sm-12';
+    $no_sidebar = true;
 }
 ?>
     <section id="top-section" class="top-section">
@@ -43,7 +47,7 @@ if ($sidebar_pos == 'left') {
         <div class="container container-large upper100">
             <div class="row">
                 <!-- Main Blog -->
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 <?php echo $main_class;?>">
+                <div class="col-xs-12 col-sm-12 <?php echo $main_class;?>">
                     <div class="blog-content">
 		<?php
 		if ( have_posts() ) :
@@ -70,12 +74,14 @@ if ($sidebar_pos == 'left') {
                     </div><!--.blog-content-->
                 </div><!-- .col-lg-9 -->
 
+		<?php if (!$no_sidebar) { // if sidebar is set to left or right ?>
                 <!-- Blog Sidebar -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                     <div class="blog-sidebar <?php echo $sidebar_class; ?>">
                         <?php get_sidebar(); ?>
                     </div>
                 </div> <!-- \sidebar -->
+		<?php } ?>
             </div><!-- .row -->
         </div><!-- .container -->
     </section>				
