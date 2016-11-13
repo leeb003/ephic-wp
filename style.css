@@ -260,6 +260,13 @@ h6 {
 .navbar-default .navbar-nav > li > a:hover {
   color: #ff8103;
 }
+.navbar-default .dropdown.icl-menu img {
+  vertical-align: inherit;
+  margin-right: 5px;
+}
+.icl-menu .dropdown-menu li a {
+  text-align:left;
+}
 
 /* Larger screen link styling */
 @media (min-width: 991px) {
@@ -1142,6 +1149,17 @@ img.main-img {
 .blog-post a:focus {
   color: inherit;
 }
+.blog-post .featured {
+  display:none;
+}
+.sticky .blog-post .featured {
+  display:block;
+  background-color: #f7f7f7;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
 .bl-title {
 }
 

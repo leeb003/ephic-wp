@@ -80,6 +80,7 @@ EOT;
 		?>
 			<div class="<?php echo $container_class;?>">
 				<div class="blog-post">
+					<p class="featured"><?php echo esc_html__('Featured', 'ephic');?></p>
 					<div class="bl-title">
 			<?php echo $comment_count; ?>
 						<div class="bl-auth"><span><?php echo get_the_date();?></span> <?php echo $author;?></div>

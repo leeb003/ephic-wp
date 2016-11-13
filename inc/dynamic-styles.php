@@ -100,6 +100,10 @@ function ephic_primary_color(){
 			'property' => 'color'
 		),
 		array(
+			'element'  => '.blog-post .featured',
+			'property' => 'color',
+		),
+		array(
 			'element'  => 'ul.social-links li a:active, ul.social-links li a:focus, ul.social-links li a:hover',
 			'property' => 'background-color'
 		),

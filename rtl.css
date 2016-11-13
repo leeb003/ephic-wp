@@ -66,6 +66,9 @@ body {
   left: 50%;
   right: auto;
 }
+.icl-menu .dropdown-menu li a {
+  text-align:right;
+}
 /*
  * --- 1.2 Sticky Menu Styles ---
  */
