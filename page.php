@@ -9,6 +9,8 @@
  */
 
 get_header();
+$home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
+$breadcrumb = get_the_title();
 ?>
 	<?php do_action('before_page_header'); ?>
 	<section id="top-section" class="top-section">
@@ -24,9 +26,16 @@ get_header();
 	<!-- Blog -->
 	<section class="blog-section">
 		<div class="page-banner">
-			<div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+			<div class="page-banner-inner">
+		<?php if (is_rtl()) { // RTL ?>
+				<?php echo $breadcrumb; ?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo get_the_title(); ?>
+				<?php echo $home_url;?>
+		<?php } else { ?>
+				<?php echo $home_url; ?>
+				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<?php echo $breadcrumb;?>
+		<?php } ?>
 			</div>
 		</div>
 

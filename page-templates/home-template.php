@@ -133,9 +133,12 @@ $home_sections = get_theme_mod( 'home_sections', array());
 			<div class="container container-large">
 				<div class="row">
 					<?php 
-					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
+					if (is_rtl()) {
+						$parallax_class = 'col-md-5 col-sm-7 col-xs-10 parallax-info p-left'; // rtl default
+					} 
 					if (get_theme_mod( 'parallax_text_side', '') == 'right') {
-						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info p-right"; // right
 					} elseif (get_theme_mod( 'parallax_text_side', '') == 'center') {
 						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
 					}
@@ -156,9 +159,12 @@ $home_sections = get_theme_mod( 'home_sections', array());
 			<div class="container container-large">
 				<div class="row">
 					<?php
-					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
+					if (is_rtl()) {
+						$parallax_class = 'col-md-5 col-sm-7 col-xs-10 parallax-info p-left'; // rtl default
+					} 
 					if (get_theme_mod( 'parallax2_text_side', '') == 'right') {
-						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info p-right"; // right
 					} elseif (get_theme_mod( 'parallax2_text_side', '') == 'center') {
 						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
 					}
@@ -179,9 +185,12 @@ $home_sections = get_theme_mod( 'home_sections', array());
 			<div class="container container-large">
 				<div class="row">
 					<?php
-					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info'; // default left
+					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
+					if (is_rtl()) {
+						$parallax_class = 'col-md-5 col-sm-7 col-xs-10 parallax-info p-left'; // rtl default
+					} 
 					if (get_theme_mod( 'parallax3_text_side', '') == 'right') {
-						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info"; // right
+						$parallax_class = "col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12 parallax-info p-right"; // right
 					} elseif (get_theme_mod( 'parallax3_text_side', '') == 'center') {
 						$parallax_class = "col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 parallax-info text-center"; // center
 					}

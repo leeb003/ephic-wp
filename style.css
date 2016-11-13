@@ -27,18 +27,17 @@ Tags: four-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, cus
 	2.6 Stats Section
 	2.7 About Section
 	2.8 Contact Section
-3. ABOUT US PAGE STYLES
-4. 404 Page
-5. BLOG PAGE STYLES
-	5.1 Blog Sidebar
-6. BLOG SINGLE ENTRY PAGE
-	6.1 Comments
-	6.2 Comment meta
-	6.3 Comment content
-	6.4 Comment meta content
-	6.5 Respond
-7. FOOTER
-8. General Media Queries
+3. 404 Page
+4. BLOG PAGE STYLES
+	4.1 Blog Sidebar
+5. BLOG SINGLE ENTRY PAGE
+	5.1 Comments
+	5.2 Comment meta
+	5.3 Comment content
+	5.4 Comment meta content
+	5.5 Respond
+6. FOOTER
+7. General Media Queries
 -------------------------------------------------------------------*/
 /*
  * === 1. GENERAL STYLES ===
@@ -940,11 +939,8 @@ ul.social-links li a {
   background-color: #fff;
 }
 
-/*
- * === 3. ABOUT US PAGE STYLES ===
- */
 /* 
- * === 4. 404 Page ===
+ * === 3. 404 Page ===
  */
 .four-header {
   background-size: cover;
@@ -1009,7 +1005,7 @@ ul.social-links li a {
   font-weight: 600;
 }
 /*
- * === 5. BLOG PAGE STYLES ===
+ * === 4. BLOG PAGE STYLES ===
  */
 .blog-header {
   background: transparent url('../img/main2.jpg') no-repeat fixed top;
@@ -1295,7 +1291,7 @@ h2.entry-title a {
 
 
 /*
- * --- 5.1 Blog Sidebar ---
+ * --- 4.1 Blog Sidebar ---
  */
 .blog-sidebar {
   margin-left: 30px;
@@ -1446,7 +1442,7 @@ h2.entry-title a {
   }
 }
 /*
- * === 6. BLOG SINGLE ENTRY PAGE ===
+ * === 5. BLOG SINGLE ENTRY PAGE ===
  */
 blockquote {
   font-size: 18px;
@@ -1462,7 +1458,7 @@ blockquote cite {
   text-align: right;
 }
 /*
- *  --- 6.1 Comments ---
+ *  --- 5.1 Comments ---
  */
 .comments {
   padding: 20px 55px;
@@ -1516,7 +1512,7 @@ li > div.comment {
   margin-bottom: 0;
 }
 /*
- * --- 6.2 Comment meta ---
+ * --- 5.2 Comment meta ---
  */
 .comment-meta {
   margin-bottom: 1em;
@@ -1561,7 +1557,7 @@ li > div.comment {
   text-decoration: none;
 }
 /*
- * --- 6.3 Comment content ---
+ * --- 5.3 Comment content ---
  */
 .comment-content .comment-actions {
   display: none;
@@ -1615,7 +1611,7 @@ li > div.comment {
   color: #46505c;
 }
 /*
- * --- 6.4 Comment meta content ---
+ * --- 5.4 Comment meta content ---
  */
 .comment-meta-content {
   margin-left: 65px;
@@ -1650,7 +1646,7 @@ li > div.comment {
   letter-spacing: 0;
 }
 /*
- * --- 6.5 Respond ---
+ * --- 5.5 Respond ---
  */
 #respond {
   padding: 5.5%;
@@ -1717,7 +1713,7 @@ p.logged-in-as {
   color: #666666;
 }
 /*
- * === 7. FOOTER ===
+ * === 6. FOOTER ===
  */
 .footer {
   float: left;
@@ -1733,7 +1729,7 @@ p.logged-in-as {
   margin: 0;
 }
 /*
- * === 8. General Media Queries ===
+ * === 7. General Media Queries ===
  */
 @media (max-width: 768px) {
   .totop {

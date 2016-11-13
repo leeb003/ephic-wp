@@ -24,6 +24,8 @@ if ($sidebar_pos == 'left') {
 	$main_class = 'col-sm-12';
 	$no_sidebar = true;
 }
+$home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
+$breadcrumb = esc_html__('SEARCH', 'ephic');
 ?>
 	<section id="top-section" class="top-section">
 		<div class="blog-header">
@@ -38,9 +40,16 @@ if ($sidebar_pos == 'left') {
 	<!-- Blog -->
 	<section class="blog-section">
 		<div class="page-banner">
-			<div class="page-banner-inner"><a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('HOME', 'ephic');?></a>
+			<div class="page-banner-inner">
+		<?php if (is_rtl()) { // RTL ?>
+				<?php echo $breadcrumb; ?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo esc_html__('SEARCH', 'ephic');?>
+				<?php echo $home_url;?>
+		<?php } else { ?>
+				<?php echo $home_url; ?>
+				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<?php echo $breadcrumb;?>
+		<?php } ?>
 			</div>
 		</div>
 
