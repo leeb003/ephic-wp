@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ephic WordPress Template\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-12 11:34-0700\n"
+"POT-Creation-Date: 2016-11-14 10:16-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Lee Beck <info@scripthat.com>\n"
 "Language-Team: SH-Themes <info@scripthat.com>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: page.php:27
-#: archive.php:37
-#: search.php:41
-#: 404.php:23
-#: index.php:42
-#: single.php:35
+#: page.php:12
+#: archive.php:22
+#: search.php:27
+#: 404.php:12
+#: index.php:27
+#: single.php:21
 msgid "HOME"
 msgstr ""
 
@@ -37,35 +37,35 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:294
+#: functions.php:291
 msgid "Name"
 msgstr ""
 
-#: functions.php:300
+#: functions.php:297
 msgid "Email"
 msgstr ""
 
-#: functions.php:305
+#: functions.php:302
 msgid "Website"
 msgstr ""
 
-#: functions.php:319
+#: functions.php:316
 msgid "Comment"
 msgstr ""
 
-#: functions.php:353
+#: functions.php:350
 msgid "Post author"
 msgstr ""
 
-#: functions.php:357
+#: functions.php:354
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:364
+#: functions.php:361
 msgid "(Edit)"
 msgstr ""
 
-#: archive.php:39
+#: archive.php:23
 msgid "ARCHIVES"
 msgstr ""
 
@@ -73,17 +73,17 @@ msgstr ""
 msgid "Copyright &copy; 2016 EPHIC TEMPLATE"
 msgstr ""
 
-#: search.php:31
+#: search.php:28
+msgid "SEARCH"
+msgstr ""
+
+#: search.php:33
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:43
-msgid "SEARCH"
-msgstr ""
-
-#: 404.php:25
-msgid "404"
+#: 404.php:13
+msgid "NOT FOUND"
 msgstr ""
 
 #: comments.php:43
@@ -109,7 +109,7 @@ msgstr ""
 msgid "SCROLL DOWN"
 msgstr ""
 
-#: page-templates/home-template.php:298
+#: page-templates/home-template.php:307
 msgid "All"
 msgstr ""
 
@@ -133,6 +133,7 @@ msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content-page.php:18
+#: template-parts/content.php:67
 msgid "Pages:"
 msgstr ""
 
@@ -143,12 +144,16 @@ msgid "Edit %s"
 msgstr ""
 
 #: template-parts/content.php:57
-#: template-parts/content.php:95
+#: template-parts/content.php:103
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/content.php:118
+#: template-parts/content.php:90
+msgid "Featured"
+msgstr ""
+
+#: template-parts/content.php:123
 msgid "Read more"
 msgstr ""
 
@@ -169,7 +174,7 @@ msgid "Insert your logo"
 msgstr ""
 
 #: inc/customizer.php:265
-msgid "Be sure to add a logo that will fit well"
+msgid "Be sure to add a logo that will fit well (demo logo is 177x40)"
 msgstr ""
 
 #: inc/customizer.php:273
