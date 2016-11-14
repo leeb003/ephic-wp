@@ -2305,6 +2305,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ) );
 
 /* Blog Meta Tags */
+/* Not enabled at this time
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'sortable',
 	'settings'	  => 'blog_meta',
@@ -2323,7 +2324,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	),
 	'priority'	  => 10,
 ) );
-
+*/
 
 /**
  * Add the Custom Code (CSS, JS) section
