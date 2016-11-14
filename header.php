@@ -58,7 +58,7 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 						$current = get_page_template_slug();
 						wp_nav_menu( array(
 							'menu'           => 'primary',
-							'theme_location' => 'tfnprimary',
+							'theme_location' => 'ephicprimary',
 							'container' => 'div',
 							'container_class' => 'collapse navbar-collapse',
 							'container_id' => 'navbar',

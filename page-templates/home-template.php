@@ -538,7 +538,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 		} elseif ($v['section'] == 'builder') {
 			$builder_page = get_post(intval($v['page'])); ?>
 	<section id="home-pb-<?php echo $v['page']; ?>">
-		<div class="container">
+		<div class="container container-large">
 			<?php echo do_shortcode($builder_page->post_content);?>
 		</div>
 	</section>

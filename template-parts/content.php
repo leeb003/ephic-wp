@@ -52,15 +52,22 @@ EOT;
 					<div class="bl-excerpt upper40">
 
 		<?php
-		$content = get_the_content( sprintf(
+		$content = apply_filters('the_content', get_the_content( sprintf(
 		/* translators: %s: Name of current post. */
 		wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'ephic' ),
 			array( 'span' => array( 'class' => array() ) ) ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		) );
-		echo do_shortcode($content);
+		) ) );
+		echo $content;
 		?>
 					</div>
+
+		<?php
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ephic' ),
+			'after'  => '</div>',
+		) );
+		?>			
 					<footer class="entry-footer">
 						<?php ephic_entry_footer(); ?>
 					</footer><!-- .entry-footer -->
@@ -91,17 +98,17 @@ EOT;
 					<div class="bl-excerpt">
 
 		<?php
-		$content = get_the_content( sprintf(
-		/* translators: %s: Name of current post. */
-		wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'ephic' ),
-			array( 'span' => array( 'class' => array() ) ) ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		) );
+		$content = apply_filters('the_content', get_the_content( sprintf(
+        /* translators: %s: Name of current post. */
+        wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'ephic' ),
+            array( 'span' => array( 'class' => array() ) ) ),
+            the_title( '<span class="screen-reader-text">"', '"</span>', false )
+        ) ) );
 		if (get_theme_mod('blog_summary') == 'summary') {
 			$words = get_theme_mod('blog_summary_length');
 			echo wp_trim_words($content, $words, '...');
 		} else {
-			echo do_shortcode($content);
+			echo $content;
 			
 			//the_content( sprintf(
 			/* translators: %s: Name of current post. */
@@ -113,11 +120,7 @@ EOT;
 		}
 		?>
 					</div>
-		<?php
-		if (get_theme_mod('blog_summary') == 'summary') {
-		?>
 					<a class="readmore" href="<?php echo $get_permalink;?>"><?php echo esc_html__('Read more', 'ephic');?></a>
-		<?php } ?>
 				</div>
 			</div> <!--.blog-cont-->
 

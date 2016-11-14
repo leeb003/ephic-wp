@@ -59,9 +59,6 @@ a {
   color: #ff8103;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-ol, ul {
-  list-style: none;
-}
 input {
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
@@ -169,6 +166,9 @@ h6 {
 }
 .navbar-brand {
   padding: 10px 15px;
+}
+.navbar-logo {
+  max-height: 50px;
 }
 .navbar-brand>img {
   max-height: 100%;
@@ -1109,6 +1109,7 @@ span.sep {
 .blog-cont {
   margin: -250px 40px 0px 40px;
   width:100%;
+  overflow:auto;
 }
 .blog-post {
   background-color: rgba(255,255,255,1);
@@ -1193,6 +1194,8 @@ h2.entry-title a {
   font-weight: 500;
   text-decoration: underline;
   text-decoration-style: dotted;
+  display: block;
+  clear:both;
 }
 .blog-sep {
   padding-top: 60px;
@@ -1204,6 +1207,7 @@ h2.entry-title a {
   padding: 5px 15px;
   background-color: #f7f7f7;
   color: #888888;
+  clear:both;
 }
 .post-cat-tags .post-categories {
   margin-right: 20px;
@@ -1213,6 +1217,9 @@ h2.entry-title a {
   line-height: 120%;
   margin: 10px 20px;
 }
+.page-links {
+  margin-top: 20px;
+ }
 .nav-links {
   margin-top: 60px;
 }
@@ -1234,6 +1241,12 @@ h2.entry-title a {
   padding-left: 10px;
   right: 0;
   color: #ccc;
+}
+.nav-previous {
+  float:left;
+}
+.nav-next {
+  float:right;
 }
 
 .screen-reader-text {
@@ -1277,6 +1290,7 @@ h2.entry-title a {
   max-width: 96%; /* Image does not overflow the content area */
   padding: 5px 3px 10px;
   text-align: center;
+  clear:both;
 }
 
 .wp-caption.alignnone {
@@ -1305,6 +1319,40 @@ h2.entry-title a {
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 1px 0 0 1px;
+  margin: 0 0 1.6em;
+  table-layout: fixed;
+  width: 100%;
+}
+dl, dd, table {
+  margin-bottom: 1.6842em;
+}
+blockquote.alignleft, .wp-caption.alignleft, img.alignleft {
+  margin: 0.4211em 1.6842em 1.6842em 0;
+}
+.alignleft {
+  display: inline;
+  float: left;
+}
+blockquote.alignright, .wp-caption.alignright, img.alignright {
+  margin: 0.4211em 0 1.6842em 1.6842em;
+}
+.alignright {
+  display: inline;
+  float: right;
+}
+.bl-entry img,
+.single-post img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 
@@ -1504,6 +1552,10 @@ blockquote cite {
   font-size: 1.75em;
   font-weight: 400;
   color: #333333;
+}
+.comments ol.comment-list,
+.comments .comment-list .children {
+  list-style: none;
 }
 li.comment {
   margin-bottom: 40px;

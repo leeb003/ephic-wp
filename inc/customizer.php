@@ -262,7 +262,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'settings'		=> 'header_logo',
 	'label'			=> __('Insert your logo', 'ephic'),
 	'section'		=> 'header_section',
-	'description'	=> __( 'Be sure to add a logo that will fit well', 'ephic'),
+	'description'	=> __( 'Be sure to add a logo that will fit well (demo logo is 177x40)', 'ephic'),
 	'priority'		=> 10,
 	'default'		=> get_template_directory_uri() . '/img/nav-logo.png' 
 ) );
