@@ -43,6 +43,7 @@ EOT;
 			}
 		?>
 			<div class="<?php echo $container_class;?>">
+				<?php do_action('before_single_content'); ?>
 				<div class="blog-post">
 					<div class="bl-title">
 						<div class="bl-comments"><?php ephic_tag_list();?></div>

@@ -1053,12 +1053,17 @@ ul.social-links li a {
   margin-top: 50px;
 }
 .admin-bar .blog-header-inner {
-    margin-top: 6px;
+  margin-top: 6px;
+}
+.admin-bar #mysticky-nav.wrapfixed {
+  top: 32px !important;
 }
 @media (min-width: 48.9375em) {
     .admin-bar .blog-header-inner {
     	margin-top: 18px;
     }
+	.admin-bar #mysticky-nav.wrapfixed {
+		top: 46px; !important;
 }
 
 .page-banner {
@@ -1587,7 +1592,8 @@ li > div.comment {
 .comment-meta {
   margin-bottom: 1em;
 }
-.comment-meta .avatar {
+.comment-meta .avatar,
+.comment-meta .photo {
   display: block;
   height: 50px;
   width: 50px;

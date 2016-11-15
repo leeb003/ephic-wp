@@ -55,10 +55,9 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 
 		<?php
 		if ( have_posts() ) :
-
+			do_action('before_single_header');
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-				do_action('before_post_header');
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
@@ -75,6 +74,7 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 				the_post_navigation();
 
 			endwhile;
+			do_action('after_single_content');
 
 		else :
 
@@ -88,7 +88,9 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 				<!-- Blog Sidebar -->
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 					<div class="blog-sidebar <?php echo $sidebar_class; ?>">
+						<?php do_action('before_single_sidebar'); ?>
 						<?php get_sidebar(); ?>
+						<?php do_action('after_single_sidebar'); ?>
 					</div>
 				</div> <!-- \sidebar -->
 		<?php } ?>
