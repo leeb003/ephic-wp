@@ -378,6 +378,22 @@ function ephic_comments($comment, $args, $depth) {
 }
 
 /**
+ * Customize Password Protected Post Form
+ */
+add_filter( 'the_password_form', 'ephic_password_form' );
+function ephic_password_form() {
+	global $post;
+	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+	$placeholder = esc_html__('Password', 'ephic');
+	$pwform = '<form class="protected-post-form" action="' 
+		. esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">'
+		. '<input name="post_password" id="' . $label . '" type="password" placeholder="' . $placeholder 
+		. '" /><input type="submit" name="Submit" class="button primary-btn" value="' 
+		. esc_html__( 'Submit', 'ephic' ) . '" /></form>';
+    return $pwform;
+}
+
+/**
  * Custom template tags for this theme.
  */
 require EPHIC_INC_DIR . 'template-tags.php';

@@ -929,7 +929,8 @@ ul.social-links li a {
  * --- 2.8 Contact Section ---
  */
 #contact input:not([type="submit"]),
-#contact textarea {
+#contact textarea,
+.protected-post-form input:not([type="submit"]) {
   border: none;
   border-bottom: 2px solid #dedddd;
   width: 100%;
@@ -1126,7 +1127,6 @@ span.sep {
 }
 img.main-img {
   z-index: -1;
-  width: 100%;
 }
 .blog-post-main {
   position: relative;
@@ -1376,6 +1376,10 @@ blockquote.alignright, .wp-caption.alignright, img.alignright {
   text-transform: uppercase;
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
+}
+.blog-sidebar img,
+.blog-sidebar select {
+  max-width: 100%;
 }
 .blog-sidebar .recent_entry a {
   color: #333;
@@ -1780,6 +1784,9 @@ h3.comment-reply-title {
 .comment-form input[type="submit"]:active {
   background-color: transparent;
   color: #ff8103;
+}
+.comment-form textarea {
+  min-height: 100px;
 }
 p.comment-notes {
   margin-bottom: 2em;
