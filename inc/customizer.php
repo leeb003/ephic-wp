@@ -73,7 +73,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	),
 	'output' => array(
 		array(
-			'element' => '.wrapper',
+			'element' => 'body',
 		),
 	),
 ) );

@@ -201,7 +201,7 @@ function ephic_scripts() {
 			}
 			.blog-header h1 {
 				color: #fff;
-				font-size: 36px;
+				font-size: 42px;
 				font-style: normal;
 				font-weight: 500;
 			}
@@ -424,12 +424,6 @@ require_once EPHIC_ADMIN_DIR . 'custom-code-output.php';
 $custom_code_output = new ephic_custom_code_output;
 add_action('wp_head', array($custom_code_output, 'output_custom_css') );
 add_action('wp_footer', array($custom_code_output, 'output_custom_js') );
-
-
-/**
- * Theme Hooks - hooks provided for development
- */
-require_once EPHIC_ADMIN_DIR . 'theme-hooks.php';
 
 /**
  * TGMPA inclusion

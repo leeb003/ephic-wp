@@ -1,7 +1,7 @@
 <?php
 /**
  * Theme Hooks
- * tfn = Twenty Five North
+ * Just a reference to the included hooks and how to use them in your own code
  * @packageEphic
  * @subpackage inc
  */

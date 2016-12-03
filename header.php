@@ -47,9 +47,9 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#">
+							<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) );?>">
 								<div class="nav-logo">
-									<img src="<?php echo $header_logo;?>" alt="" class="navbar-logo img-responsive" />
+									<img src="<?php echo esc_url($header_logo);?>" alt="" class="navbar-logo img-responsive" />
 								</div>
 							</a>
 						</div>

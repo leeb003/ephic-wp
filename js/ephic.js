@@ -41,6 +41,12 @@
 		}
 	});
 
+	/* Scroll Down to next section */
+	$(document).on('click', '.scroll-down', function() {
+		$('html, body').animate({ scrollTop: $('#top-section').height()}, 1000, 'swing');
+		return false;
+	});
+
 	/* close small screen navigation on selection */
 	$(function(){ 
 		var navMain = $("#navbar");
@@ -240,6 +246,8 @@
 				$(dots[i]).text(number);
 			}
 		};
+		// Add class to owl-dots
+		$('.owl-dots').addClass('container-large');
 	});
 
 })(jQuery);

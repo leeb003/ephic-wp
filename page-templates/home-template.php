@@ -35,7 +35,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					<div class="main-image <?php echo $slide_class; ?>"></div>
 					<div class="top-info">
 						<div class="container container-large">
-							<div class="row">
+							<div class="row less-gutter">
 								<div class="col-md-8 col-sm-8 col-xs-10 top-info-sect">
 									<h1><?php echo wp_kses_post($v['home_slide_large'], '');?></h1>
 									<p><?php echo wp_kses_post($v['home_slide_small'], '');?></p>
@@ -131,7 +131,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 	<section id="parallax1" class="section-margin"><!-- Parallax -->
 		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax_bg', ''));?>">
 			<div class="container container-large">
-				<div class="row">
+				<div class="row less-gutter">
 					<?php 
 					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
 					if (is_rtl()) {
@@ -157,7 +157,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 	<section id="parallax2" class="section-margin"><!-- Parallax -->
 		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax2_bg', ''));?>">
 			<div class="container container-large">
-				<div class="row">
+				<div class="row less-gutter">
 					<?php
 					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
 					if (is_rtl()) {
@@ -183,7 +183,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 	<section id="parallax3" class="section-margin"><!-- Parallax -->
 		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo esc_url(get_theme_mod('parallax3_bg', ''));?>">
 			<div class="container container-large">
-				<div class="row">
+				<div class="row less-gutter">
 					<?php
 					$parallax_class = 'col-md-8 col-sm-8 col-xs-10 parallax-info p-left'; // default left
 					if (is_rtl()) {

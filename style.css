@@ -48,7 +48,6 @@ html {
   padding: 0;
 }
 body {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 25px;
   color: #333;
@@ -126,7 +125,7 @@ h6 {
 
 .hdesc {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
   font-weight: 300;
 }
@@ -142,6 +141,10 @@ h6 {
 }
 .upper100 {
   margin-top: 100px;
+}
+.less-gutter > [class*='col-'] {
+  padding-right:15px;
+  padding-left:15px;
 }
 .section-border {
   border-top: 1px solid #dddddd;
@@ -489,20 +492,22 @@ h6 {
   width: 100%;
 }
 /* Owl Carousel */
-.owl-theme .owl-dots {
-  display: block;
+.owl-theme .owl-controls {
   position: absolute;
   top: 50%;
-  right: 60px;
-  margin-top: -75px;
+  width: 100%;
 }
-@media (max-width: 768px) {
-  .owl-theme .owl-dots {
-    right: 5px;
-  }
+.owl-theme .owl-dots {
+  display: block;
+  margin: auto;
+  margin-top: -75px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 .owl-theme .owl-dots .owl-dot {
   display:block;
+  float: right;
+  clear: both;
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   color: #ff8103;
@@ -534,14 +539,12 @@ h6 {
   font-weight: 600;
 }
 .top-info-sect h1 {
-  font-family:"Roboto Condensed";
-  font-size: 100px;
+  font-size: 4.5em;
   font-style: italic;
   color: #fff;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1;
-  margin-left: -15px;
 }
 .top-info .scroll-down {
   color: #fff;
@@ -557,17 +560,15 @@ h6 {
 }   
 @media (max-width: 991px) {
   .top-info-sect h1 {
-    font-size: 80px;
-    margin-left: -10px;
+    font-size: 4em;
   }
-  .top-info-sect {
-    font-size: 85%;
+  .top-info-sect p {
+    font-size: .8em;
   }
 }
 @media (max-width: 768px) {
   .top-info-sect h1 {
-    font-size: 40px;
-    margin-left: -5px;
+    font-size: 2.5em;
   }
   .main-image {
     min-height: 600px;
@@ -580,7 +581,7 @@ h6 {
   text-transform: uppercase;
 }
 .intro-summary {
-  font-size: 24px;
+  font-size: 26px;
   line-height: 33px;
 }
 
@@ -643,7 +644,8 @@ h6 {
  * --- 2.3 Parallax sections ---
  */
 .parallax-window,
-.parallax-window2{
+.parallax-window2,
+.parallax-window3 {
   min-height: 400px;
   background: transparent;
   display: -webkit-flex;
@@ -654,13 +656,12 @@ h6 {
 .parallax-info {
   padding: 30px;
   color: #fff;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 600;
 }
 
 .parallax-info h1 {
-  font-family:"Roboto Condensed";
-  font-size: 80px;
+  font-size: 4em;
   font-style: italic;
   color: #fff;
   font-weight: 800;
@@ -669,7 +670,7 @@ h6 {
 }
 @media (max-width: 991px) {
   .parallax-info h1 {
-    font-size: 60px;
+    font-size: 2.5em;
   }
 }
 
@@ -803,8 +804,8 @@ ul.filter > li.active a {
   color: #fff;
 }
 .image-info {
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 26px;
+  line-height: 30px;
   text-align:left;
   position: absolute;
   bottom: 20px;
@@ -815,7 +816,7 @@ ul.filter > li.active a {
   margin-left: -5px;
 }
 .image-group {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 14px;
 }
 /*
@@ -914,13 +915,14 @@ ul.social-links li a {
 .detail-top {
   color: #6d6d6d;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 26px;
+  line-height: 30px;
   font-weight: 500;
   display: block;
 }
 .detail-bot {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: #818181;
 }
 /*
@@ -972,7 +974,6 @@ ul.social-links li a {
   bottom: 0;
 }
 .page-section h1 {
-  font-family:"Roboto Condensed";
   font-size: 100px;
   color: #ff8103;
   font-weight: 800;
@@ -1058,12 +1059,13 @@ ul.social-links li a {
 .admin-bar #mysticky-nav.wrapfixed {
   top: 32px !important;
 }
-@media (min-width: 48.9375em) {
+@media (max-width: 48.9375em) {
     .admin-bar .blog-header-inner {
     	margin-top: 18px;
     }
 	.admin-bar #mysticky-nav.wrapfixed {
-		top: 46px; !important;
+		top: 46px !important;
+	}
 }
 
 .page-banner {
@@ -1090,7 +1092,7 @@ ul.social-links li a {
   background-color: #fff;
   border-radius: 25px;
   padding: 0px 25px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 40px;
   display: inline-block;
 }
@@ -1177,7 +1179,7 @@ img.main-img {
 }
 .bl-comments,
 .bl-auth {
-  font-size: 12px;
+  font-size: 13px;
 }
 .bl-comments i,
 .bl-auth span {
@@ -1195,7 +1197,7 @@ h2.entry-title a {
 }
 .blog-post .readmore {
   color: #818181;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -1271,7 +1273,6 @@ h2.entry-title a {
     color: #707070;
     color: rgba(51, 51, 51, 0.7);
     display: block;
-    font-family: "Noto Sans", sans-serif;
     font-size: 12px;
     font-size: 1.2rem;
     line-height: 1.5;
@@ -1501,7 +1502,7 @@ blockquote.alignright, .wp-caption.alignright, img.alignright {
 }
 .sb-auth,
 .sb-smdate {
-  font-size: 14px;
+  font-size: 13px;
 }
 @media (max-width: 1200px) {
   .recent_entry .sb-title {
