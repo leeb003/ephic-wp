@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ephic WordPress Template\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-14 10:16-0700\n"
+"POT-Creation-Date: 2016-12-03 22:57-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Lee Beck <info@scripthat.com>\n"
 "Language-Team: SH-Themes <info@scripthat.com>\n"
@@ -63,6 +63,14 @@ msgstr ""
 
 #: functions.php:361
 msgid "(Edit)"
+msgstr ""
+
+#: functions.php:387
+msgid "Password"
+msgstr ""
+
+#: functions.php:392
+msgid "Submit"
 msgstr ""
 
 #: archive.php:23
@@ -133,7 +141,7 @@ msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content-page.php:18
-#: template-parts/content.php:67
+#: template-parts/content.php:68
 msgid "Pages:"
 msgstr ""
 
@@ -143,17 +151,17 @@ msgstr ""
 msgid "Edit %s"
 msgstr ""
 
-#: template-parts/content.php:57
-#: template-parts/content.php:103
+#: template-parts/content.php:58
+#: template-parts/content.php:104
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/content.php:90
+#: template-parts/content.php:91
 msgid "Featured"
 msgstr ""
 
-#: template-parts/content.php:123
+#: template-parts/content.php:124
 msgid "Read more"
 msgstr ""
 
@@ -850,14 +858,6 @@ msgstr ""
 
 #: inc/customizer.php:2288
 msgid "Choose how many words to display for main blog view content."
-msgstr ""
-
-#: inc/customizer.php:2311
-msgid "Blog Meta"
-msgstr ""
-
-#: inc/customizer.php:2312
-msgid "Choose the meta tags to display with posts"
 msgstr ""
 
 #: inc/include-kirki.php:48
