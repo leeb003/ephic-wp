@@ -260,6 +260,19 @@ function ephic_admin_scripts() {
 add_action( 'customize_controls_enqueue_scripts', 'ephic_admin_scripts'); // only for the customizer
 //add_action( 'admin_enqueue_scripts', 'ephic_admin_scripts');
 
+add_action( 'init', 'ephic_add_editor_styles' );
+/**
+ * Apply theme styles to the visual editor.
+ *
+ * @uses add_editor_style() Links a stylesheet to visual editor
+ * @uses get_stylesheet_uri() Returns URI of theme stylesheet
+ */
+function ephic_add_editor_styles() {
+	add_editor_style( get_template_directory_uri() . '/css/font-awesome.min.css' );
+}
+add_action( 'init', 'ephic_add_editor_styles' );
+
+
 /**
  * Add Placeholders to the comment form
  */
