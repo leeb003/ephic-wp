@@ -119,28 +119,6 @@ function ephic_lang_switch($items, $args) {
 // Add Styled Language select for wpml
 add_filter('wp_nav_menu_items', 'ephic_lang_switch', 20, 2);
 
-/** 
- * Add custom icons to primary menu
- */
-add_filter( 'wp_nav_menu_items', 'add_icons_to_nav', 25, 2);
-function add_icons_to_nav( $items, $args ) {
-	$header_social = get_theme_mod( 'header_social' );
-	$header_social_pick = get_theme_mod( 'header_social_pick' );
-	$nav_extra = '';
-	$nav_sep = '';
-	//print_r($args);
-	if ($args->theme_location == 'ephicprimary') {
-		if (empty($header_social_pick) || $header_social == 0 ) { return $items; }
-		$items .= '<li class="nav-sep"><span></span></li>';
-		foreach ($header_social_pick as $k => $v) {
-			$items	.= '<li class="social-link">'
-					. '<a href="' . esc_url($v['social_url']) . '" target="_blank">'
-					. '<i class="fa ' . esc_html($v['social_choice']) . '"></i></a></li>';
-		}
-	}
-	return $items;
-}
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

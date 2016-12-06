@@ -12,7 +12,7 @@ get_header();
 $home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
 $breadcrumb = get_the_title();
 ?>
-	<?php do_action('before_page_header'); ?>
+	<?php do_action('ephic_before_page_header'); ?>
 	<section id="top-section" class="top-section">
 		<div class="page-template blog-header">
 			<div class="blog-header-inner">
@@ -22,7 +22,7 @@ $breadcrumb = get_the_title();
 			</div>
 		</div>
 	</section>
-	<?php do_action('before_page_content'); ?>
+	<?php do_action('ephic_before_page_content'); ?>
 	<!-- Blog -->
 	<section class="blog-section">
 		<div class="page-banner">

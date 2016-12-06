@@ -12,7 +12,7 @@ $footer_text = get_theme_mod( 'footer_text', __('Copyright &copy; 2016 EPHIC TEM
 ?>
 
 	</main><!-- #main content -->
-	<?php do_action('before_footer'); ?>
+	<?php do_action('ephic_before_footer'); ?>
 
 	<a href="#" id="toparrow" class="totop"><i class="fa fa-long-arrow-up"> </i></a>
 
@@ -26,7 +26,7 @@ $footer_text = get_theme_mod( 'footer_text', __('Copyright &copy; 2016 EPHIC TEM
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
-<?php do_action('after_wrapper'); ?>
+<?php do_action('ephic_after_wrapper'); ?>
 
 <?php wp_footer(); ?>
 

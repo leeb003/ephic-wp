@@ -16,7 +16,7 @@ $home_slides = get_theme_mod( 'home_slides', array());
 $home_features = get_theme_mod( 'home_features', 'off');
 $home_sections = get_theme_mod( 'home_sections', array());
 ?>
-	<?php do_action('before_home_header'); ?>
+	<?php do_action('ephic_before_home_header'); ?>
 	<?php if ($home_top == 'slider') { // Top Slider ?>
 		<section id="top-section" class="top-section"> <!-- Top Carousel -->
 			<div id="toTop"></div>
@@ -74,7 +74,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 
 	<?php } ?>
 
-	<?php do_action('before_home_content'); ?>
+	<?php do_action('ephic_before_home_content'); ?>
 
 	<?php foreach ($home_sections as $k => $v) { // cycle through the page sections for display ?>
 		<?php if ($v['section'] == 'welcome') { ?>
@@ -547,7 +547,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 
 	<?php } // end page sections ?>
 
-	<?php do_action('after_home_content'); ?>
+	<?php do_action('ephic_after_home_content'); ?>
 
 <?php
 get_footer();

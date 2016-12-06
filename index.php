@@ -65,14 +65,14 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-				do_action('before_post_header');
+				do_action('ephic_before_post_header');
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
-				do_action('after_post_excerpt');
+				do_action('ephic_after_post_excerpt');
 
 			endwhile;
 

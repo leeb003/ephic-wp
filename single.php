@@ -55,7 +55,7 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 
 		<?php
 		if ( have_posts() ) :
-			do_action('before_single_header');
+			do_action('ephic_before_single_header');
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 				/*
@@ -64,7 +64,7 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
-				do_action('after_post_excerpt');
+				do_action('ephic_after_post_excerpt');
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
@@ -74,7 +74,7 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 				the_post_navigation();
 
 			endwhile;
-			do_action('after_single_content');
+			do_action('ephic_after_single_content');
 
 		else :
 
@@ -88,9 +88,9 @@ $breadcrumb = esc_html(get_theme_mod('blog_breadcrumb', ''));
 				<!-- Blog Sidebar -->
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 					<div class="blog-sidebar <?php echo $sidebar_class; ?>">
-						<?php do_action('before_single_sidebar'); ?>
+						<?php do_action('ephic_before_single_sidebar'); ?>
 						<?php get_sidebar(); ?>
-						<?php do_action('after_single_sidebar'); ?>
+						<?php do_action('ephic_after_single_sidebar'); ?>
 					</div>
 				</div> <!-- \sidebar -->
 		<?php } ?>

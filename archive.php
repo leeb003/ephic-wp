@@ -22,7 +22,7 @@ if ($sidebar_pos == 'left') {
 $home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
 $breadcrumb = esc_html__('ARCHIVES', 'ephic');
 ?>
-	<?php do_action('before_archive_header'); ?>
+	<?php do_action('ephic_before_archive_header'); ?>
 	<section id="top-section" class="top-section">
 		<div class="blog-header">
 			<div class="blog-header-inner">
@@ -32,7 +32,7 @@ $breadcrumb = esc_html__('ARCHIVES', 'ephic');
 			</div>
 		</div>
 	</section>
-	<?php do_action('before_archive_content'); ?>
+	<?php do_action('ephic_before_archive_content'); ?>
 	<!-- Blog -->
 	<section class="blog-section">
 		<div class="page-banner">

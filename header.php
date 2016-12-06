@@ -31,10 +31,10 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 ?>
 
 <body <?php body_class(); ?>>
-<?php do_action('after_body'); ?>
+<?php do_action('ephic_after_body'); ?>
 <div class="wrapper">
 	<header id="totop">
-		<?php do_action('before_header'); ?>
+		<?php do_action('ephic_before_header'); ?>
 		<div class="top-holder top-holder-fixed">
 			<!-- Main Navigation -->
 			<div class="main-menu">
@@ -74,5 +74,5 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 			</div> <!-- End Main Navigation -->
 		</div> <!-- End Top Holder -->
 	</header>
-	<?php do_action('before_main_content'); ?>
+	<?php do_action('ephic_before_main_content'); ?>
 	<main>

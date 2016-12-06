@@ -1142,6 +1142,7 @@ img.main-img {
   padding: 40px;
 }
 @media (max-width: 991px) {
+  .bl-entry,
   .bl-entry .main-img {
     display: block;
   }
@@ -1187,18 +1188,18 @@ img.main-img {
   margin-right: 5px;
 }
 .blog-post h2 {
-  font-size: 20px;
+  font-size: 1.5874em;
   line-height: 32px;
   margin-top: 10px;
 }
 h2.entry-title a {
-  font-weight: 700;
+  font-weight: 600;
   color:inherit;
 }
 .blog-post .readmore {
   color: #818181;
-  font-size: 13px;
   font-weight: 500;
+  margin-top: 10px;
   text-decoration: underline;
   text-decoration-style: dotted;
   display: block;
@@ -1226,14 +1227,17 @@ h2.entry-title a {
 }
 .page-links {
   margin-top: 20px;
- }
-.nav-links {
-  margin-top: 60px;
+}
+.navigation.post-navigation {
+  overflow: auto;
+  margin-bottom: 80px;
+  margin-top: 80px;
 }
 .nav-previous, .nav-next {
+  font-size: 1.2599em;
+  font-weight: 500;
   border: 1px solid #e7e6e6;
   padding: 5px 10px;
-  margin-bottom: 20px;
 }
 .nav-previous a::before {
   font-family: 'fontawesome';
