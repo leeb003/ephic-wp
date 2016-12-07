@@ -9,7 +9,6 @@
  */
 
 get_header();
-$home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
 $breadcrumb = get_the_title();
 ?>
 	<?php do_action('ephic_before_page_header'); ?>
@@ -28,13 +27,13 @@ $breadcrumb = get_the_title();
 		<div class="page-banner">
 			<div class="page-banner-inner">
 		<?php if (is_rtl()) { // RTL ?>
-				<?php echo $breadcrumb; ?>
+				<?php echo esc_html($breadcrumb); ?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo $home_url;?>
+				<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';?>
 		<?php } else { ?>
-				<?php echo $home_url; ?>
+				<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo $breadcrumb;?>
+				<?php echo esc_html($breadcrumb);?>
 		<?php } ?>
 			</div>
 		</div>

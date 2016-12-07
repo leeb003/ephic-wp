@@ -37,7 +37,7 @@ EOT;
 			if ($entry_img) { // if we have a featured image
 				$img_url = $entry_img;
 				$container_class = "blog-cont";
-				echo '<img class="main-img img-responsive" src="' . $img_url . '" alt="" />';
+				echo '<img class="main-img img-responsive" src="' . $img_url . '" alt="' . $img_url . '" />';
 			} else { // no featured image background fill
 				$container_class = "no-feat-img";
 			}
@@ -81,7 +81,7 @@ EOT;
 			if ($entry_img) { // if we have a featured image
 				$img_url = $entry_img;
 				$container_class = "blog-cont";
-				echo '<img class="main-img img-responsive" src="' . $img_url . '" alt="" />';
+				echo '<img class="main-img img-responsive" src="' . $img_url . '" alt="' . $img_url . '" />';
 			} else { // no featured image background fill
 				$container_class = "no-feat-img";
 			}

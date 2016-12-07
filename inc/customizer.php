@@ -485,179 +485,6 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 		),
 	),
 ) );
-/* Top Features Section 
- * Using customizer select list since Kirki's won't let us add icons.  
- * All direct customize calls go in this block for this section 
- * The priority will keep them all in the correct order
-*/
-function configure_features_customize($wp_customize) {
-	/* Get the icon arrays from font-arrays.php */
-	$theme_font_awesome = theme_font_awesome();
-	$theme_font_awesome_num = theme_font_awesome_num();
-	// build new array with name and icon
-	$fa_icons = array();
-	foreach ($theme_font_awesome as $k => $v) {
-		$fa_icons[$k] = $v . ' ' . str_replace('\f', '&#xf', $theme_font_awesome_num[$k]);
-	}
-
-	/* Linear icons */
-	$theme_linearicons = theme_linearicons();
-	$theme_linearicons_num = theme_linearicons_num();
-	$linear_icons = array();
-	foreach ($theme_linearicons as $k => $v) {
-		$linear_icons[$k] = $v . ' ' . str_replace('\e', '&#xe', $theme_linearicons_num[$k]);
-	}
-
-
-	$wp_customize->add_setting ( 'feature_1_icon', array (
-			'default' => 'icon-bed',
-		)
-	);
-	$wp_customize->add_control ( 'feature_1_icon', array (
-			'type'	=> 'select',
-			'label' => __('Top Feature Icon 1', 'ephic'),
-			'description'	=> __('Choose the first icon for the Home Page top feature section', 'ephic'),
-			'choices'	=> $linear_icons,
-			'section'	=> 'page_home',
-			'priority'	=> 11,
-			'active_callback' => 'features_enabled',
-		)
-	);
-	
-	$wp_customize->add_setting ( 'feature_2_icon', array (
-			'default' => 'icon-bathtub',
-		)
-	);
-	$wp_customize->add_control ( 'feature_2_icon', array (
-			'type'	=> 'select',
-			'label' => __('Top Feature Icon 2', 'ephic'),
-			'description'	=> __('Choose the first icon for the Home Page top feature section', 'ephic'),
-			'choices'	=> $linear_icons,
-			'section'	=> 'page_home',
-			'priority'	=> 13,
-			'active_callback' => 'features_enabled',
-		)
-	);
-
-	$wp_customize->add_setting ( 'feature_3_icon', array (
-			'default' => 'icon-car2',
-		)
-	);
-	$wp_customize->add_control ( 'feature_3_icon', array (
-			'type'	=> 'select',
-			'label' => __('Top Feature Icon 3', 'ephic'),
-			'description'	=> __('Choose the first icon for the Home Page top feature section', 'ephic'),
-			'choices'	=> $linear_icons,
-			'section'	=> 'page_home',
-			'priority'	=> 15,
-			'active_callback' => 'features_enabled',
-		)
-	);
-
-	$wp_customize->add_setting ( 'feature_4_icon', array (
-			'default' => 'icon-pencil-ruler',
-		)
-	);
-	$wp_customize->add_control ( 'feature_4_icon', array (
-			'type'	=> 'select',
-			'label' => __('Top Feature Icon 4', 'ephic'),
-			'description'	=> __('Choose the first icon for the Home Page top feature section', 'ephic'),
-			'choices'	=> $linear_icons,
-			'section'	=> 'page_home',
-			'priority'	=> 17,
-			'active_callback' => 'features_enabled',
-		)
-	);
-}
-
-/* The check for home features being enabled to display the icons */
-/*
-function features_enabled($control) {
-	if( $control->manager->get_setting('home_features')->value() == 'on') {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-add_action( 'customize_register', 'configure_features_customize');
-*/
-/* Top Feature 1 Text */
-/*
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'		=> 'text',
-	'settings'	=> 'feature_1_text',
-	'label'		=> __('Top Feature Text 1', 'ephic'),
-	'priority'	=> 12,
-	'default'	=> '4 Bedrooms',
-	'description'=> __('Add your short description', 'ephic'),
-	'section'	=> 'page_home',
-	'active_callback'	=> array(  // Kirki field dependency
-		array(
-			'setting'	=> 'home_features',
-			'operator'	=> '==',
-			'value'		=> 'on'
-		),
-	),
-) );
-*/
-/* Top Feature 2 Text */
-/*
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'		=> 'text',
-	'settings'	=> 'feature_2_text',
-	'label'		=> __('Top Feature Text 2', 'ephic'),
-	'priority'	=> 14,
-	'default'	=> '4 Bathrooms',
-	'description'=> __('Add your short description', 'ephic'),
-	'section'	=> 'page_home',
-	'active_callback'	=> array(  // Kirki field dependency
-		array(
-			'setting'	=> 'home_features',
-			'operator'	=> '==',
-			'value'		=> 'on'
-		),
-	),
-) );
-*/
-/* Top Feature 3 Text */
-/*
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'		=> 'text',
-	'settings'	=> 'feature_3_text',
-	'label'		=> __('Top Feature Text 3', 'ephic'),
-	'priority'	=> 16,
-	'default'	=> '3 Car Garage',
-	'description'=> __('Add your short description', 'ephic'),
-	'section'	=> 'page_home',
-	'active_callback'	=> array(  // Kirki field dependency
-		array(
-			'setting'	=> 'home_features',
-			'operator'	=> '==',
-			'value'		=> 'on'
-		),
-	),
-) );
-*/
-/* Top Feature 4 Text */
-/*
-ephic_Kirki::add_field( 'ephic_theme', array(
-	'type'		=> 'text',
-	'settings'	=> 'feature_4_text',
-	'label'		=> __('Top Feature Text 4', 'ephic'),
-	'priority'	=> 18,
-	'default'	=> '4078 sq.ft.',
-	'description'=> __('Add your short description', 'ephic'),
-	'section'	=> 'page_home',
-	'active_callback'	=> array(  // Kirki field dependency
-		array(
-			'setting'	=> 'home_features',
-			'operator'	=> '==',
-			'value'		=> 'on'
-		),
-	),
-) );
-*/
 /* Seperator */
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'custom',
@@ -874,7 +701,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * All direct customize calls go in this block for this section 
  * The priority will keep them all in the correct order
 */
-function configure_sections_customize($wp_customize) {
+function ephic_sections_customize($wp_customize) {
 	/* Get the icon arrays from font-arrays.php */
 	$theme_font_awesome = theme_font_awesome();
 	$theme_font_awesome_num = theme_font_awesome_num();
@@ -942,7 +769,7 @@ function welcome_enabled($control) {
 	}
 }
 
-add_action( 'customize_register', 'configure_sections_customize');
+add_action( 'customize_register', 'ephic_sections_customize');
 
 /* Welcome 1 Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
@@ -1303,7 +1130,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * All direct customize calls go in this block for this section 
  * The priority will keep them all in the correct order
 */
-function configure_services_customize($wp_customize) {
+function ephic_services_customize($wp_customize) {
 	/* Get the icon arrays from font-arrays.php */
 	$theme_font_awesome = theme_font_awesome();
 	$theme_font_awesome_num = theme_font_awesome_num();
@@ -1419,7 +1246,7 @@ function services_enabled($control) {
 	}
 }
 
-add_action( 'customize_register', 'configure_services_customize');
+add_action( 'customize_register', 'ephic_services_customize');
 
 /* Services 1 Title */
 ephic_Kirki::add_field( 'ephic_theme', array(
@@ -1946,7 +1773,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * All direct customize calls go in this block for this section 
  * The priority will keep them all in the correct order
 */
-function configure_about_contact_info($wp_customize) {
+function ephic_about_contact_info($wp_customize) {
 	/* Get the icon arrays from font-arrays.php */
 	$theme_font_awesome = theme_font_awesome();
 	$theme_font_awesome_num = theme_font_awesome_num();
@@ -1966,7 +1793,7 @@ function configure_about_contact_info($wp_customize) {
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 11,
-			'active_callback' => 'about_enabled',
+			'active_callback' => 'ephic_about_enabled',
 		)
 	);
   
@@ -1980,7 +1807,7 @@ function configure_about_contact_info($wp_customize) {
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 14,
-			'active_callback' => 'about_enabled',
+			'active_callback' => 'ephic_about_enabled',
 		)
 	);
 
@@ -1994,13 +1821,13 @@ function configure_about_contact_info($wp_customize) {
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 17,
-			'active_callback' => 'about_enabled',
+			'active_callback' => 'ephic_about_enabled',
 		)
 	);
 }
 
 /* The check for the about section being enabled to display the icons */
-function about_enabled($control) {
+function ephic_about_enabled($control) {
 	if ($control->manager->get_setting('section_choice')->value() == 'about' 
 		&& $control->manager->get_setting('about_infobar')->value() == 'enable' ) {
 		return true;
@@ -2009,7 +1836,7 @@ function about_enabled($control) {
 	}
 }
 
-add_action( 'customize_register', 'configure_about_contact_info');
+add_action( 'customize_register', 'ephic_about_contact_info');
 
 /* About Info Icon title 1 */
 ephic_Kirki::add_field( 'ephic_theme', array(

@@ -583,7 +583,7 @@ function theme_font_awesome(){
 		'fa-wifi' => 'Wifi',
 		'fa-wikipedia-w' => 'Wikipedia w',
 		'fa-windows' => 'Windows',
-		'fa-wordpress' => 'Wordpress',
+		'fa-wordpress' => 'WordPress',
 		'fa-wrench' => 'Wrench',
 		'fa-xing' => 'Xing',
 		'fa-xing-square' => 'Xing square',

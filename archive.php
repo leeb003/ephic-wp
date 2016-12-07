@@ -19,8 +19,7 @@ if ($sidebar_pos == 'left') {
 		$main_class = 'col-sm-12';
 		$no_sidebar = true;
 }
-$home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
-$breadcrumb = esc_html__('ARCHIVES', 'ephic');
+$breadcrumb = __('ARCHIVES', 'ephic');
 ?>
 	<?php do_action('ephic_before_archive_header'); ?>
 	<section id="top-section" class="top-section">
@@ -38,13 +37,13 @@ $breadcrumb = esc_html__('ARCHIVES', 'ephic');
 		<div class="page-banner">
 			<div class="page-banner-inner">
 		<?php if (is_rtl()) { // RTL ?>
-				<?php echo $breadcrumb; ?>
+				<?php echo esc_html($breadcrumb); ?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo $home_url;?>
+				<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';?>
 		<?php } else { ?>		
-				<?php echo $home_url; ?>
+				<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>'; ?>
 				<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-				<?php echo $breadcrumb;?>
+				<?php echo esc_html($breadcrumb);?>
 		<?php } ?>
 			</div>
 		</div>
@@ -52,7 +51,7 @@ $breadcrumb = esc_html__('ARCHIVES', 'ephic');
 		<div class="container container-large upper100">
 			<div class="row">
 				<!-- Main Blog -->
-				<div class="col-xs-12 col-sm-12 <?php echo $main_class;?>">
+				<div class="col-xs-12 col-sm-12 <?php echo esc_attr($main_class);?>">
 					<div class="blog-content">
 
 		<?php
@@ -84,7 +83,7 @@ $breadcrumb = esc_html__('ARCHIVES', 'ephic');
 		<?php if (!$no_sidebar) { // if sidebar is set to left or right ?>
 				<!-- Blog Sidebar -->
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-					<div class="blog-sidebar <?php echo $sidebar_class; ?>">
+					<div class="blog-sidebar <?php echo esc_attr($sidebar_class); ?>">
 						<?php get_sidebar(); ?>
 					</div>
 				</div> <!-- \sidebar -->

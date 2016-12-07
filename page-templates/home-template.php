@@ -372,7 +372,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					<div class="<?php echo $column; ?> isotopeSelector <?php echo $tax; ?>">
 						<article class="">
 							<figure>
-								<img src="<?php echo $full_image_url;?>" alt="" />
+								<img src="<?php echo $full_image_url;?>" alt="<?php echo $full_image_url; ?>" />
 								<div class="overlay-background">
 									<div class="inner"></div>
 								</div>
@@ -463,7 +463,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 					<?php echo	wp_kses_post(get_theme_mod('about_lower_text', ''));?>
 					<div class="upper40">
 						<img class="img-responsive center-block" 
-							src="<?php echo esc_url(get_theme_mod('about_signature', get_template_directory_uri() . '/img/signature.png'));?>" alt="" />
+							src="<?php echo esc_url(get_theme_mod('about_signature', get_template_directory_uri() . '/img/signature.png'));?>" alt="<?php echo esc_html__('Signature', 'ephic');?>" />
 						<ul class="social-links">
 						<?php 
 						$about_social = get_theme_mod('about_social_pick', array());

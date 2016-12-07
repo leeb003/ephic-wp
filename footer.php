@@ -8,7 +8,7 @@
  *
  * @packageEphic
  */
-$footer_text = get_theme_mod( 'footer_text', __('Copyright &copy; 2016 EPHIC TEMPLATE', 'ephic') );
+$footer_text = get_theme_mod( 'footer_text', esc_html__('Copyright &copy; 2016 EPHIC TEMPLATE', 'ephic') );
 ?>
 
 	</main><!-- #main content -->

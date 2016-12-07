@@ -386,8 +386,8 @@ h6 {
 }
 #mysticky-nav { 
   width:100%!important;  
-  position: static;top: 
-  -100px;
+  position: static;
+  top: -100px;
 }
 .wrapfixed { 
   position: fixed!important; 
@@ -1065,7 +1065,7 @@ ul.social-links li a {
     	margin-top: 18px;
     }
 	.admin-bar #mysticky-nav.wrapfixed {
-		top: 46px !important;
+		top: 0px !important;
 	}
 }
 
@@ -1113,6 +1113,7 @@ span.sep {
   height: 100%;
   display:flex;
   flex-flow: row wrap;
+  align-items:center;
 }
 .blog-cont {
   margin: -250px 40px 0px 40px;
@@ -1567,6 +1568,9 @@ blockquote cite {
   font-weight: 400;
   color: #333333;
 }
+ol.comment-list {
+  padding-left: 0;
+}
 .comments ol.comment-list,
 .comments .comment-list .children {
   list-style: none;
@@ -1582,9 +1586,17 @@ li > div.comment {
 .comment-content.post-content {
   padding: 10px;
 }
-.comment .children {
-  padding-left: 5%;
-  border-left: 2px solid #EEE;
+.comment li.parent {
+  padding-left: 0;
+}
+.comment ol.children {
+  padding-left: 0;
+}
+@media screen and (min-width: 48em) {
+  .comment li.parent {
+    padding-left: 2em;
+    border-left: 2px solid #eee;
+  }
 }
 .comment .children li:last-child {
   margin-bottom: 0;
@@ -1609,6 +1621,14 @@ li > div.comment {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  float: left;
+}
+.children .comment-author .avatar,
+.children .comment-author .photo {
+  display: block;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
   float: left;
 }
 .comment-actions {
@@ -1700,6 +1720,9 @@ li > div.comment {
  */
 .comment-meta-content {
   margin-left: 65px;
+}
+.children .comment-meta-content {
+  margin-left: 45px;
 }
 .comment-meta-content cite {
   font-size: 1.075em;

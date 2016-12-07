@@ -42,14 +42,14 @@ $header_logo = get_theme_mod( 'header_logo', get_template_directory_uri() . '/im
 					<div class="container container-large">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
+								<span class="sr-only"><?php echo esc_html__('Toggle navigation', 'ephic');?></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) );?>">
 								<div class="nav-logo">
-									<img src="<?php echo esc_url($header_logo);?>" alt="" class="navbar-logo img-responsive" />
+									<img src="<?php echo esc_url($header_logo);?>" alt="<?php bloginfo('name'); ?>" class="navbar-logo img-responsive" />
 								</div>
 							</a>
 						</div>

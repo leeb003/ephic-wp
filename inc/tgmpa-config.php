@@ -24,7 +24,7 @@ function ephic_register_required_plugins() {
 	$plugins = array(
 		// Envato Market plugin
 		array(
-			'name'				 => 'WP Envato Market',
+			'name'				 => esc_html__('WP Envato Market', 'ephic'),
 			'slug'				 => 'envato-market',
 			'source'			 => 'http://envato.github.io/wp-envato-market/dist/envato-market.zip',
 			'version'			 => '1.0.0-RC2',
@@ -35,7 +35,7 @@ function ephic_register_required_plugins() {
 		),
 		// Ephic-Plugin
 		array(
-			'name'				 => 'Ephic Plugin',
+			'name'				 => esc_html__('Ephic Plugin', 'ephic'),
 			'slug'				 => 'ephic-plugin',
 			'source'			 => EPHIC_INC_DIR . 'plugins/ephic-plugin.zip',
 			'version'			 => '1.0',
@@ -46,7 +46,7 @@ function ephic_register_required_plugins() {
 		),
 		// Contact Form 7
 		array(
-			'name'				 => 'Contact Form 7',
+			'name'				 => esc_html__('Contact Form 7', 'ephic'),
 			'slug'				 => 'contact-form-7',
 			'source'			 => 'https://wordpress.org/plugins/contact-form-7/',
 			'version'			 => '4.5.1',
@@ -57,7 +57,7 @@ function ephic_register_required_plugins() {
 		),
 		// Kirki - yes, here too
 		array(
-			'name'				 => 'Kirki',
+			'name'				 => esc_html__('Kirki', 'ephic'),
 			'slug'				 => 'kirki',
 			'source'			 => 'https://wordpress.org/plugins/kirki/',
 			'version'			 => '2.3.5',

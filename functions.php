@@ -52,7 +52,7 @@ function ephic_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'ephicprimary' => __( 'Primary', 'ephic' ),
+		'ephicprimary' => esc_html__( 'Primary', 'ephic' ),
 	) );
 
 	/*
@@ -150,7 +150,7 @@ function ephic_widgets_init() {
 add_action( 'widgets_init', 'ephic_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue scripts and styles and pass in any custom css.
  */
 function ephic_scripts() {
 	$ephic_theme = wp_get_theme();
@@ -164,7 +164,13 @@ function ephic_scripts() {
 	wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.css' );
 	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css' );
 	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css' );
-	wp_enqueue_style( 'ephic-style', get_stylesheet_uri() );
+	$deps = false;
+	if (is_child_theme()) {
+		$deps = array('parent-styles');
+		// load parent styles if active child theme
+		wp_enqueue_style('parent-styles', trailingslashit(get_template_directory_uri()) .'style.css', false);
+	}
+	wp_enqueue_style( 'ephic-style', get_stylesheet_uri(), $deps);
 	// Other pages (not Front Page) styles
 	if (!is_page_template($templates)) {
 		$top_background = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
@@ -172,7 +178,7 @@ function ephic_scripts() {
 		$testimonial_bg = esc_url(get_theme_mod('testimonial_bg'));
 		$four_o_four_bg = esc_url(get_theme_mod('background_404'));
 		$color_primary = get_theme_mod('color_primary');
-		$other_css = "
+		$inline_css = "
 			.page-template.blog-header {
 				background: transparent url('$top_background') no-repeat fixed top;
 				background-size: cover;
@@ -187,7 +193,7 @@ function ephic_scripts() {
 				background: transparent url('$four_o_four_bg') no-repeat fixed top;
 			}
 			";
-		wp_add_inline_style( 'ephic-style', $other_css );
+		wp_add_inline_style( 'ephic-style', $inline_css );
 	} else { // home template
 		$color_primary = get_theme_mod('color_primary');
 		$inline_css = "
@@ -216,10 +222,8 @@ function ephic_scripts() {
 			}
 		}
 		$inline_css .= $sliders_bgs;
-
 		wp_add_inline_style( 'ephic-style', $inline_css );
 	}
-
 
 	// Scripts
 	wp_enqueue_script( 'ephic-navigation', get_template_directory_uri() . '/js/navigation.js', 
@@ -240,6 +244,14 @@ function ephic_scripts() {
 	wp_localize_script(  'ephic-js', 'ephic_vars', array(
 		'is_rtl'	  => is_rtl()
 	));
+	/**
+	 * Theme Custom CSS and JS Code
+	 * output in inline scripts
+	 */
+	require_once EPHIC_ADMIN_DIR . 'custom-code-output.php';
+	$custom_code_output = new ephic_custom_code_output;
+	$ephic_custom_js = $custom_code_output->output_custom_js();
+	wp_add_inline_script( 'ephic-js', $ephic_custom_js );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -258,7 +270,20 @@ function ephic_admin_scripts() {
 		get_template_directory_uri() . '/js/customizer-admin.js', array(), $ephic_theme->get('Version'), true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ephic_admin_scripts'); // only for the customizer
-//add_action( 'admin_enqueue_scripts', 'ephic_admin_scripts');
+
+/**
+ * Appends our custom CSS to the global kirki-generated CSS.
+ *
+ * @return string
+ */
+function ephic_add_custom_css_to_dynamic_css( $css ) {
+	// Get the custom CSS
+	$custom_css = get_theme_mod( 'css_code', '' );
+	// Append our custom CSS to the Kirki-generated custom-css
+	// and return the result
+	return $css . $custom_css;
+}
+add_filter( 'kirki/ephic_theme/dynamic_css', 'ephic_add_custom_css_to_dynamic_css' );
 
 /**
  * Apply theme styles to the visual editor.
@@ -277,18 +302,18 @@ add_action( 'init', 'ephic_add_editor_styles' );
 function ephic_comment_placeholders( $fields ) {
 	$fields['author'] = str_replace(
 		'<input', '<input placeholder="'
-		. __('Name', 'ephic') . '"',
+		. esc_html__('Name', 'ephic') . '"',
 	$fields['author']
 	);
 	$fields['email'] = str_replace(
 		'<input id="email"',
 		'<input id="email" placeholder="'
-		. __('Email', 'ephic') . '"',
+		. esc_html__('Email', 'ephic') . '"',
 	$fields['email']
 	);		
 	$fields['url'] = str_replace(
 		'<input id="url"',
-		'<input id="url" placeholder="' . __('Website', 'ephic') . '"',
+		'<input id="url" placeholder="' . esc_html__('Website', 'ephic') . '"',
 	$fields['url']
 	);
 	return $fields;
@@ -302,7 +327,7 @@ add_filter( 'comment_form_default_fields', 'ephic_comment_placeholders' );
 function ephic_comment_field_placeholder( $fields ) {
 	$comment_field = str_replace(
 		'<textarea id="comment"',
-		'<textarea id="comment" placeholder="' . __('Comment', 'ephic') . '"',
+		'<textarea id="comment" placeholder="' . esc_html__('Comment', 'ephic') . '"',
 		$fields['comment']
 	);
 	unset ( $fields['comment'] );
@@ -325,7 +350,7 @@ function ephic_comments($comment, $args, $depth) {
 		$add_below = 'div-comment';
 	}
 	?>
-	<<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+	<<?php echo esc_attr($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
 	<?php if ( 'div' != $args['style'] ) : ?>
 		<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 	<?php endif; ?>
@@ -336,18 +361,18 @@ function ephic_comments($comment, $args, $depth) {
 			<?php 
 			$post_author = '';
 			if (get_comment_author() == get_the_author()) {
-				$post_author = '<span class="post-author">(' . __('Post author', 'ephic') . ')</span>';
+				$post_author = '<span class="post-author">(' . esc_html__('Post author', 'ephic') . ')</span>';
 			}
 			printf( '<cite class="fn">%s' . ' ' . $post_author . '</cite>', get_comment_author_link() ); ?>
 			<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'ephic' ); ?></em>
+			<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'ephic' ); ?></em>
 			<br />
 			<?php endif; ?>
 
 			<p><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
 			<?php
 			/* translators: 1: date, 2: time */
-			printf( '%1$s - %2$s', get_comment_date(),	get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'ephic' ), '  ', '' );
+			printf( '%1$s - %2$s', get_comment_date(),	get_comment_time() ); ?></a><?php edit_comment_link( esc_html__( '(Edit)', 'ephic' ), '  ', '' );
 			?>
 			</p> 
 		</div> <!-- .comment-meta-content -->
@@ -421,14 +446,6 @@ require EPHIC_INC_DIR . 'customizer.php';
  * Theme Resources - common components used in the theme
  */
 require_once EPHIC_ADMIN_DIR . 'theme-resources.php';
-
-/**
- * Theme Custom CSS and JS Code
- */
-require_once EPHIC_ADMIN_DIR . 'custom-code-output.php';
-$custom_code_output = new ephic_custom_code_output;
-add_action('wp_head', array($custom_code_output, 'output_custom_css') );
-add_action('wp_footer', array($custom_code_output, 'output_custom_js') );
 
 /**
  * TGMPA inclusion

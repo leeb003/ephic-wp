@@ -9,10 +9,9 @@
  */
 
 get_header(); 
-$home_url = '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';
-$breadcrumb = esc_html__('NOT FOUND', 'ephic');
+$breadcrumb = __('NOT FOUND', 'ephic');
+// main closed in footer
 ?>
-<div class="wrapper">
 	<main>
 		<section id="top-section" class="top-section">
 			<div class="four-header"> 
@@ -25,13 +24,13 @@ $breadcrumb = esc_html__('NOT FOUND', 'ephic');
 			<div class="page-banner">
 				<div class="page-banner-inner">
 		<?php if (is_rtl()) { // RTL ?>
-					<?php echo $breadcrumb; ?>
+					<?php echo esc_html($breadcrumb); ?>
 					<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-					<?php echo $home_url;?>
+					<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';?>
 		<?php } else { ?>
-					<?php echo $home_url; ?>
+					<?php echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('HOME', 'ephic') . '</a>';?>
 					<span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-					<?php echo $breadcrumb;?>
+					<?php echo esc_html($breadcrumb);?>
 		<?php } ?>		
 				</div>
 			</div>
@@ -66,6 +65,5 @@ $breadcrumb = esc_html__('NOT FOUND', 'ephic');
 				</div>
 			</div>
 		</section>
-	</main>
 	<?php get_footer(); ?>
 
