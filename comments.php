@@ -86,7 +86,7 @@ if ( post_password_required() ) {
 	<?php 
 	$args = array (
 		'comment_notes_before' => '<p class="comment-notes">' 
-			. __( 'Your email address will not be published.', 'ephic') . '</p>'
+			. esc_html__( 'Your email address will not be published.', 'ephic') . '</p>'
 	);
 	comment_form($args); ?>
 

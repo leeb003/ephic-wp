@@ -141,13 +141,13 @@ function ephic_register_required_plugins() {
 
 		/*
 		'strings'	   => array(
-			'page_title'					  => __( 'Install Required Plugins', 'ephic' ),
-			'menu_title'					  => __( 'Install Plugins', 'ephic' ),
+			'page_title'					  => esc_html__( 'Install Required Plugins', 'ephic' ),
+			'menu_title'					  => esc_html__( 'Install Plugins', 'ephic' ),
 			/* translators: %s: plugin name. * /
-			'installing'					  => __( 'Installing Plugin: %s', 'ephic' ),
+			'installing'					  => esc_html__( 'Installing Plugin: %s', 'ephic' ),
 			/* translators: %s: plugin name. * /
-			'updating'						  => __( 'Updating Plugin: %s', 'ephic' ),
-			'oops'							  => __( 'Something went wrong with the plugin API.', 'ephic' ),
+			'updating'						  => esc_html__( 'Updating Plugin: %s', 'ephic' ),
+			'oops'							  => esc_html__( 'Something went wrong with the plugin API.', 'ephic' ),
 			'notice_can_install_required'	  => _n_noop(
 				/* translators: 1: plugin name(s). * /
 				'This theme requires the following plugin: %1$s.',
@@ -199,18 +199,18 @@ function ephic_register_required_plugins() {
 				'Begin activating plugins',
 				'ephic'
 			),
-			'return'						  => __( 'Return to Required Plugins Installer', 'ephic' ),
-			'plugin_activated'				  => __( 'Plugin activated successfully.', 'ephic' ),
-			'activated_successfully'		  => __( 'The following plugin was activated successfully:', 'ephic' ),
+			'return'						  => esc_html__( 'Return to Required Plugins Installer', 'ephic' ),
+			'plugin_activated'				  => esc_html__( 'Plugin activated successfully.', 'ephic' ),
+			'activated_successfully'		  => esc_html__( 'The following plugin was activated successfully:', 'ephic' ),
 			/* translators: 1: plugin name. * /
-			'plugin_already_active'			  => __( 'No action taken. Plugin %1$s was already active.', 'ephic' ),
+			'plugin_already_active'			  => esc_html__( 'No action taken. Plugin %1$s was already active.', 'ephic' ),
 			/* translators: 1: plugin name. * /
-			'plugin_needs_higher_version'	  => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'ephic' ),
+			'plugin_needs_higher_version'	  => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'ephic' ),
 			/* translators: 1: dashboard link. * /
-			'complete'						  => __( 'All plugins installed and activated successfully. %1$s', 'ephic' ),
-			'dismiss'						  => __( 'Dismiss this notice', 'ephic' ),
-			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'ephic' ),
-			'contact_admin'					  => __( 'Please contact the administrator of this site for help.', 'ephic' ),
+			'complete'						  => esc_html__( 'All plugins installed and activated successfully. %1$s', 'ephic' ),
+			'dismiss'						  => esc_html__( 'Dismiss this notice', 'ephic' ),
+			'notice_cannot_install_activate'  => esc_html__( 'There are one or more required or recommended plugins to install, update or activate.', 'ephic' ),
+			'contact_admin'					  => esc_html__( 'Please contact the administrator of this site for help.', 'ephic' ),
 
 			'nag_type'						  => '', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
 		),

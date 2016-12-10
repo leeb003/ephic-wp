@@ -21,7 +21,7 @@ $author= sprintf( '<a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$
 					get_the_author()
 				);
 $comments_link = get_comments_link();
-$comments_text = __('Comments', 'ephic');
+$comments_text = esc_html__('Comments', 'ephic');
 $comment_count = <<<EOT
 					<div class="bl-comments">
 						<i class="fa fa-comment-o"></i>

@@ -46,7 +46,7 @@ ephic_Kirki::add_section( 'general', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'color',
 	'settings'	  => 'color_primary',
-	'label'		  => __( 'Primary Site Color', 'ephic' ),
+	'label'		  => esc_html__( 'Primary Site Color', 'ephic' ),
 	'section'	  => 'general',
 	'default'	  => '#ff8103',
 	'priority'	  => 10,
@@ -251,8 +251,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * Add the Header section
  **/
 ephic_Kirki::add_section( 'header_section', array(
-	'title'			=> __( 'Header', 'ephic' ),
-	'description'	=> __( 'Header Settings', 'ephic' ),
+	'title'			=> esc_html__( 'Header', 'ephic' ),
+	'description'	=> esc_html__( 'Header Settings', 'ephic' ),
 	'priority'		=> 2,
 	'capability'	=> 'edit_theme_options'
 ) );
@@ -260,9 +260,9 @@ ephic_Kirki::add_section( 'header_section', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'image',
 	'settings'		=> 'header_logo',
-	'label'			=> __('Insert your logo', 'ephic'),
+	'label'			=> esc_html__('Insert your logo', 'ephic'),
 	'section'		=> 'header_section',
-	'description'	=> __( 'Be sure to add a logo that will fit well (demo logo is 177x40)', 'ephic'),
+	'description'	=> esc_html__( 'Be sure to add a logo that will fit well (demo logo is 177x40)', 'ephic'),
 	'priority'		=> 10,
 	'default'		=> get_template_directory_uri() . '/img/nav-logo.png' 
 ) );
@@ -270,9 +270,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'checkbox',
 	'settings'		=> 'wpml_switcher',
-	'label'			=> __('Enable WPML language switcher?', 'ephic'),
+	'label'			=> esc_html__('Enable WPML language switcher?', 'ephic'),
 	'section'		=> 'header_section',
-	'description'	=> __('Choose to display the language switcher formatted for the top menu. Only used if using WPML', 'ephic'),
+	'description'	=> esc_html__('Choose to display the language switcher formatted for the top menu. Only used if using WPML', 'ephic'),
 	'default'		=> '0',
 	'priority'		=> '10',
 ) );
@@ -280,8 +280,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * Add the Footer section
  **/
 ephic_Kirki::add_section( 'footer_section', array(
-	'title'			=> __( 'Footer', 'ephic' ),
-	'description'	=> __( 'Footer Settings', 'ephic' ),
+	'title'			=> esc_html__( 'Footer', 'ephic' ),
+	'description'	=> esc_html__( 'Footer Settings', 'ephic' ),
 	'priority'		=> 2,
 	'capability'	=> 'edit_theme_options'
 ) );
@@ -289,9 +289,9 @@ ephic_Kirki::add_section( 'footer_section', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'textarea',
 	'settings'		=> 'footer_text',
-	'label'			=> __('Insert your footer text', 'ephic'),
+	'label'			=> esc_html__('Insert your footer text', 'ephic'),
 	'section'		=> 'footer_section',
-	'description'	=> __( 'Text for the footer area', 'ephic'),
+	'description'	=> esc_html__( 'Text for the footer area', 'ephic'),
 	'priority'		=> 10,
 	'default'		=> 'Copyright &copy; 2016 EPHIC TEMPLATE'
 ) );
@@ -300,9 +300,9 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'checkbox',
 	'settings'		=> 'footer_social',
-	'label'			=> __('Enable Footer social links?', 'ephic'),
+	'label'			=> esc_html__('Enable Footer social links?', 'ephic'),
 	'section'		=> 'footer_section',
-	'description'	=> __('Choose to display social links in the footer', 'ephic'),
+	'description'	=> esc_html__('Choose to display social links in the footer', 'ephic'),
 	'default'		=> '0',
 	'priority'		=> '10',
 ) );
@@ -312,13 +312,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'repeater',
 	'settings'		=> 'footer_social_pick',
-	'label'			=> __('Social Links', 'ephic'),
+	'label'			=> esc_html__('Social Links', 'ephic'),
 	'section'		=> 'footer_section',
-	'description'	=> __('Choose the social network and set a link.', 'ephic'),
+	'description'	=> esc_html__('Choose the social network and set a link.', 'ephic'),
 	'priority'		=> '10',
 	'row_label'   => array(			 // row_label is not yet documented in Kirki
 		'type' => 'text',
-		'value' => __('Social Link', 'ephic'),
+		'value' => esc_html__('Social Link', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -333,13 +333,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'fields' => array(
 		'social_url' => array(
 			'type'		  => 'text',
-			'label'		  => __('Social URL', 'ephic'),
-			'description' => __('This is the Link URL', 'ephic'),
+			'label'		  => esc_html__('Social URL', 'ephic'),
+			'description' => esc_html__('This is the Link URL', 'ephic'),
 			'default'	  => '',
 		),
 		'social_choice' => array(
 			'type'		  => 'select',
-			'label'		  => __('Social Network', 'ephic'),
+			'label'		  => esc_html__('Social Network', 'ephic'),
 			'default'	  => '',
 			'choices' => ephic_social_icons(),
 		),
@@ -350,7 +350,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * Home page template settings
  */
 ephic_Kirki::add_section( 'page_home', array(
-	'title'		=> __( 'Home Page', 'ephic'),
+	'title'		=> esc_html__( 'Home Page', 'ephic'),
 	'priority'	=> 10,
 	'capability'=> 'edit_theme_options',
 ) );
@@ -359,8 +359,8 @@ ephic_Kirki::add_section( 'page_home', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'radio-buttonset',
 	'settings'	  => 'home_top',
-	'label'		  => __( 'Top Image or Slider', 'ephic' ),
-	'description' => __( 'Choose to use either an image or slider for the top of the home page.  Note - you need to use the Home Page template on the page you selected for your homepage.', 'ephic'),
+	'label'		  => esc_html__( 'Top Image or Slider', 'ephic' ),
+	'description' => esc_html__( 'Choose to use either an image or slider for the top of the home page.  Note - you need to use the Home Page template on the page you selected for your homepage.', 'ephic'),
 	'section'	  => 'page_home',
 	'default'	  => 'topimage',
 	'priority'	  => 10,
@@ -373,7 +373,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'image',
 	'settings'	  => 'home_image',
-	'label'		  => __('Home Page Top Image', 'ephic' ),
+	'label'		  => esc_html__('Home Page Top Image', 'ephic' ),
 	'priority'	  => 10,
 	'default'	  => get_template_directory_uri() . '/img/main.jpg',
 	'description' => esc_attr__('Choose an image for the top of your home page template - our demo image size is 1920 x 1081', 'ephic'),
@@ -397,10 +397,10 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'home_si_large',
-	'label'		=> __('Top Large Text', 'ephic'),
+	'label'		=> esc_html__('Top Large Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> "Created<br /> With Passion",
-	'description'=> __('Set Your Large Text', 'ephic'),
+	'description'=> esc_html__('Set Your Large Text', 'ephic'),
 	'section'	=> 'page_home',
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -414,10 +414,10 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'home_si_small',
-	'label'		=> __('Top Small Text', 'ephic'),
+	'label'		=> esc_html__('Top Small Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> "I'm different.	I create things that matter.",
-	'description'=> __('Set Your Smaller Text', 'ephic'),
+	'description'=> esc_html__('Set Your Smaller Text', 'ephic'),
 	'section'	=> 'page_home',
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -432,13 +432,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'repeater',
 	'settings'		=> 'home_slides',
-	'label'			=> __('Home Page Top Slider', 'ephic'),
+	'label'			=> esc_html__('Home Page Top Slider', 'ephic'),
 	'section'		=> 'page_home',
-	'description'	=> __('Add, Remove, and sort your home page slides and text.', 'ephic'),
+	'description'	=> esc_html__('Add, Remove, and sort your home page slides and text.', 'ephic'),
 	'priority'		=> 11,
 	'row_label'   => array(			 // row_label is not yet documented in Kirki
 		'type' => 'text',
-		'value' => __('Slide', 'ephic'),
+		'value' => esc_html__('Slide', 'ephic'),
 	),
 	'default'		=> array(
 		array(
@@ -467,20 +467,20 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'fields' => array(
 		'slider' => array(
 			'type'		  => 'image',
-			'label'		  => __('Slide Image', 'ephic'),
-			'description' => __('Choose an image', 'ephic'),
+			'label'		  => esc_html__('Slide Image', 'ephic'),
+			'description' => esc_html__('Choose an image', 'ephic'),
 			'default'	  => get_template_directory_uri() . '/img/main.jpg',
 		),
 		'home_slide_large'	=> array(
 			'type'		  => 'textarea',
-			'label'		  => __( 'Slide Large Text', 'ephic' ),
-			'description' => __( 'Set the large text for the slide.', 'ephic'),
+			'label'		  => esc_html__( 'Slide Large Text', 'ephic' ),
+			'description' => esc_html__( 'Set the large text for the slide.', 'ephic'),
 			'default'	  => '',
 		),
 		'home_slide_small'	=> array(
 			'type'		  => 'textarea',
-			'label'		  => __( 'Slide Small Text', 'ephic' ),
-			'description' => __( 'Set the small text for the slide.', 'ephic'),
+			'label'		  => esc_html__( 'Slide Small Text', 'ephic' ),
+			'description' => esc_html__( 'Set the small text for the slide.', 'ephic'),
 			'default'	  => '',
 		),
 	),
@@ -499,13 +499,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'repeater',
 	'settings'		=> 'home_sections',
-	'label'			=> __('Home Page Sections', 'ephic'),
+	'label'			=> esc_html__('Home Page Sections', 'ephic'),
 	'section'		=> 'page_home',
-	'description'	=> __('Add, Remove, and sort your home page sections.  Sections are setup in the Configure Sections Tab.', 'ephic'),
+	'description'	=> esc_html__('Add, Remove, and sort your home page sections.  Sections are setup in the Configure Sections Tab.', 'ephic'),
 	'priority'		=> 20,
 	'row_label'   => array(			 // row_label is not yet documented in Kirki
 		'type' => 'text',
-		'value' => __('Page Section', 'ephic'),
+		'value' => esc_html__('Page Section', 'ephic'),
 	),
 	'default'		=> array(
 	),
@@ -513,26 +513,26 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'fields' => array(
 		'section' => array(
 			'type'		  => 'select',
-			'label'		  => __('Section', 'ephic'),
-			'description' => __('Choose a section', 'ephic'),
+			'label'		  => esc_html__('Section', 'ephic'),
+			'description' => esc_html__('Choose a section', 'ephic'),
 			'default'	  => 'na',
 			'choices' => array(
-				'na'		 => __('Select A Section', 'ephic'),
-				'welcome'	 => __('Welcome', 'ephic'),
-				'parallax'	 => __('Parallax', 'ephic'),
-				'parallax2'  => __('Parallax 2', 'ephic'),
-				'parallax3'  => __('Parallax 3', 'ephic'),
-				'services'	 => __('Services', 'ephic'),
-				'projects'	 => __('Projects', 'ephic'),
-				'about'		 => __('About', 'ephic'),
-				'contact'	 => __('Contact', 'ephic'),
-				'builder'	 => __('Page Builder Section', 'ephic'),
+				'na'		 => esc_html__('Select A Section', 'ephic'),
+				'welcome'	 => esc_html__('Welcome', 'ephic'),
+				'parallax'	 => esc_html__('Parallax', 'ephic'),
+				'parallax2'  => esc_html__('Parallax 2', 'ephic'),
+				'parallax3'  => esc_html__('Parallax 3', 'ephic'),
+				'services'	 => esc_html__('Services', 'ephic'),
+				'projects'	 => esc_html__('Projects', 'ephic'),
+				'about'		 => esc_html__('About', 'ephic'),
+				'contact'	 => esc_html__('Contact', 'ephic'),
+				'builder'	 => esc_html__('Page Builder Section', 'ephic'),
 			),
 		),
 		'page'	=> array(
 			'type'		  => 'dropdown-pages',
-			'label'		  => __( 'Page Builder Choice', 'ephic' ),
-			'description' => __( 'If this is a Page Builder Section, choose the page with content to use.', 'ephic'),
+			'label'		  => esc_html__( 'Page Builder Choice', 'ephic' ),
+			'description' => esc_html__( 'If this is a Page Builder Section, choose the page with content to use.', 'ephic'),
 			'default'	  => '',
 		),
 	)
@@ -542,7 +542,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
  * About Us template settings
  */
 ephic_Kirki::add_section( 'page_about', array(
-	'title'		=> __( 'About Us Page', 'ephic'),
+	'title'		=> esc_html__( 'About Us Page', 'ephic'),
 	'priority'	=> 10,
 	'capability'=> 'edit_theme_options',
 ) );
@@ -559,7 +559,7 @@ ephic_Kirki::add_section( 'page_404', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'background_404',
-	'label'		=> __('404 Page top background image', 'ephic' ),
+	'label'		=> esc_html__('404 Page top background image', 'ephic' ),
 	'priority'	=> 10,
 	'default'	=>	get_template_directory_uri() . '/img/main2.jpg',
 	'description'=> esc_attr__('Choose an image for the background at the top of the 404 page template', 'ephic'),
@@ -569,17 +569,17 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'page_404_heading',
-	'label'		=> __('Top Heading', 'ephic'),
+	'label'		=> esc_html__('Top Heading', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> "404 Top Heading",
-	'description'=> __('Insert your top heading', 'ephic'),
+	'description'=> esc_html__('Insert your top heading', 'ephic'),
 	'section'	=> 'page_404',
 ) );
 /* 404 text Background Image */
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'background_text_404',
-	'label'		=> __('404 text background image', 'ephic' ),
+	'label'		=> esc_html__('404 text background image', 'ephic' ),
 	'priority'	=> 10,
 	'default'	=>	get_template_directory_uri() . '/img/404.jpg',
 	'description'=> esc_attr__('Choose an image for the background behind the 404 text.', 'ephic'),
@@ -589,10 +589,10 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'page_404_desc',
-	'label'		=> __('404 Description', 'ephic'),
+	'label'		=> esc_html__('404 Description', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
-	'description'=> __('Insert the description below the 404', 'ephic'),
+	'description'=> esc_html__('Insert the description below the 404', 'ephic'),
 	'section'	=> 'page_404',
 ) );
 
@@ -612,19 +612,19 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'priority'	  => 10,
 	'default'	  => 'na',
 	'section'	  => 'configure_sections',
-	'label'		  => __('Section', 'ephic'),
-	'description' => __('Choose a section', 'ephic'),
+	'label'		  => esc_html__('Section', 'ephic'),
+	'description' => esc_html__('Choose a section', 'ephic'),
 	'default'	  => '',
 	'choices' => array(
-		'na'		   => __('Choose a section', 'ephic'),
-		'welcome'	   => __('Home - Welcome', 'ephic'),
-		'parallax'	   => __('Home - Parallax 1', 'ephic'),
-		'parallax2'    => __('Home - Parallax 2', 'ephic'),
-		'parallax3'    => __('Home - Parallax 3', 'ephic'),
-		'services'	   => __('Home - Services', 'ephic'),
-		'projects'	   => __('Home - Projects', 'ephic'),
-		'about'		   => __('Home - About', 'ephic'),
-		'contact'	   => __('Home - Contact', 'ephic'),
+		'na'		   => esc_html__('Choose a section', 'ephic'),
+		'welcome'	   => esc_html__('Home - Welcome', 'ephic'),
+		'parallax'	   => esc_html__('Home - Parallax 1', 'ephic'),
+		'parallax2'    => esc_html__('Home - Parallax 2', 'ephic'),
+		'parallax3'    => esc_html__('Home - Parallax 3', 'ephic'),
+		'services'	   => esc_html__('Home - Services', 'ephic'),
+		'projects'	   => esc_html__('Home - Projects', 'ephic'),
+		'about'		   => esc_html__('Home - About', 'ephic'),
+		'contact'	   => esc_html__('Home - Contact', 'ephic'),
 	),
 	/* 'transport' => 'postMessage', */  // just prevent refreshing, nothing needs to be sent...I think
 	/* Doesn't work with active_callback dependencies...maybe we can do our own javascript to hide / show options this way */
@@ -637,7 +637,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'priority'		=> 10,
 	'default'		=> 'Welcome Title',
 	'section'		=> 'configure_sections',
-	'label'			=> __('Set the Welcome section title', 'ephic'),
+	'label'			=> esc_html__('Set the Welcome section title', 'ephic'),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
 			'setting'	=> 'section_choice',
@@ -654,7 +654,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'priority'		=> 10,
 	'default'		=> 'Welcome Description',
 	'section'		=> 'configure_sections',
-	'label'			=> __('Set the Welcome section description', 'ephic'),
+	'label'			=> esc_html__('Set the Welcome section description', 'ephic'),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
 			'setting'	=> 'section_choice',
@@ -670,7 +670,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'priority'		=> 10,
 	'default'		=> 'Is ut graece delectus repudiare, in habeo labore electram cum. Iracundia percipitur et usu. Nonumes consequat vix et, mea inani veritus democritum ei. His ullum feugait cu, ipsum semper molestiae no ius, eam deleniti. Eam ut purto singulis consequat.',
 	'section'		=> 'configure_sections',
-	'label'			=> __('Set the Welcome section left side text', 'ephic'),
+	'label'			=> esc_html__('Set the Welcome section left side text', 'ephic'),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
 			'setting'	=> 'section_choice',
@@ -686,7 +686,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'priority'		=> 10,
 	'default'		=> "10 Years experience in Graphic Design & Photography. Let's create memorable Digital Experiences.",
 	'section'		=> 'configure_sections',
-	'label'			=> __('Set the Welcome section right side text', 'ephic'),
+	'label'			=> esc_html__('Set the Welcome section right side text', 'ephic'),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
 			'setting'	=> 'section_choice',
@@ -718,8 +718,8 @@ function ephic_sections_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'welcome_1_icon', array (
 			'type'	=> 'select',
-			'label' => __('Welcome Icon 1', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Welcome Section', 'ephic'),
+			'label' => esc_html__('Welcome Icon 1', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Welcome Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 11,
@@ -734,8 +734,8 @@ function ephic_sections_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'welcome_2_icon', array (
 			'type'	=> 'select',
-			'label' => __('Welcome Icon 2', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Welcome Section', 'ephic'),
+			'label' => esc_html__('Welcome Icon 2', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Welcome Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 14,
@@ -750,8 +750,8 @@ function ephic_sections_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'welcome_3_icon', array (
 			'type'	=> 'select',
-			'label' => __('Welcome Icon 3', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Welcome Section', 'ephic'),
+			'label' => esc_html__('Welcome Icon 3', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Welcome Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 17,
@@ -775,7 +775,7 @@ add_action( 'customize_register', 'ephic_sections_customize');
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'welcome_1_title',
-	'label'		=> __('Icon 1 Title', 'ephic'),
+	'label'		=> esc_html__('Icon 1 Title', 'ephic'),
 	'priority'	=> 12,
 	'default'	=> 'Stunning Design',
 	'section'	=> 'configure_sections',
@@ -792,7 +792,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'welcome_1_text',
-	'label'		=> __('Welcome 1 Text', 'ephic'),
+	'label'		=> esc_html__('Welcome 1 Text', 'ephic'),
 	'priority'	=> 13,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -809,7 +809,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'welcome_2_title',
-	'label'		=> __('Welcome 2 Title', 'ephic'),
+	'label'		=> esc_html__('Welcome 2 Title', 'ephic'),
 	'priority'	=> 15,
 	'default'	=> 'Lifetime Support',
 	'section'	=> 'configure_sections',
@@ -826,7 +826,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'welcome_2_text',
-	'label'		=> __('Welcome 2 Text', 'ephic'),
+	'label'		=> esc_html__('Welcome 2 Text', 'ephic'),
 	'priority'	=> 16,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -843,7 +843,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'welcome_3_title',
-	'label'		=> __('Welcome 3 Title', 'ephic'),
+	'label'		=> esc_html__('Welcome 3 Title', 'ephic'),
 	'priority'	=> 18,
 	'default'	=> 'Responsive Design',
 	'section'	=> 'configure_sections',
@@ -860,7 +860,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'welcome_3_text',
-	'label'		=> __('Welcome 3 Text', 'ephic'),
+	'label'		=> esc_html__('Welcome 3 Text', 'ephic'),
 	'priority'	=> 19,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -890,7 +890,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'parallax_bg',
-	'label'		=> __('Parallax Background Image', 'ephic'),
+	'label'		=> esc_html__('Parallax Background Image', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -905,7 +905,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax_large',
-	'label'		=> __('Parallax Large Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Large Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -920,7 +920,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax_small',
-	'label'		=> __('Parallax Small Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Small Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -935,15 +935,15 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'select',
 	'settings'	=> 'parallax_text_side',
-	'label'		=> __('Parallax Text Side', 'ephic'),
+	'label'		=> esc_html__('Parallax Text Side', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'left',
 	'section'	=> 'configure_sections',
 	'multiple'	=> '1',
 	'choices'	=> array(
-		'left'	=> __('Left Side', 'ephic'),
-		'right' => __('Right Side', 'ephic'),
-		'center'=> __('Center', 'ephic'),
+		'left'	=> esc_html__('Left Side', 'ephic'),
+		'right' => esc_html__('Right Side', 'ephic'),
+		'center'=> esc_html__('Center', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -958,7 +958,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'parallax2_bg',
-	'label'		=> __('Parallax Background Image', 'ephic'),
+	'label'		=> esc_html__('Parallax Background Image', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -973,7 +973,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax2_large',
-	'label'		=> __('Parallax Large Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Large Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -988,7 +988,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax2_small',
-	'label'		=> __('Parallax Small Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Small Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -1003,15 +1003,15 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'select',
 	'settings'	=> 'parallax2_text_side',
-	'label'		=> __('Parallax Text Side', 'ephic'),
+	'label'		=> esc_html__('Parallax Text Side', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'left',
 	'section'	=> 'configure_sections',
 	'multiple'	=> '1',
 	'choices'	=> array(
-		'left'	=> __('Left Side', 'ephic'),
-		'right' => __('Right Side', 'ephic'),
-		'center'=> __('Center', 'ephic'),
+		'left'	=> esc_html__('Left Side', 'ephic'),
+		'right' => esc_html__('Right Side', 'ephic'),
+		'center'=> esc_html__('Center', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1026,7 +1026,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'image',
 	'settings'	=> 'parallax3_bg',
-	'label'		=> __('Parallax Background Image', 'ephic'),
+	'label'		=> esc_html__('Parallax Background Image', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -1041,7 +1041,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax3_large',
-	'label'		=> __('Parallax Large Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Large Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -1056,7 +1056,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'parallax3_small',
-	'label'		=> __('Parallax Small Text', 'ephic'),
+	'label'		=> esc_html__('Parallax Small Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> '',
 	'section'	=> 'configure_sections',
@@ -1071,15 +1071,15 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'select',
 	'settings'	=> 'parallax3_text_side',
-	'label'		=> __('Parallax Text Side', 'ephic'),
+	'label'		=> esc_html__('Parallax Text Side', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'left',
 	'section'	=> 'configure_sections',
 	'multiple'	=> '1',
 	'choices'	=> array(
-		'left'	=> __('Left Side', 'ephic'),
-		'right' => __('Right Side', 'ephic'),
-		'center'=> __('Center', 'ephic'),
+		'left'	=> esc_html__('Left Side', 'ephic'),
+		'right' => esc_html__('Right Side', 'ephic'),
+		'center'=> esc_html__('Center', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1095,7 +1095,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_title',
-	'label'		=> __('Services Title', 'ephic'),
+	'label'		=> esc_html__('Services Title', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'Your Title',
 	'section'	=> 'configure_sections',
@@ -1112,7 +1112,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_text',
-	'label'		=> __('Services Description', 'ephic'),
+	'label'		=> esc_html__('Services Description', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'Services Description.',
 	'section'	=> 'configure_sections',
@@ -1147,8 +1147,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_1_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 1', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 1', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 11,
@@ -1163,8 +1163,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_2_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 2', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 2', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 14,
@@ -1179,8 +1179,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_3_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 3', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 3', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 17,
@@ -1195,8 +1195,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_4_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 4', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 4', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 20,
@@ -1211,8 +1211,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_5_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 5', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 5', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 23,
@@ -1227,8 +1227,8 @@ function ephic_services_customize($wp_customize) {
 	);
 	$wp_customize->add_control ( 'services_6_icon', array (
 			'type'	=> 'select',
-			'label' => __('Services Icon 6', 'ephic'),
-			'description'	=> __('Choose an icon for the Home Page Services Section', 'ephic'),
+			'label' => esc_html__('Services Icon 6', 'ephic'),
+			'description'	=> esc_html__('Choose an icon for the Home Page Services Section', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 26,
@@ -1252,7 +1252,7 @@ add_action( 'customize_register', 'ephic_services_customize');
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_1_title',
-	'label'		=> __('Services 1 Title', 'ephic'),
+	'label'		=> esc_html__('Services 1 Title', 'ephic'),
 	'priority'	=> 12,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1269,7 +1269,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_1_text',
-	'label'		=> __('Services 1 Text', 'ephic'),
+	'label'		=> esc_html__('Services 1 Text', 'ephic'),
 	'priority'	=> 13,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1286,7 +1286,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_2_title',
-	'label'		=> __('Services 2 Title', 'ephic'),
+	'label'		=> esc_html__('Services 2 Title', 'ephic'),
 	'priority'	=> 15,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1303,7 +1303,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_2_text',
-	'label'		=> __('Services 2 Text', 'ephic'),
+	'label'		=> esc_html__('Services 2 Text', 'ephic'),
 	'priority'	=> 16,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1318,7 +1318,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_3_title',
-	'label'		=> __('Services 3 Title', 'ephic'),
+	'label'		=> esc_html__('Services 3 Title', 'ephic'),
 	'priority'	=> 18,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1335,7 +1335,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_3_text',
-	'label'		=> __('Services 3 Text', 'ephic'),
+	'label'		=> esc_html__('Services 3 Text', 'ephic'),
 	'priority'	=> 19,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1350,7 +1350,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_4_title',
-	'label'		=> __('Services 4 Title', 'ephic'),
+	'label'		=> esc_html__('Services 4 Title', 'ephic'),
 	'priority'	=> 21,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1367,7 +1367,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_4_text',
-	'label'		=> __('Services 4 Text', 'ephic'),
+	'label'		=> esc_html__('Services 4 Text', 'ephic'),
 	'priority'	=> 22,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1382,7 +1382,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_5_title',
-	'label'		=> __('Services 5 Title', 'ephic'),
+	'label'		=> esc_html__('Services 5 Title', 'ephic'),
 	'priority'	=> 24,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1399,7 +1399,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_5_text',
-	'label'		=> __('Services 5 Text', 'ephic'),
+	'label'		=> esc_html__('Services 5 Text', 'ephic'),
 	'priority'	=> 25,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1414,7 +1414,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_6_title',
-	'label'		=> __('Services 6 Title', 'ephic'),
+	'label'		=> esc_html__('Services 6 Title', 'ephic'),
 	'priority'	=> 27,
 	'default'	=> 'Title',
 	'section'	=> 'configure_sections',
@@ -1431,7 +1431,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'services_6_text',
-	'label'		=> __('Services 6 Text', 'ephic'),
+	'label'		=> esc_html__('Services 6 Text', 'ephic'),
 	'priority'	=> 28,
 	'default'	=> 'Eam ut purto singulis consequat. Novum euismod ponderum vel ei, deleniti definiebas ad his.',
 	'section'	=> 'configure_sections',
@@ -1448,7 +1448,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_btn_text',
-	'label'		=> __('Services Button Text', 'ephic'),
+	'label'		=> esc_html__('Services Button Text', 'ephic'),
 	'priority'	=> 29,
 	'default'	=> 'Button Text',
 	'section'	=> 'configure_sections',
@@ -1466,7 +1466,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'services_btn_link',
-	'label'		=> __('Services Button Link', 'ephic'),
+	'label'		=> esc_html__('Services Button Link', 'ephic'),
 	'priority'	=> 29,
 	'default'	=> 'http://google.com',
 	'section'	=> 'configure_sections',
@@ -1482,14 +1482,14 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'radio-buttonset',
 	'settings'	  => 'services_btn_window',
-	'label'		  => __( 'Services Button Link Window', 'ephic' ),
-	'description' => __( 'Choose to open link in new or existing window.', 'ephic'),
+	'label'		  => esc_html__( 'Services Button Link Window', 'ephic' ),
+	'description' => esc_html__( 'Choose to open link in new or existing window.', 'ephic'),
 	'section'	  => 'configure_sections',
 	'default'	  => 'blank',
 	'priority'	  => 30,
 	'choices'	  => array(
-		'blank'   => __( 'Blank Page', 'ephic' ),
-		'self' => __( 'Same Page', 'ephic' ),
+		'blank'   => esc_html__( 'Blank Page', 'ephic' ),
+		'self' => esc_html__( 'Same Page', 'ephic' ),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1506,7 +1506,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'projects_title',
-	'label'		=> __('Projects Title', 'ephic'),
+	'label'		=> esc_html__('Projects Title', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'Project Gallery',
 	'section'	=> 'configure_sections',
@@ -1523,7 +1523,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'projects_text',
-	'label'		=> __('Projects Description', 'ephic'),
+	'label'		=> esc_html__('Projects Description', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'The Project Gallery',
 	'section'	=> 'configure_sections',
@@ -1540,8 +1540,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'radio-buttonset',
 	'settings'	  => 'projects_stats_enable',
-	'label'		  => __( 'Enable stats below projects', 'ephic' ),
-	'description' => __( 'Enable or disable the bottom statistics.', 'ephic'),
+	'label'		  => esc_html__( 'Enable stats below projects', 'ephic' ),
+	'description' => esc_html__( 'Enable or disable the bottom statistics.', 'ephic'),
 	'section'	  => 'configure_sections',
 	'default'	  => 'enable',
 	'priority'	  => 10,
@@ -1562,13 +1562,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'repeater',
 	'settings'		=> 'stats',
-	'label'			=> __('Statistics', 'ephic'),
+	'label'			=> esc_html__('Statistics', 'ephic'),
 	'section'		=> 'configure_sections',
-	'description'	=> __('Add, Remove, and sort your statistics.  4 is recommended.', 'ephic'),
+	'description'	=> esc_html__('Add, Remove, and sort your statistics.  4 is recommended.', 'ephic'),
 	'priority'		=> 11,
 	'row_label'   => array(			 // row_label is not yet documented in Kirki
 		'type' => 'text',
-		'value' => __('Statistic', 'ephic'),
+		'value' => esc_html__('Statistic', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1588,12 +1588,12 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'fields' => array(
 		'number' => array(
 			'type'		  => 'text',
-			'label'		  => __('The Ending Number', 'ephic'),
+			'label'		  => esc_html__('The Ending Number', 'ephic'),
 			'default'	  => '',
 		),
 		'text' => array(
 			'type'		  => 'text',
-			'label'		  => __('Text Below The Number', 'ephic'),
+			'label'		  => esc_html__('Text Below The Number', 'ephic'),
 			'default'	  => ''
 		),
 	),
@@ -1605,7 +1605,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_title',
-	'label'		=> __('About Title', 'ephic'),
+	'label'		=> esc_html__('About Title', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'About Title',
 	'section'	=> 'configure_sections',
@@ -1622,7 +1622,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'about_text',
-	'label'		=> __('About Description', 'ephic'),
+	'label'		=> esc_html__('About Description', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'The About Description',
 	'section'	=> 'configure_sections',
@@ -1639,8 +1639,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'image',
 	'settings'	  => 'about_photo',
-	'label'		  => __( 'About Section Image', 'ephic' ),
-	'description' => __( 'Choose an image for the about section.', 'ephic' ),
+	'label'		  => esc_html__( 'About Section Image', 'ephic' ),
+	'description' => esc_html__( 'Choose an image for the about section.', 'ephic' ),
 	'section'	  => 'configure_sections',
 	'default'	  => get_template_directory_uri() . '/img/author.png',
 	'priority'	  => 10,
@@ -1657,7 +1657,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_small_title',
-	'label'		=> __('Below Image Title', 'ephic'),
+	'label'		=> esc_html__('Below Image Title', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'About Smaller Title',
 	'section'	=> 'configure_sections',
@@ -1674,7 +1674,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'textarea',
 	'settings'	=> 'about_lower_text',
-	'label'		=> __('About Section Large Text', 'ephic'),
+	'label'		=> esc_html__('About Section Large Text', 'ephic'),
 	'priority'	=> 10,
 	'default'	=> 'Is ut graece delectus repudiare, in habeo labore electram cum. Iracundia percipitur et usu. Nonumes consequat vix et, mea inani veritus democritum ei. His ullum feugait cu, ipsum semper molestiae no ius, eam deleniti.
 
@@ -1693,8 +1693,8 @@ Everti praesent sed an. Animal noluisse usu te. Abhorreant voluptatibus eu vis, 
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'image',
 	'settings'	  => 'about_signature',
-	'label'		  => __( 'About Section Signature', 'ephic' ),
-	'description' => __( 'Choose an image for your signature.', 'ephic' ),
+	'label'		  => esc_html__( 'About Section Signature', 'ephic' ),
+	'description' => esc_html__( 'Choose an image for your signature.', 'ephic' ),
 	'section'	  => 'configure_sections',
 	'default'	  => get_template_directory_uri() . '/img/signature.png',
 	'priority'	  => 10,
@@ -1711,13 +1711,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'repeater',
 	'settings'		=> 'about_social_pick',
-	'label'			=> __('Social Links', 'ephic'),
+	'label'			=> esc_html__('Social Links', 'ephic'),
 	'section'		=> 'configure_sections',
-	'description'	=> __('Choose the social network and set a link.', 'ephic'),
+	'description'	=> esc_html__('Choose the social network and set a link.', 'ephic'),
 	'priority'		=> 10,
 	'row_label'   => array(			 // row_label is not yet documented in Kirki
 		'type' => 'text',
-		'value' => __('Social Link', 'ephic'),
+		'value' => esc_html__('Social Link', 'ephic'),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1732,13 +1732,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 	'fields' => array(
 		'social_url' => array(
 			'type'		  => 'text',
-			'label'		  => __('Social URL', 'ephic'),
-			'description' => __('This is the Link URL', 'ephic'),
+			'label'		  => esc_html__('Social URL', 'ephic'),
+			'description' => esc_html__('This is the Link URL', 'ephic'),
 			'default'	  => '',
 		),
 		'social_choice' => array(
 			'type'		  => 'select',
-			'label'		  => __('Social Network', 'ephic'),
+			'label'		  => esc_html__('Social Network', 'ephic'),
 			'default'	  => '',
 			'choices' => ephic_social_icons(),
 		),
@@ -1750,13 +1750,13 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'radio-buttonset',
 	'settings'	  => 'about_infobar',
-	'label'		  => __( 'Enable Infobar at the bottom of the about section?', 'ephic' ),
+	'label'		  => esc_html__( 'Enable Infobar at the bottom of the about section?', 'ephic' ),
 	'section'	  => 'configure_sections',
 	'default'	  => 'enable',
 	'priority'	  => 10,
 	'choices'	  => array(
-		'enable'   => __( 'Enable', 'ephic' ),
-		'disable' => __( 'Disable', 'ephic' ),
+		'enable'   => esc_html__( 'Enable', 'ephic' ),
+		'disable' => esc_html__( 'Disable', 'ephic' ),
 	),
 	'active_callback'	=> array(  // Kirki field dependency
 		array(
@@ -1789,7 +1789,7 @@ function ephic_about_contact_info($wp_customize) {
 	);
 	$wp_customize->add_control ( 'about_1_icon', array (
 			'type'	=> 'select',
-			'label' => __('About Contact Info Icon 1', 'ephic'),
+			'label' => esc_html__('About Contact Info Icon 1', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 11,
@@ -1803,7 +1803,7 @@ function ephic_about_contact_info($wp_customize) {
 	);
 	$wp_customize->add_control ( 'about_2_icon', array (
 			'type'	=> 'select',
-			'label' => __('About Contact Info Icon 2', 'ephic'),
+			'label' => esc_html__('About Contact Info Icon 2', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 14,
@@ -1817,7 +1817,7 @@ function ephic_about_contact_info($wp_customize) {
 	);
 	$wp_customize->add_control ( 'about_3_icon', array (
 			'type'	=> 'select',
-			'label' => __('About Contact Info Icon 3', 'ephic'),
+			'label' => esc_html__('About Contact Info Icon 3', 'ephic'),
 			'choices'	=> $fa_icons,
 			'section'	=> 'configure_sections',
 			'priority'	=> 17,
@@ -1842,7 +1842,7 @@ add_action( 'customize_register', 'ephic_about_contact_info');
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_1_title',
-	'label'		=> __('About Contact Info 1 Title', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 1 Title', 'ephic'),
 	'priority'	=> 12,
 	'default'	=> 'Title 1',
 	'section'	=> 'configure_sections',
@@ -1864,7 +1864,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_2_title',
-	'label'		=> __('About Contact Info 2 Title', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 2 Title', 'ephic'),
 	'priority'	=> 15,
 	'default'	=> 'Title 2',
 	'section'	=> 'configure_sections',
@@ -1886,7 +1886,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_3_title',
-	'label'		=> __('About Contact Info 3 Title', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 3 Title', 'ephic'),
 	'priority'	=> 18,
 	'default'	=> 'Title 3',
 	'section'	=> 'configure_sections',
@@ -1908,7 +1908,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_1_text',
-	'label'		=> __('About Contact Info 1 Text', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 1 Text', 'ephic'),
 	'priority'	=> 12,
 	'default'	=> 'Text 1 below',
 	'section'	=> 'configure_sections',
@@ -1930,7 +1930,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_2_text',
-	'label'		=> __('About Contact Info 2 Text', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 2 Text', 'ephic'),
 	'priority'	=> 15,
 	'default'	=> 'Text 2 below',
 	'section'	=> 'configure_sections',
@@ -1952,7 +1952,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'about_3_text',
-	'label'		=> __('About Contact Info 3 Text', 'ephic'),
+	'label'		=> esc_html__('About Contact Info 3 Text', 'ephic'),
 	'priority'	=> 18,
 	'default'	=> 'Text 3 below',
 	'section'	=> 'configure_sections',
@@ -1979,7 +1979,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'text',
 	'settings'		=> 'contact_title',
-	'label'			=> __('Section Title', 'ephic'),
+	'label'			=> esc_html__('Section Title', 'ephic'),
 	'section'		=> 'configure_sections',
 	'priority'		=> 10,
 	'default'		=> 'Contact Title',
@@ -1996,7 +1996,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'textarea',
 	'settings'		=> 'contact_text',
-	'label'			=> __('Text below title', 'ephic'),
+	'label'			=> esc_html__('Text below title', 'ephic'),
 	'section'		=> 'configure_sections',
 	'priority'		=> 10,
 	'default'		=> 'Title Text below',
@@ -2013,11 +2013,11 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		=> 'text',
 	'settings'	=> 'contact_form_shortcode',
-	'label'		=> __('Contact Form', 'ephic'),
+	'label'		=> esc_html__('Contact Form', 'ephic'),
 	'priority'	=> 17,
 	'default'	=> '[contact-form-7 title="Ephic Contact Form"]',
-	'description'=> __('Set the Shortcode for the Contact Form you want to use.', 'ephic'),
-	'help'		=> __('We include Contact Form 7 and style it but you can use other contact forms as well', 'ephic'),
+	'description'=> esc_html__('Set the Shortcode for the Contact Form you want to use.', 'ephic'),
+	'help'		=> esc_html__('We include Contact Form 7 and style it but you can use other contact forms as well', 'ephic'),
 	'section'	=> 'configure_sections',
 	'sanitize_callback' => 'wp_kses_post',
 	'active_callback'	=> array(  // Kirki field dependency
@@ -2042,8 +2042,8 @@ ephic_Kirki::add_section( 'blog_settings', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'text',
 	'settings'	  => 'blog_title',
-	'label'		  => __( 'Blog Title', 'ephic' ),
-	'description' => __( 'Set the title to be displayed for your blog.', 'ephic'),
+	'label'		  => esc_html__( 'Blog Title', 'ephic' ),
+	'description' => esc_html__( 'Set the title to be displayed for your blog.', 'ephic'),
 	'section'	  => 'blog_settings',
 	'default'	  => 'Blog Title',
 	'priority'	  => 10,
@@ -2053,8 +2053,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'text',
 	'settings'	  => 'blog_breadcrumb',
-	'label'		  => __( 'Blog Breadcrumb Text', 'ephic' ),
-	'description' => __( 'Set the blog breadcrumb page name.', 'ephic'),
+	'label'		  => esc_html__( 'Blog Breadcrumb Text', 'ephic' ),
+	'description' => esc_html__( 'Set the blog breadcrumb page name.', 'ephic'),
 	'section'	  => 'blog_settings',
 	'default'	  => 'Blog Breadcrumb Text',
 	'priority'	  => 10,
@@ -2064,7 +2064,7 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'image',
 	'settings'		=> 'blog_background',
-	'label'			=> __('Insert the blog top background image', 'ephic'),
+	'label'			=> esc_html__('Insert the blog top background image', 'ephic'),
 	'section'		=> 'blog_settings',
 	'priority'		=> 10,
 	'default'		=> get_template_directory_uri() . '/img/main2.jpg',
@@ -2080,15 +2080,15 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'			=> 'radio-buttonset',
 	'settings'		=> 'blog_sidebar',
-	'label'			=> __( 'Blog Sidebar', 'ephic' ),
-	'description'	=> __( 'Choose the blog sidebar location.', 'ephic'),
+	'label'			=> esc_html__( 'Blog Sidebar', 'ephic' ),
+	'description'	=> esc_html__( 'Choose the blog sidebar location.', 'ephic'),
 	'section'		=> 'blog_settings',
 	'default'		=> 'right',
 	'priority'		=> 10,
 	'choices'		=> array(
-		'left'		=> __( 'Left', 'ephic' ),
-		'right'		=> __( 'Right', 'ephic' ),
-		'nosidebar' => __( 'No Sidebar', 'ephic' ),
+		'left'		=> esc_html__( 'Left', 'ephic' ),
+		'right'		=> esc_html__( 'Right', 'ephic' ),
+		'nosidebar' => esc_html__( 'No Sidebar', 'ephic' ),
 	),
 ) );
 
@@ -2096,8 +2096,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'radio-buttonset',
 	'settings'	  => 'blog_summary',
-	'label'		  => __( 'Blog Roll Content', 'ephic' ),
-	'description' => __( 'Choose to display a summary or full content.', 'ephic'),
+	'label'		  => esc_html__( 'Blog Roll Content', 'ephic' ),
+	'description' => esc_html__( 'Choose to display a summary or full content.', 'ephic'),
 	'section'	  => 'blog_settings',
 	'default'	  => 'summary',
 	'priority'	  => 10,
@@ -2111,8 +2111,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'slider',
 	'settings'	  => 'blog_summary_length',
-	'label'		  => __( 'Blog Summary Length', 'ephic' ),
-	'description' => __( 'Choose how many words to display for main blog view content.', 'ephic'),
+	'label'		  => esc_html__( 'Blog Summary Length', 'ephic' ),
+	'description' => esc_html__( 'Choose how many words to display for main blog view content.', 'ephic'),
 	'section'	  => 'blog_settings',
 	'default'	  => '35',
 	'priority'	  => 10,
@@ -2136,8 +2136,8 @@ ephic_Kirki::add_field( 'ephic_theme', array(
 ephic_Kirki::add_field( 'ephic_theme', array(
 	'type'		  => 'sortable',
 	'settings'	  => 'blog_meta',
-	'label'		  => __( 'Blog Meta', 'ephic' ),
-	'description' => __( 'Choose the meta tags to display with posts', 'ephic' ),
+	'label'		  => esc_html__( 'Blog Meta', 'ephic' ),
+	'description' => esc_html__( 'Choose the meta tags to display with posts', 'ephic' ),
 	'section'	  => 'blog_settings',
 	'default'	  => array(
 		'comments',

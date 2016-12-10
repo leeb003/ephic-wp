@@ -8,7 +8,7 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ephic
-Tags: four-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, featured-image-header, theme-options
+Tags: four-columns, left-sidebar, right-sidebar, custom-colors, custom-menu, featured-image-header, theme-options
 */
 /*------------------------------------------------------------------
 [Table of contents]
@@ -1333,12 +1333,14 @@ h2.entry-title a {
 }
 
 table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-width: 1px 0 0 1px;
   margin: 0 0 1.6em;
-  table-layout: fixed;
   width: 100%;
+}
+tr {
+  border-bottom: 1px solid #eee;
+}
+th,td {
+  padding: 5px;
 }
 dl, dd, table {
   margin-bottom: 1.6842em;
@@ -1537,6 +1539,7 @@ blockquote cite {
   margin-top: 20px;
   display: block;
   text-align: right;
+  clear:both;
 }
 /*
  *  --- 5.1 Comments ---

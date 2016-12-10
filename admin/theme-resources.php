@@ -54,7 +54,7 @@ class ephic_theme_resources {
 	 */
 	public function ephic_meta($post, $theme_mod) {
 		$posts_atts = get_theme_mod($theme_mod, array());
-		$comments_text = __('Comments', 'ephic');
+		$comments_text = esc_html__('Comments', 'ephic');
 		$meta = array();
 		foreach ($posts_atts as $k => $v) {
 			if ($v == 'comments') {

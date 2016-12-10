@@ -87,11 +87,11 @@ $home_sections = get_theme_mod( 'home_sections', array());
 				</div>
 			</div>
 			<div class="row upper40">
+				<div class="col-md-6 intro-summary pull-right">
+					<p><?php echo esc_html(get_theme_mod( 'welcome_right', ''));?></p>
+				</div>
 				<div class="col-md-6 text-right">
 					<p><?php echo esc_html(get_theme_mod( 'welcome_left', ''));?></p>
-				</div>
-				<div class="col-md-6 intro-summary">
-					<p><?php echo esc_html(get_theme_mod( 'welcome_right', ''));?></p>
 				</div>
 			</div>
 			<div class="row intro-info">
@@ -393,7 +393,7 @@ $home_sections = get_theme_mod( 'home_sections', array());
 				
 		<?php
 		endwhile;
-		wp_reset_query()
+		wp_reset_postdata();
 		?>
 				</div> <!-- End Isotope Container -->
 			</div> <!-- End Row -->
